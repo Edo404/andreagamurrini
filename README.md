@@ -3,7 +3,7 @@
 Sito ufficiale di dr.gam (Andrea Gamurrini), in **Next.js 16** (React 19) e pubblicato su **Cloudflare Workers** con [OpenNext](https://opennext.js.org/cloudflare).
 Il modulo contatti invia le email con **Resend**.
 
-- 9 pagine × 3 lingue, con gli stessi URL del vecchio sito Wix:
+- Pagina unica (home con le sezioni Musica, Video, Galleria e Stampa) più 4 pagine: Storia, White Coal, Archivio live, Contatti. Tutto in 3 lingue:
   - inglese alla radice (`/`, `/bio`, …);
   - italiano sotto `/it/…`;
   - spagnolo sotto `/es/…`.
@@ -80,6 +80,7 @@ Il sito è ridisegnato da zero, partendo dal nome: "dr" viene dal cuore del nome
   - triangolo del fuoco alchemico come separatore.
 - **Animazioni:** comparsa allo scroll solo in CSS (`animation-timeline: view()`), disattivate con "riduci movimento".
 - **Video:** caricano YouTube (youtube-nocookie) solo al clic.
-- **Pagine:** Home, Musica, Video, Storia, Galleria, Stampa, White Coal, Contatti, più l'Archivio live raggiungibile dal footer.
+- **Pagine:** la home contiene Musica, Video, Galleria e Stampa. Ogni sezione mostra 6 o 9 elementi, e il pulsante "Altri" apre il resto. Storia, White Coal, Contatti e Archivio live (dal footer) sono pagine a parte.
+  - I vecchi indirizzi Wix `/records`, `/videos`, `/gallery` e `/stampa` portano alla sezione corrispondente della home.
   - Gli indirizzi di Wix restano validi.
   - `/white-coal-records` reindirizza a `/white-coal#records`.
