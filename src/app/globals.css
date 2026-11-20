@@ -609,67 +609,6 @@
     }
   }
 
-  /* ---------- nastro ---------- */
-  .marquee {
-    overflow: hidden;
-    padding-block: clamp(20px, 3vw, 36px);
-    border-block: 1px solid var(--line);
-    mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
-  }
-  .marquee-track {
-    display: flex;
-    width: max-content;
-    animation: marquee var(--speed) linear infinite;
-  }
-  .marquee.reverse .marquee-track {
-    animation-direction: reverse;
-  }
-  .marquee:hover .marquee-track {
-    animation-play-state: paused;
-  }
-  .marquee-row {
-    display: flex;
-    align-items: center;
-    flex: none;
-  }
-  .marquee-row li {
-    display: flex;
-    align-items: center;
-    flex: none;
-    padding-inline: clamp(16px, 2.4vw, 36px);
-  }
-  .marquee-row li::after {
-    content: "";
-    width: 0.5em;
-    height: 0.5em;
-    margin-left: clamp(16px, 2.4vw, 36px);
-    background: var(--ember);
-    clip-path: polygon(50% 0, 100% 100%, 0 100%); /* il triangolo del fuoco alchemico */
-  }
-  .mq-solid,
-  .mq-outline {
-    font-size: clamp(3rem, 9vw, 8rem);
-    font-weight: 800;
-    line-height: 1;
-    letter-spacing: -0.04em;
-    font-variation-settings: "wdth" 80;
-    text-transform: uppercase;
-  }
-  .mq-outline {
-    color: transparent;
-    -webkit-text-stroke: 1.5px var(--ink);
-    font-family: var(--f-serif);
-    font-style: italic;
-    font-weight: 400;
-    text-transform: none;
-    letter-spacing: -0.01em;
-  }
-  @keyframes marquee {
-    to {
-      transform: translateX(-50%);
-    }
-  }
-
   /* ---------- timbro che gira ---------- */
   .spin-badge {
     position: relative;
@@ -1089,31 +1028,26 @@
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: clamp(24px, 4vw, 64px);
-    padding-block: var(--section);
+    padding-block: clamp(56px, 8vw, 112px);
+    border-top: 1px solid var(--line);
   }
   .fact {
     display: grid;
-    gap: 12px;
+    gap: 14px;
     align-content: start;
-    padding-top: 24px;
-    border-top: 1px solid var(--line);
-  }
-  .fact:nth-child(2) {
-    margin-top: clamp(40px, 8vw, 140px);
-  }
-  .fact:nth-child(3) {
-    margin-top: clamp(80px, 16vw, 280px);
   }
   .fact-n {
-    font-family: var(--f-serif);
-    font-style: italic;
-    font-size: clamp(4rem, 9vw, 8.5rem);
+    font-family: var(--f-grotesk);
+    font-size: clamp(3rem, 6vw, 5.4rem);
+    font-weight: 750;
     line-height: 0.9;
-    color: var(--ember);
+    letter-spacing: -0.045em;
+    font-variation-settings: "wdth" 85;
     font-variant-numeric: tabular-nums;
+    color: var(--ink);
   }
   .fact-l {
-    max-width: 24ch;
+    max-width: 26ch;
     color: var(--ink-2);
   }
 
@@ -1720,11 +1654,18 @@
     .out-now-sleeve {
       max-width: 520px;
     }
+    /* su telefono: numero a sinistra, descrizione a destra, una riga per dato */
     .facts {
       grid-template-columns: 1fr;
+      gap: 20px;
     }
-    .fact:nth-child(n) {
-      margin-top: 0;
+    .fact {
+      grid-template-columns: 6.5rem 1fr;
+      align-items: center;
+      gap: 16px;
+    }
+    .fact-n {
+      font-size: clamp(2.2rem, 10vw, 3rem);
     }
     .story-aside,
     .archive-y {

@@ -1,4 +1,4 @@
-import type { CSSProperties, ReactNode } from "react";
+import type { ReactNode } from "react";
 
 /** Titolo in due voci: la parte `soft` in serif corsivo (sentimento), il resto in grotesk (ragione). */
 export function Title({
@@ -28,25 +28,6 @@ export function Kicker({ children, num }: { children: ReactNode; num?: string })
       {num && <span className="kicker-num">{num}</span>}
       {children}
     </p>
-  );
-}
-
-/** Nastro che scorre senza fine. */
-export function Marquee({ items, reverse = false, speed = 40 }: { items: ReactNode[]; reverse?: boolean; speed?: number }) {
-  const row = (hidden: boolean) => (
-    <ul className="marquee-row" aria-hidden={hidden || undefined}>
-      {items.map((it, i) => (
-        <li key={i}>{it}</li>
-      ))}
-    </ul>
-  );
-  return (
-    <div className={`marquee${reverse ? " reverse" : ""}`} style={{ "--speed": `${speed}s` } as CSSProperties}>
-      <div className="marquee-track">
-        {row(false)}
-        {row(true)}
-      </div>
-    </div>
   );
 }
 

@@ -5,7 +5,7 @@ import { LISTEN, PHOTOS, PRESS, RELEASES, VIDEOS } from "@/data/catalog";
 import texts from "@/data/texts.json";
 import gallery from "@/data/gallery.json";
 import { Wordmark } from "@/components/Header";
-import { Kicker, Marquee, Sleeve, SpinBadge, Title } from "@/components/ui";
+import { Kicker, Sleeve, SpinBadge, Title } from "@/components/ui";
 import { YouTube } from "@/components/YouTube";
 import { Expandable } from "@/components/Expandable";
 import { Gallery } from "@/components/Gallery";
@@ -72,15 +72,6 @@ export function Home({ lang }: { lang: Lang }) {
           </div>
         </div>
       </section>
-
-      <Marquee
-        speed={36}
-        items={t.genres.map((g, i) => (
-          <span key={g} className={i % 2 ? "mq-outline" : "mq-solid"}>
-            {g}
-          </span>
-        ))}
-      />
 
       {/* ---------- numeri ---------- */}
       <section className="facts wrap" aria-label="dr.gam">

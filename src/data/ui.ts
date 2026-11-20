@@ -26,7 +26,6 @@ type Dict = {
   motto: string;
   outNow: string;
   liveInRome: { kicker: string; desc: string; listen: string; watch: string };
-  genres: string[];
   facts: { n: string; label: string }[];
   storyCta: string;
   contactCta: string;
@@ -72,7 +71,6 @@ export const UI: Record<Lang, Dict> = {
     motto: "Alchemy is everything, my friend",
     outNow: "Out now",
     liveInRome: { kicker: "Live album & concert film", desc: "Recorded in Rome on the 2025 summer tour with the new band. Fourteen tracks: older songs and new material, played as one.", listen: "Listen on Spotify", watch: "Watch the session" },
-    genres: ["Reggae", "Jazz", "Grunge", "Soul", "Funk", "Blues", "Rock"],
     facts: [
       { n: "≈2000", label: "concerts across Italy, Europe and America" },
       { n: "≈500k", label: "YouTube views for “Kilimangiaro”" },
@@ -120,7 +118,6 @@ export const UI: Record<Lang, Dict> = {
     motto: "L'alchimia è tutto, amico mio",
     outNow: "Ora disponibile",
     liveInRome: { kicker: "Album live e film concerto", desc: "Registrato a Roma durante il tour estivo 2025 con la nuova band. Quattordici brani: canzoni di ieri e materiale nuovo, suonati come una cosa sola.", listen: "Ascolta su Spotify", watch: "Guarda la session" },
-    genres: ["Reggae", "Jazz", "Grunge", "Soul", "Funk", "Blues", "Rock"],
     facts: [
       { n: "≈2000", label: "concerti tra Italia, Europa e America" },
       { n: "≈500k", label: "visualizzazioni su YouTube per “Kilimangiaro”" },
@@ -168,7 +165,6 @@ export const UI: Record<Lang, Dict> = {
     motto: "La alquimia lo es todo, amigo mío",
     outNow: "Ya disponible",
     liveInRome: { kicker: "Álbum en directo y película concierto", desc: "Grabado en Roma durante la gira de verano de 2025 con la nueva banda. Catorce temas: canciones de antes y material nuevo, tocados como una sola cosa.", listen: "Escuchar en Spotify", watch: "Ver la sesión" },
-    genres: ["Reggae", "Jazz", "Grunge", "Soul", "Funk", "Blues", "Rock"],
     facts: [
       { n: "≈2000", label: "conciertos entre Italia, Europa y América" },
       { n: "≈500k", label: "visualizaciones en YouTube de “Kilimangiaro”" },
