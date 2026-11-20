@@ -12,6 +12,11 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    ".open-next/**",
+    ".wrangler/**",
+    "cloudflare-env.d.ts",
+    // script usati una sola volta per l'importazione da Wix
+    "scripts/**",
   ]),
 ]);
 

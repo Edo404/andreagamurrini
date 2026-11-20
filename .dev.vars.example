@@ -1,0 +1,4 @@
+# Copia in .dev.vars per provare il modulo contatti in locale (npm run preview)
+RESEND_API_KEY=re_xxxxxxxxxxxxxxxx
+CONTACT_TO_EMAIL=info@example.com
+CONTACT_FROM_EMAIL=dr.gam website <noreply@andreagamurrini.com>

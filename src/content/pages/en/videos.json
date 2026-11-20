@@ -1,0 +1,247 @@
+{
+ "slug": "videos",
+ "lang": "en",
+ "stageHeight": 4544,
+ "background": {
+  "image": "/media/d38a451f11c245deb082a8b55fa41a90.webp",
+  "color": "rgb(255, 255, 255)"
+ },
+ "elements": [
+  {
+   "type": "video",
+   "x": 297,
+   "y": 156,
+   "w": 385,
+   "h": 250,
+   "youtubeId": "_iX5vwO1AWA",
+   "title": "dr.gam - Live Session in Rome"
+  },
+  {
+   "type": "video",
+   "x": 2,
+   "y": 443,
+   "w": 385,
+   "h": 250,
+   "youtubeId": "AGHvpHesc-Q",
+   "title": "dr.gam & Peter Godwin - Vieni a Cambiare il Mondo"
+  },
+  {
+   "type": "video",
+   "x": 596,
+   "y": 443,
+   "w": 385,
+   "h": 250,
+   "youtubeId": "tNbWc_E70ns",
+   "title": "dr.gam - Rise and Fall"
+  },
+  {
+   "type": "video",
+   "x": 0,
+   "y": 732,
+   "w": 385,
+   "h": 250,
+   "youtubeId": "Fd5Of_KWVmk",
+   "title": "dr.gam - Connesso"
+  },
+  {
+   "type": "video",
+   "x": 593,
+   "y": 732,
+   "w": 385,
+   "h": 250,
+   "youtubeId": "YnDesTQzUnc",
+   "title": "dr.gam - La mer"
+  },
+  {
+   "type": "video",
+   "x": 2,
+   "y": 1025,
+   "w": 385,
+   "h": 250,
+   "youtubeId": "HPs6kjKYHjc",
+   "title": "dr.gam - Vota Barabba"
+  },
+  {
+   "type": "video",
+   "x": 596,
+   "y": 1025,
+   "w": 385,
+   "h": 255,
+   "youtubeId": "qNuWRPE2fYI",
+   "title": "dr.gam - Kilimangiaro"
+  },
+  {
+   "type": "video",
+   "x": 0,
+   "y": 1345,
+   "w": 385,
+   "h": 250,
+   "youtubeId": "6_CjeJBqkNI",
+   "title": "dr.gam - Ospite su RAI Radio 1 Sport"
+  },
+  {
+   "type": "video",
+   "x": 595,
+   "y": 1345,
+   "w": 385,
+   "h": 250,
+   "youtubeId": "TBeJphJLh0w",
+   "title": "dr.gam - The Way Out"
+  },
+  {
+   "type": "video",
+   "x": 0,
+   "y": 1672,
+   "w": 385,
+   "h": 250,
+   "youtubeId": "9PrkWbVJxbs",
+   "title": "dr.gam @ Radio Radio"
+  },
+  {
+   "type": "video",
+   "x": 593,
+   "y": 1672,
+   "w": 385,
+   "h": 255,
+   "youtubeId": "v4rrzuI7ub8",
+   "title": "dr.gam - Kilimangiaro (intervista di Monia Palmieri)"
+  },
+  {
+   "type": "video",
+   "x": 0,
+   "y": 1995,
+   "w": 385,
+   "h": 276,
+   "youtubeId": "pYg8g6Zy-_U",
+   "title": "External YouTube"
+  },
+  {
+   "type": "video",
+   "x": 593,
+   "y": 1995,
+   "w": 385,
+   "h": 280,
+   "youtubeId": "wOjT9ToWf5k",
+   "title": "External YouTube"
+  },
+  {
+   "type": "video",
+   "x": 0,
+   "y": 2345,
+   "w": 385,
+   "h": 273,
+   "youtubeId": "EYeyy_Nvqek",
+   "title": "dr.gam - dr.gam is in da house"
+  },
+  {
+   "type": "video",
+   "x": 589,
+   "y": 2345,
+   "w": 390,
+   "h": 273,
+   "youtubeId": "Ep1qlv-FQEQ",
+   "title": "dr.gam - Italian Rastaman"
+  },
+  {
+   "type": "video",
+   "x": 0,
+   "y": 2689,
+   "w": 385,
+   "h": 275,
+   "youtubeId": "wufLNTpHU3Y",
+   "title": "External YouTube"
+  },
+  {
+   "type": "video",
+   "x": 588,
+   "y": 2689,
+   "w": 390,
+   "h": 275,
+   "youtubeId": "8rxNU4GN1Pg",
+   "title": "External YouTube"
+  },
+  {
+   "type": "video",
+   "x": 0,
+   "y": 3037,
+   "w": 390,
+   "h": 284,
+   "youtubeId": "b2O0VHOfWBc",
+   "title": "dr.gam - Our Roots"
+  },
+  {
+   "type": "video",
+   "x": 588,
+   "y": 3044,
+   "w": 392,
+   "h": 277,
+   "youtubeId": "qBlQikBnhCs",
+   "title": "dr.gam - Ritmo Ideale"
+  },
+  {
+   "type": "video",
+   "x": 1,
+   "y": 3404,
+   "w": 390,
+   "h": 270,
+   "youtubeId": "Pq6-cknhaIo",
+   "title": "dr.gam for EMERGENCY"
+  },
+  {
+   "type": "video",
+   "x": 588,
+   "y": 3404,
+   "w": 392,
+   "h": 270,
+   "youtubeId": "HgUrVLdr-Rw",
+   "title": "dr.gam in Los Angeles"
+  },
+  {
+   "type": "video",
+   "x": 1,
+   "y": 3746,
+   "w": 390,
+   "h": 270,
+   "youtubeId": "9QY3Rb3vq7g",
+   "title": "dr.gam - Fragile (Sting)"
+  },
+  {
+   "type": "video",
+   "x": 588,
+   "y": 3746,
+   "w": 392,
+   "h": 270,
+   "youtubeId": "moHp1zSAkrE",
+   "title": "dr.gam LIVE @ MEI 2020"
+  },
+  {
+   "type": "video",
+   "x": 1,
+   "y": 4091,
+   "w": 390,
+   "h": 277,
+   "youtubeId": "Pi2BEN8HLKk",
+   "title": "External YouTube"
+  },
+  {
+   "type": "video",
+   "x": 588,
+   "y": 4091,
+   "w": 390,
+   "h": 277,
+   "youtubeId": "fm-NnrJz_80",
+   "title": "External YouTube"
+  },
+  {
+   "type": "image",
+   "x": 344,
+   "y": 4496,
+   "w": 292,
+   "h": 47,
+   "src": "/media/f6e15a58e0ca48ce9392ad82a2f84efd.webp",
+   "alt": "Wikipedia-logo SO GOOD_edited.png",
+   "href": "https://en.wikipedia.org/wiki/Dr.gam",
+   "fit": "cover"
+  }
+ ]
+}

@@ -1,0 +1,25 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "main": ".open-next/worker.js",
+  "name": "andreagamurrini",
+  "compatibility_date": "2026-11-01",
+  "compatibility_flags": ["nodejs_compat", "global_fetch_strictly_public"],
+  "assets": {
+    "directory": ".open-next/assets",
+    "binding": "ASSETS"
+  },
+  "services": [
+    {
+      // Self-reference richiesto da OpenNext: il nome deve coincidere con "name"
+      "binding": "WORKER_SELF_REFERENCE",
+      "service": "andreagamurrini"
+    }
+  ],
+  "vars": {
+    // Indirizzo che riceve i messaggi del modulo contatti (non segreto)
+    "CONTACT_TO_EMAIL": "",
+    // Mittente verificato su Resend, es. "dr.gam website <noreply@andreagamurrini.com>"
+    "CONTACT_FROM_EMAIL": ""
+  }
+  // RESEND_API_KEY va impostata come secret:  npx wrangler secret put RESEND_API_KEY
+}

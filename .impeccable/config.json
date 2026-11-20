@@ -1,0 +1,17 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "border-accent-on-rounded",
+        "value": "*",
+        "files": [
+          "src/app/globals.css"
+        ],
+        "createdAt": "2026-11-20T13:02:52.488Z",
+        "reason": "Claude: L471 is .contact-title with a 6px TRANSPARENT border copied from the Wix original (rgba(255,255,255,0) in capture), used only as spacing; no visible accent"
+      }
+    ]
+  }
+}

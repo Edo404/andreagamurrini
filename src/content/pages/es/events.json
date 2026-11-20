@@ -1,0 +1,1067 @@
+{
+ "slug": "events",
+ "lang": "es",
+ "stageHeight": 12495,
+ "background": {
+  "image": "/media/17793f46576542b5be01a4062f51de13.webp",
+  "color": "rgb(255, 239, 170)"
+ },
+ "elements": [
+  {
+   "type": "box",
+   "x": 206,
+   "y": 106,
+   "w": 568,
+   "h": 12251,
+   "bg": "rgba(0, 0, 0, 0.7)",
+   "radius": "0px",
+   "events": true
+  },
+  {
+   "type": "events",
+   "x": 233,
+   "y": 129,
+   "w": 501,
+   "h": 12205,
+   "items": [
+    {
+     "date": "May 03, 2019",
+     "title": "dr.gam @ ASCAP EXPO 2019",
+     "lines": [
+      {
+       "text": "HOLLYWOOD - LOS ANGELES (USA)",
+       "color": "rgb(255, 208, 0)",
+       "italic": false,
+       "bold": true
+      }
+     ]
+    },
+    {
+     "date": "May 02, 2019",
+     "title": "dr.gam @ ASCAP EXPO 2019",
+     "lines": [
+      {
+       "text": "HOLLYWOOD - LOS ANGELES (USA)",
+       "color": "rgb(255, 208, 0)",
+       "italic": false,
+       "bold": true
+      }
+     ]
+    },
+    {
+     "date": "May 01, 2019",
+     "title": "dr.gam @ ASCAP EXPO 2019",
+     "lines": [
+      {
+       "text": "HOLLYWOOD - LOS ANGELES (USA)",
+       "color": "rgb(255, 208, 0)",
+       "italic": false,
+       "bold": true
+      }
+     ]
+    },
+    {
+     "date": "Nov 29, 2018",
+     "title": "dr.gam LIVE al Beppe Vessicchio e \"I solisti del sesto armonico\" - Teatro Concordia - S. Benedetto del T. (AP) - Italy",
+     "lines": [
+      {
+       "text": "dr.gam LIVE at Beppe Vessicchio e \"I solisti del sesto armonico\" - Teatro Concordia - S. Benedetto del T. (AP) - Italy",
+       "color": "rgb(0, 185, 232)",
+       "italic": true,
+       "bold": false
+      }
+     ]
+    },
+    {
+     "date": "Jul 05, 2018",
+     "title": "USCITA RISTAMPA \"ANOTHER FAMILY\" ALBUM NELLE FNAC E CORTE INGLES DI SPAGNA, PORTOGALLO E ANDORRA",
+     "lines": [
+      {
+       "text": "REPRINT \"ANOTHER FAMILY\" ALBUM ON STORES IN SPAIN, PORTUGAL AND ANDORRA'S FNAC AND CORTE INGLES.",
+       "color": "rgb(137, 191, 36)",
+       "italic": true,
+       "bold": false
+      }
+     ]
+    },
+    {
+     "date": "Jul 05, 2018",
+     "title": "dr.gam LIVE @ Scuretto - Corinaldo (AN) - Italy",
+     "lines": [
+      {
+       "text": "ANOTHER FAMILY Live Tour",
+       "color": "rgb(0, 185, 232)",
+       "italic": false,
+       "bold": false
+      }
+     ]
+    },
+    {
+     "date": "Jan 04, 2018",
+     "title": "Uscita \"Italian Rastaman - Corrado Cori Remix\"",
+     "lines": [
+      {
+       "text": "\"Italian Rastaman - Corrado Cori Remix\" release",
+       "color": "rgb(137, 191, 36)",
+       "italic": true,
+       "bold": false
+      }
+     ]
+    },
+    {
+     "date": "Dec 01, 2017",
+     "title": "dr.gam LIVE @ Teatro Tiberini - San Lorenzo in Campo (PU) - Italy",
+     "lines": [
+      {
+       "text": "ANOTHER FAMILY Live Tour",
+       "color": "rgb(0, 185, 232)",
+       "italic": false,
+       "bold": false
+      }
+     ]
+    },
+    {
+     "date": "Nov 30, 2017",
+     "title": "Uscita singolo \"dr.gam is in da house\" in SPAGNA",
+     "lines": [
+      {
+       "text": "\"dr.gam is in da house\" single release in SPAIN",
+       "color": "rgb(137, 191, 36)",
+       "italic": true,
+       "bold": false
+      }
+     ]
+    },
+    {
+     "date": "Oct 20, 2017",
+     "title": "dr.gam guest LIVE @ Rock Cafè - Corralejo - Fuerteventura - Spain",
+     "lines": [
+      {
+       "text": "ANOTHER FAMILY Live Tour",
+       "color": "rgb(0, 185, 232)",
+       "italic": false,
+       "bold": false
+      }
+     ]
+    },
+    {
+     "date": "Oct 20, 2017",
+     "title": "dr.gam LIVE @ B side - Costa Calma - Fuerteventura - Spain",
+     "lines": [
+      {
+       "text": "ANOTHER FAMILY Live Tour",
+       "color": "rgb(0, 185, 232)",
+       "italic": false,
+       "bold": false
+      }
+     ]
+    },
+    {
+     "date": "Oct 16, 2017",
+     "title": "dr.gam LIVE @ B side - Costa Calma - Fuerteventura - Spain",
+     "lines": [
+      {
+       "text": "ANOTHER FAMILY Live Tour",
+       "color": "rgb(0, 185, 232)",
+       "italic": false,
+       "bold": false
+      }
+     ]
+    },
+    {
+     "date": "Oct 13, 2017",
+     "title": "dr.gam LIVE @ B side - Costa Calma - Fuerteventura - Spain",
+     "lines": [
+      {
+       "text": "ANOTHER FAMILY Live Tour",
+       "color": "rgb(0, 185, 232)",
+       "italic": false,
+       "bold": false
+      }
+     ]
+    },
+    {
+     "date": "Oct 09, 2017",
+     "title": "dr.gam LIVE @ B side - Costa Calma - Fuerteventura - Spain",
+     "lines": [
+      {
+       "text": "ANOTHER FAMILY Live Tour",
+       "color": "rgb(0, 185, 232)",
+       "italic": false,
+       "bold": false
+      }
+     ]
+    },
+    {
+     "date": "Oct 06, 2017",
+     "title": "dr.gam LIVE @ B side - Costa Calma - Fuerteventura - Spain",
+     "lines": [
+      {
+       "text": "ANOTHER FAMILY Live Tour",
+       "color": "rgb(0, 185, 232)",
+       "italic": false,
+       "bold": false
+      }
+     ]
+    },
+    {
+     "date": "Oct 02, 2017",
+     "title": "dr.gam LIVE @ B side - Costa Calma - Fuerteventura - Spain",
+     "lines": [
+      {
+       "text": "ANOTHER FAMILY Live Tour",
+       "color": "rgb(0, 185, 232)",
+       "italic": false,
+       "bold": false
+      }
+     ]
+    },
+    {
+     "date": "Aug 31, 2017",
+     "title": "dr.gam LIVE @ Kalamara Beach - Senigallia (AN) - Italy",
+     "lines": [
+      {
+       "text": "ANOTHER FAMILY Live Tour",
+       "color": "rgb(0, 185, 232)",
+       "italic": false,
+       "bold": false
+      }
+     ]
+    },
+    {
+     "date": "Aug 12, 2017",
+     "title": "dr.gam LIVE @ Wind's - Torbole sul Garda (TN) - Italy",
+     "lines": [
+      {
+       "text": "ANOTHER FAMILY Live Tour",
+       "color": "rgb(0, 185, 232)",
+       "italic": false,
+       "bold": false
+      }
+     ]
+    },
+    {
+     "date": "Aug 10, 2017",
+     "title": "dr.gam ospite su Radio Freccia ore 8.30",
+     "lines": [
+      {
+       "text": "dr.gam guest on Radio Freccia 8.30 AM",
+       "color": "rgb(255, 231, 127)",
+       "italic": true,
+       "bold": false
+      }
+     ]
+    },
+    {
+     "date": "Jul 22, 2017",
+     "title": "dr.gam LIVE @ Wind's - Torbole sul Garda (TN) - Italy",
+     "lines": [
+      {
+       "text": "ANOTHER FAMILY Live Tour",
+       "color": "rgb(0, 185, 232)",
+       "italic": false,
+       "bold": false
+      }
+     ]
+    },
+    {
+     "date": "Jul 13, 2017",
+     "title": "dr.gam LIVE @ Bodeguita del Medio - Riccione (RN) - Italy",
+     "lines": [
+      {
+       "text": "ANOTHER FAMILY Live Tour",
+       "color": "rgb(0, 185, 232)",
+       "italic": false,
+       "bold": false
+      }
+     ]
+    },
+    {
+     "date": "Jul 11, 2017",
+     "title": "dr.gam LIVE @ Bagni Carlo - Fano (PU) - Italy",
+     "lines": [
+      {
+       "text": "ANOTHER FAMILY Live Tour",
+       "color": "rgb(0, 185, 232)",
+       "italic": false,
+       "bold": false
+      }
+     ]
+    },
+    {
+     "date": "Jun 15, 2017",
+     "title": "dr.gam ospite su Radio UniRoma 3 ore 16.30",
+     "titleHref": "http://www.uniroma3.it/",
+     "lines": [
+      {
+       "text": "dr.gam guest on Radio UniRoma 3 - 4.30 PM",
+       "color": "rgb(255, 231, 127)",
+       "italic": true,
+       "bold": false
+      }
+     ]
+    },
+    {
+     "date": "Jun 14, 2017",
+     "title": "dr.gam ospite su Radio Free (Roma) h. 16.00",
+     "titleHref": "http://www.radiofree.it/",
+     "lines": [
+      {
+       "text": "dr.gam guest on Radio Free (Rome) 4.00 PM",
+       "color": "rgb(255, 231, 127)",
+       "italic": true,
+       "bold": false
+      }
+     ]
+    },
+    {
+     "date": "Jun 01, 2017",
+     "title": "Uscita singolo \"RITMO IDEALE\"",
+     "lines": [
+      {
+       "text": "\"RITMO IDEALE\" single release",
+       "color": "rgb(137, 191, 36)",
+       "italic": true,
+       "bold": false
+      }
+     ]
+    },
+    {
+     "date": "May 31, 2017",
+     "title": "Uscita \"RITMO IDEALE\" video",
+     "lines": [
+      {
+       "text": "RITMO IDEALE video release",
+       "color": "rgb(137, 191, 36)",
+       "italic": true,
+       "bold": false
+      }
+     ]
+    },
+    {
+     "date": "May 30, 2017",
+     "title": "Anteprima Assoluta \"RITMO IDEALE\" video su ASKA NEWS",
+     "lines": [
+      {
+       "text": "First Preview \"RITMO IDEALE\" video on ASKA NEWS",
+       "color": "rgb(137, 191, 36)",
+       "italic": true,
+       "bold": false
+      }
+     ]
+    },
+    {
+     "date": "Mar 30, 2017",
+     "title": "dr.gam ospite su Radio Velluto (La Picca - Jesi - AN) ore 21.30",
+     "lines": [
+      {
+       "text": "dr.gam guest on Radio Velluto (La Picca - Jesi - AN) 9.30 PM",
+       "color": "rgb(255, 231, 127)",
+       "italic": true,
+       "bold": false
+      }
+     ]
+    },
+    {
+     "date": "Mar 19, 2017",
+     "title": "dr.gam ospite a Radio Fly (Arezzo) ore 11.40",
+     "lines": [
+      {
+       "text": "dr.gam guest on Radio Fly (Arezzo) 11.40 AM",
+       "color": "rgb(255, 231, 127)",
+       "italic": true,
+       "bold": false
+      }
+     ]
+    },
+    {
+     "date": "Mar 16, 2017",
+     "title": "Uscita \"dr.gam is in da house - Corrado Cori Remix\"",
+     "lines": [
+      {
+       "text": "\"dr.gam is in da house - Corrado Cori Remix\" release",
+       "color": "rgb(137, 191, 36)",
+       "italic": true,
+       "bold": false
+      }
+     ]
+    },
+    {
+     "date": "Feb 16, 2017",
+     "title": "dr.gam LIVE at Feltrinelli RED - (Milano) - ore 19.30",
+     "lines": [
+      {
+       "text": "dr.gam LIVE at Feltrinelli RED (Milan) - 7.30 PM",
+       "color": "rgb(0, 185, 232)",
+       "italic": true,
+       "bold": false
+      }
+     ]
+    },
+    {
+     "date": "Feb 09, 2017",
+     "title": "dr.gam ospite su Radio Play Time (Roma) ore 21.00",
+     "lines": [
+      {
+       "text": "dr.gam guest on Radio Play Time (Rome)  9.00 PM",
+       "color": "rgb(255, 231, 127)",
+       "italic": true,
+       "bold": false
+      }
+     ]
+    },
+    {
+     "date": "Jan 24, 2017",
+     "title": "dr.gam ospite su RVL (Verbania) ore 14.40",
+     "lines": [
+      {
+       "text": "dr.gam guest on RVL (Verbania) 02.40 PM",
+       "color": "rgb(255, 231, 127)",
+       "italic": true,
+       "bold": false
+      }
+     ]
+    },
+    {
+     "date": "Jan 15, 2017",
+     "title": "dr.gam ospite su Radio Linea n°1 (Civitanova Marche) ore 15.00",
+     "lines": [
+      {
+       "text": "dr.gam on Radio Linea n°1 (Civitanova Marche) 3.00 PM",
+       "color": "rgb(255, 231, 127)",
+       "italic": true,
+       "bold": false
+      }
+     ]
+    },
+    {
+     "date": "Jan 04, 2017",
+     "title": "dr.gam ospite su Diffusione Pistoia ore 19.05",
+     "lines": [
+      {
+       "text": "dr.gam guest on Diffusione Pistoia 7.05 PM",
+       "color": "rgb(255, 231, 127)",
+       "italic": true,
+       "bold": false
+      }
+     ]
+    },
+    {
+     "date": "Dec 29, 2016",
+     "title": "dr.gam ospite su Radio Arancia Network (Ancona) ore 16.30",
+     "lines": [
+      {
+       "text": "dr.gam guest on Radio Arancia Network (Ancona) 4.30 PM",
+       "color": "rgb(255, 231, 127)",
+       "italic": true,
+       "bold": false
+      }
+     ]
+    },
+    {
+     "date": "Dec 21, 2016",
+     "title": "dr.gam ospite su Radio Digiesse (Catanzaro) ore 11.30",
+     "lines": [
+      {
+       "text": "dr.gam guest on Radio Digiesse (Catanzaro) 11.30 AM",
+       "color": "rgb(255, 231, 127)",
+       "italic": true,
+       "bold": false
+      }
+     ]
+    },
+    {
+     "date": "Dec 20, 2016",
+     "title": "dr.gam ospite su Radio DOC (Messina) ore 11.40",
+     "lines": [
+      {
+       "text": "dr.gam guest on Radio DOC (Messina) 11.40 AM",
+       "color": "rgb(255, 231, 127)",
+       "italic": true,
+       "bold": false
+      }
+     ]
+    },
+    {
+     "date": "Dec 18, 2016",
+     "title": "dr.gam ospite su Radio l'Aquila ore 14.40",
+     "lines": [
+      {
+       "text": "dr.gam guest on Radio l'Aquila 2.40 PM",
+       "color": "rgb(255, 231, 127)",
+       "italic": true,
+       "bold": false
+      }
+     ]
+    },
+    {
+     "date": "Dec 16, 2016",
+     "title": "dr.gam ospite su Beat Music (Mantova) ore 16.00",
+     "lines": [
+      {
+       "text": "dr.gam guest on Beat Music (Mantova) 4.00 PM",
+       "color": "rgb(255, 231, 127)",
+       "italic": true,
+       "bold": false
+      }
+     ]
+    },
+    {
+     "date": "Dec 15, 2016",
+     "title": "dr.gam ospite su Erreti Radio Tadino (Perugia) ore 18.15",
+     "lines": [
+      {
+       "text": "dr.gam guest on Erreti Radio Tadino (Perugia) 6.15 PM",
+       "color": "rgb(255, 231, 127)",
+       "italic": true,
+       "bold": false
+      }
+     ]
+    },
+    {
+     "date": "Dec 14, 2016",
+     "title": "dr.gam ospite su Radio Alba (Cuneo) ore 14.10",
+     "lines": [
+      {
+       "text": "dr.gam ospite su Radio Alba (Cuneo) ore 14.10",
+       "color": "rgb(255, 231, 127)",
+       "italic": true,
+       "bold": false
+      }
+     ]
+    },
+    {
+     "date": "Dec 12, 2016",
+     "title": "dr.gam ospite su Radio Punto (Bologna) ore 17.00",
+     "lines": [
+      {
+       "text": "dr.gam guest on Radio Punto (Bologna) 5.00 PM",
+       "color": "rgb(255, 231, 127)",
+       "italic": true,
+       "bold": false
+      }
+     ]
+    },
+    {
+     "date": "Dec 11, 2016",
+     "title": "dr.gam guest on Radio Lady Empoli ore 17.20",
+     "lines": [
+      {
+       "text": "dr.gam guest on Radio Lady Empoli 5.20 PM",
+       "color": "rgb(255, 231, 127)",
+       "italic": true,
+       "bold": false
+      }
+     ]
+    },
+    {
+     "date": "Dec 11, 2016",
+     "title": "dr.gam ospite a Cluster FM (Milano) ore 11.15",
+     "lines": [
+      {
+       "text": "dr.gam guest on Cluster FM (Milan) 11.15 AM",
+       "color": "rgb(255, 231, 127)",
+       "italic": true,
+       "bold": false
+      }
+     ]
+    },
+    {
+     "date": "Dec 09, 2016",
+     "title": "dr.gam ospite su Acqui Radio Web (Alessandria) ore 17.00",
+     "lines": [
+      {
+       "text": "dr.gam guest on Acqui Radio Web (Alessandria)",
+       "color": "rgb(255, 231, 127)",
+       "italic": true,
+       "bold": false
+      },
+      {
+       "text": "5.00 PM",
+       "color": "rgb(255, 231, 127)",
+       "italic": true,
+       "bold": false
+      }
+     ]
+    },
+    {
+     "date": "Dec 06, 2016",
+     "title": "dr.gam ospite a Radio Potenza Centrale h. 20.35",
+     "lines": [
+      {
+       "text": "dr.gam guest on Radio Potenza Centrale 8.35 PM",
+       "color": "rgb(255, 231, 127)",
+       "italic": true,
+       "bold": false
+      }
+     ]
+    },
+    {
+     "date": "Dec 03, 2016",
+     "title": "dr.gam ospite a Radio Panorama (Palermo) ore 10.30",
+     "lines": [
+      {
+       "text": "dr.gam guest on Radio Panorama (Palermo) 10.30 AM",
+       "color": "rgb(255, 231, 127)",
+       "italic": true,
+       "bold": false
+      }
+     ]
+    },
+    {
+     "date": "Dec 02, 2016",
+     "title": "dr.gam ospite a Radio 2 Laghi (Varese) ore 14.30",
+     "lines": [
+      {
+       "text": "dr.gam guest on Radio 2 Laghi (Varese) 2.30 PM",
+       "color": "rgb(255, 231, 127)",
+       "italic": true,
+       "bold": false
+      }
+     ]
+    },
+    {
+     "date": "Dec 01, 2016",
+     "title": "dr.gam ospite a Blu Radio Veneto (Padova) ore 14.30",
+     "lines": [
+      {
+       "text": "dr.gam guest on Blu Radio Veneto (Padova) 2.30 PM",
+       "color": "rgb(255, 231, 127)",
+       "italic": true,
+       "bold": false
+      }
+     ]
+    },
+    {
+     "date": "Nov 29, 2016",
+     "title": "dr.gam ospite a Radio Potenza Centrale ore 20.35",
+     "lines": [
+      {
+       "text": "dr.gam guest on Radio Potenza Centrale 8.35 PM",
+       "color": "rgb(255, 231, 127)",
+       "italic": true,
+       "bold": false
+      }
+     ]
+    },
+    {
+     "date": "Nov 29, 2016",
+     "title": "dr.gam ospite a Radio Zenith Messina ore 18.30",
+     "lines": [
+      {
+       "text": "dr.gam guest on Radio Zenith Messina 6.30 PM",
+       "color": "rgb(255, 231, 127)",
+       "italic": true,
+       "bold": false
+      }
+     ]
+    },
+    {
+     "date": "Nov 27, 2016",
+     "title": "dr.gam ospite a Radio Container (Vicenza) ore 20.00",
+     "lines": [
+      {
+       "text": "dr.gam guest on Radio Container (Vicenza) 8.00 PM",
+       "color": "rgb(255, 231, 127)",
+       "italic": true,
+       "bold": false
+      }
+     ]
+    },
+    {
+     "date": "Nov 27, 2016",
+     "title": "dr.gam ospite a Radio Container (Vicenza) ore 12.45",
+     "lines": [
+      {
+       "text": "dr.gam guest on Radio Container (Vicenza) 00.45 PM",
+       "color": "rgb(255, 231, 127)",
+       "italic": true,
+       "bold": false
+      }
+     ]
+    },
+    {
+     "date": "Nov 26, 2016",
+     "title": "dr.gam ospite su RCS Serra di Falco (Caltanissetta) h. 11.15",
+     "lines": [
+      {
+       "text": "dr.gam guest on RCS Serra di Falco (Caltanissetta) 11.15 AM",
+       "color": "rgb(255, 231, 127)",
+       "italic": true,
+       "bold": false
+      }
+     ]
+    },
+    {
+     "date": "Nov 26, 2016",
+     "title": "dr.gam ospite a Radio Container (Vicenza) ore 08.30",
+     "lines": [
+      {
+       "text": "dr.gam guest on Radio Container (Vicenza) ore 00.30",
+       "color": "rgb(255, 231, 127)",
+       "italic": true,
+       "bold": false
+      }
+     ]
+    },
+    {
+     "date": "Nov 25, 2016",
+     "title": "dr.gam ospite su One Tv (Milano) h. 20.00",
+     "lines": [
+      {
+       "text": "dr.gam guest on One Tv (Milano)  8.00 PM",
+       "color": "rgb(255, 231, 127)",
+       "italic": true,
+       "bold": false
+      }
+     ]
+    },
+    {
+     "date": "Nov 25, 2016",
+     "title": "dr.gam ospite a Radio Container (Vicenza) ore 00.30",
+     "lines": [
+      {
+       "text": "dr.gam guest on Radio Container (Vicenza) 00.30 AM",
+       "color": "rgb(255, 231, 127)",
+       "italic": true,
+       "bold": false
+      }
+     ]
+    },
+    {
+     "date": "Nov 24, 2016",
+     "title": "dr.gam ospite a Radio Container (Vicenza) ore 15.00",
+     "lines": [
+      {
+       "text": "dr.gam guest on Radio Container (Vicenza) 3.00 PM",
+       "color": "rgb(255, 231, 127)",
+       "italic": true,
+       "bold": false
+      }
+     ]
+    },
+    {
+     "date": "Nov 24, 2016",
+     "title": "USCITA DELL'ALBUM \"ANOTHER FAMILY\" NEI NEGOZI DI DISCHI ITALIANI E DIGITAL STORES MONDO",
+     "lines": [
+      {
+       "text": "\"ANOTHER FAMILY\" ALBUM ON ITALIAN STORES AND WORLD DIGITAL STORES",
+       "color": "rgb(137, 191, 36)",
+       "italic": true,
+       "bold": false
+      }
+     ]
+    },
+    {
+     "date": "Nov 23, 2016",
+     "title": "dr.gam ospite su One Tv (Milano) h. 23.00",
+     "lines": [
+      {
+       "text": "dr.gam guest on One Tv (Milano)  11.00 PM",
+       "color": "rgb(255, 231, 127)",
+       "italic": true,
+       "bold": false
+      }
+     ]
+    },
+    {
+     "date": "Nov 22, 2016",
+     "title": "dr.gam ospite su Radio Hinterland (Milano) h. 22.30",
+     "lines": [
+      {
+       "text": "dr.gam guest on Radio Hinterland (Milano) 10.30 PM",
+       "color": "rgb(255, 231, 127)",
+       "italic": true,
+       "bold": false
+      }
+     ]
+    },
+    {
+     "date": "Nov 22, 2016",
+     "title": "dr.gam ospite su Radio Panda (Milano) h. 21.20",
+     "lines": [
+      {
+       "text": "dr.gam guest on Radio Panda (Milano) 9.20 PM",
+       "color": "rgb(255, 231, 127)",
+       "italic": true,
+       "bold": false
+      }
+     ]
+    },
+    {
+     "date": "Nov 22, 2016",
+     "title": "dr.gam ospite su One Tv (Milano) h. 13.00",
+     "lines": [
+      {
+       "text": "dr.gam guest on One Tv (Milano) 1.00 PM",
+       "color": "rgb(255, 231, 127)",
+       "italic": true,
+       "bold": false
+      }
+     ]
+    },
+    {
+     "date": "Nov 22, 2016",
+     "title": "dr.gam ospite su Radio Punto Stereo (Brescia) h. 10.30 e 18.30",
+     "lines": [
+      {
+       "text": "dr.gam guest on Radio Punto Stereo Brescia 10.30 AM and 6.30 PM",
+       "color": "rgb(255, 231, 127)",
+       "italic": true,
+       "bold": false
+      }
+     ]
+    },
+    {
+     "date": "Nov 21, 2016",
+     "title": "dr.gam ospite su Radio Vanda (Alessandria) h. 17.00",
+     "lines": [
+      {
+       "text": "dr.gam guest on Radio Vanda (Alessandria) 5.00 PM",
+       "color": "rgb(255, 231, 127)",
+       "italic": true,
+       "bold": false
+      }
+     ]
+    },
+    {
+     "date": "Nov 21, 2016",
+     "title": "dr.gam ospite su Italia & Taxi 9.30 e 18.30",
+     "lines": [
+      {
+       "text": "dr.gam guest on Italia & Taxi 9.30 AM and 18.30 PM",
+       "color": "rgb(255, 231, 127)",
+       "italic": true,
+       "bold": false
+      }
+     ]
+    },
+    {
+     "date": "Nov 20, 2016",
+     "title": "dr.gam ospite su One Tv (Milano) h. 21.30",
+     "lines": [
+      {
+       "text": "dr.gam guest on One Tv (Milano) 9.30 PM",
+       "color": "rgb(255, 231, 127)",
+       "italic": true,
+       "bold": false
+      }
+     ]
+    },
+    {
+     "date": "Nov 20, 2016",
+     "title": "dr.gam ospite su Radio Monte Velino (L'Aquila) h. 18.00",
+     "lines": [
+      {
+       "text": "dr.gam guest on Radio Velino (L'Aquila)  6.00 PM",
+       "color": "rgb(255, 231, 127)",
+       "italic": true,
+       "bold": false
+      }
+     ]
+    },
+    {
+     "date": "Nov 19, 2016",
+     "title": "dr.gam ospite su Radio Punto (Bologna) h. 15.45",
+     "lines": [
+      {
+       "text": "dr.gam guest on Radio Punto (Bologna) 3.45 PM",
+       "color": "rgb(255, 231, 127)",
+       "italic": true,
+       "bold": false
+      }
+     ]
+    },
+    {
+     "date": "Nov 18, 2016",
+     "title": "dr.gam ospite su Radio Senise Centrale (Potenza) h. 17.30",
+     "lines": [
+      {
+       "text": "dr.gam guest on Radio Senise Centrale 5.30 PM",
+       "color": "rgb(255, 231, 127)",
+       "italic": true,
+       "bold": false
+      }
+     ]
+    },
+    {
+     "date": "Nov 17, 2016",
+     "title": "dr.gam ospite su Radio Punto Sud (Brindisi) h. 11.00",
+     "lines": [
+      {
+       "text": "dr.gam guest on Radio Punto Sud 11 AM",
+       "color": "rgb(255, 231, 127)",
+       "italic": true,
+       "bold": false
+      }
+     ]
+    },
+    {
+     "date": "Nov 15, 2016",
+     "title": "dr.gam ospite su Radio Olbia h.17.00",
+     "lines": [
+      {
+       "text": "dr.gam guest on Radio Olbia (Sardinia) 5.00 PM",
+       "color": "rgb(255, 231, 127)",
+       "italic": true,
+       "bold": false
+      }
+     ]
+    },
+    {
+     "date": "Nov 14, 2016",
+     "title": "dr.gam ospite su Radio Stella Città (Civitavecchia) h. 18.20",
+     "lines": [
+      {
+       "text": "dr.gam guest on Radio Stella Città (Civitavecchia - Rome) 6.20 PM",
+       "color": "rgb(255, 231, 127)",
+       "italic": true,
+       "bold": false
+      }
+     ]
+    },
+    {
+     "date": "Nov 09, 2016",
+     "title": "dr.gam intervista con il mensile Albatros (Napoli)",
+     "lines": [
+      {
+       "text": "dr.gam interview with Albatros magazine (Naples)",
+       "color": "rgb(255, 231, 127)",
+       "italic": true,
+       "bold": false
+      }
+     ]
+    },
+    {
+     "date": "Nov 08, 2016",
+     "title": "dr.gam ospite su Raio in Blu (Roma) h.15.30",
+     "lines": [
+      {
+       "text": "dr.gam guest on Radio in Blu (Rome) 3.30 PM",
+       "color": "rgb(255, 231, 127)",
+       "italic": true,
+       "bold": false
+      }
+     ]
+    },
+    {
+     "date": "Nov 01, 2016",
+     "title": "dr.gam ospite su Kristall Radio (Milano) h. 21.30",
+     "lines": [
+      {
+       "text": "dr.gam guest on Kristall Radio (Milan) 9.30 PM",
+       "color": "rgb(255, 231, 127)",
+       "italic": true,
+       "bold": false
+      }
+     ]
+    },
+    {
+     "date": "Oct 27, 2016",
+     "title": "Uscita \"ITALIAN RASTAMAN\" singolo e video",
+     "lines": [
+      {
+       "text": "\"ITALIAN RASTAMAN\" single and video on stores",
+       "color": "rgb(137, 191, 36)",
+       "italic": true,
+       "bold": false
+      }
+     ]
+    },
+    {
+     "date": "Aug 01, 2016",
+     "title": "dr.gam LIVE @ Arena BCC - Fano - PU (Italy)",
+     "lines": []
+    },
+    {
+     "date": "Jul 29, 2016",
+     "title": "dr.gam ospite su Radio Fano ore 11.30",
+     "lines": [
+      {
+       "text": "dr.gam guest on Radio Fano (Italy)",
+       "color": "rgb(255, 231, 127)",
+       "italic": true,
+       "bold": false
+      }
+     ]
+    },
+    {
+     "date": "Jul 28, 2016",
+     "title": "Conferenza stampa - BCC Fano (PU)",
+     "lines": [
+      {
+       "text": "Press Conference - BCC Bank - Fano (Italy)",
+       "color": "rgb(255, 231, 127)",
+       "italic": true,
+       "bold": false
+      }
+     ]
+    },
+    {
+     "date": "Jul 26, 2016",
+     "title": "dr.gam ospite su Radio Arancia Network ore 16.00",
+     "lines": [
+      {
+       "text": "dr.gam guest on Radio Arancia Network 4.00 pm",
+       "color": "rgb(255, 231, 127)",
+       "italic": true,
+       "bold": false
+      }
+     ]
+    },
+    {
+     "date": "Jul 27, 2016",
+     "title": "Lancio del singolo \"dr.gam is in da house\" nel Regno Unito su KFM Radio Manchester UK - ore 1.15 ora italiana",
+     "lines": [
+      {
+       "text": "\"dr.gam is in da house\" new single's launch on KFM Radio Manchester UK - 12.15 am (UK time)",
+       "color": "rgb(137, 191, 36)",
+       "italic": true,
+       "bold": false
+      }
+     ]
+    },
+    {
+     "date": "Jul 25, 2016",
+     "title": "Intervista con Alberto Pancrazi (RAI 3)",
+     "lines": [
+      {
+       "text": "Interview with Alberto Pancrazi (RAI 3)",
+       "color": "rgb(255, 231, 127)",
+       "italic": true,
+       "bold": false
+      }
+     ]
+    },
+    {
+     "date": "Jul 21, 2016",
+     "title": "dr.gam LIVE @ Giardini Pubblici - San Lorenzo in Campo - PU (Italy)",
+     "lines": []
+    },
+    {
+     "date": "Jul 14, 2016",
+     "title": "Uscita \"dr.gam is in da house\" singolo e video",
+     "lines": [
+      {
+       "text": "\"dr.gam is in da house\" single and video release",
+       "color": "rgb(137, 191, 36)",
+       "italic": true,
+       "bold": false
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "type": "image",
+   "x": 344,
+   "y": 12447,
+   "w": 292,
+   "h": 47,
+   "src": "/media/f6e15a58e0ca48ce9392ad82a2f84efd.webp",
+   "alt": "Wikipedia-logo SO GOOD_edited.png",
+   "href": "https://en.wikipedia.org/wiki/Dr.gam",
+   "fit": "cover"
+  }
+ ]
+}
