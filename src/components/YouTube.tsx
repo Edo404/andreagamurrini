@@ -1,39 +1,83 @@
 "use client";
 
 import { useState } from "react";
-import { UI, type Lang } from "@/lib/i18n";
+import type { Lang } from "@/lib/i18n";
+import { UI } from "@/data/ui";
 
 /**
- * Video YouTube "leggero": mostra l'anteprima e carica il player solo al clic
- * (pagine molto più veloci di 25 iframe caricati subito, come faceva Wix).
+ * Video YouTube "leggero": mostra la copertina e carica il player (youtube-nocookie) solo al clic.
+ * `compact` = riga con miniatura e titolo; al clic il player si apre sopra il titolo.
  */
-export function YouTube({ id, title, lang }: { id: string; title: string; lang: Lang }) {
+export function YouTube({
+  id,
+  title,
+  lang,
+  large = false,
+  compact = false,
+  index,
+}: {
+  id: string;
+  title: string;
+  lang: Lang;
+  large?: boolean;
+  compact?: boolean;
+  index?: number;
+}) {
   const [play, setPlay] = useState(false);
+  const thumb = `https://i.ytimg.com/vi/${id}/${large ? "hqdefault" : "mqdefault"}.jpg`;
 
-  if (play) {
+  const player = (
+    <iframe
+      className="yt-frame"
+      src={`https://www.youtube-nocookie.com/embed/${id}?autoplay=1&rel=0`}
+      title={title}
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      referrerPolicy="strict-origin-when-cross-origin"
+      allowFullScreen
+    />
+  );
+
+  if (compact) {
     return (
-      <iframe
-        className="yt-frame"
-        src={`https://www.youtube-nocookie.com/embed/${id}?autoplay=1&rel=0`}
-        title={title}
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-        referrerPolicy="strict-origin-when-cross-origin"
-        allowFullScreen
-      />
+      <div className={`yt-compact${play ? " is-playing" : ""}`}>
+        {play ? (
+          <div className="yt-box">{player}</div>
+        ) : (
+          <button type="button" className="yt-row" onClick={() => setPlay(true)} aria-label={`${UI[lang].play}: ${title}`}>
+            <span className="yt-row-thumb">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src={thumb} alt="" loading="lazy" decoding="async" width={320} height={180} />
+              <span className="yt-mini-play" aria-hidden="true" />
+            </span>
+            <span className="yt-row-text">
+              {index !== undefined && <span className="num">{String(index).padStart(2, "0")}</span>}
+              <span className="yt-row-title">{title}</span>
+            </span>
+          </button>
+        )}
+      </div>
     );
   }
 
   return (
-    <button type="button" className="yt-facade" onClick={() => setPlay(true)} aria-label={`${UI[lang].play}: ${title}`}>
-      {/* eslint-disable-next-line @next/next/no-img-element -- miniatura servita da YouTube */}
-      <img src={`https://i.ytimg.com/vi/${id}/mqdefault.jpg`} alt="" loading="lazy" decoding="async" />
-      <span className="yt-title">{title}</span>
-      <span className="yt-play" aria-hidden="true">
-        <svg viewBox="0 0 68 48" width="68" height="48">
-          <path d="M66.5 7.7c-.8-2.9-2.5-5.4-5.4-6.2C55.8.1 34 0 34 0S12.2.1 6.9 1.6c-3 .7-4.6 3.2-5.4 6.1C.1 13 0 24 0 24s.1 11 1.5 16.3c.8 2.9 2.5 5.4 5.4 6.2C12.2 47.9 34 48 34 48s21.8-.1 27.1-1.6c3-.7 4.6-3.2 5.4-6.1C67.9 35 68 24 68 24s-.1-11-1.5-16.3z" fill="#f00" />
-          <path d="M45 24 27 14v20" fill="#fff" />
-        </svg>
-      </span>
-    </button>
+    <div className={`yt-box${large ? " yt-large" : ""}`}>
+      {play ? (
+        player
+      ) : (
+        <button type="button" className="yt-facade" onClick={() => setPlay(true)} aria-label={`${UI[lang].play}: ${title}`}>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src={thumb} alt="" loading="lazy" decoding="async" width={480} height={360} />
+          <span className="yt-caption">
+            {index !== undefined && <span className="num">{String(index).padStart(2, "0")}</span>}
+            <span className="yt-title">{title}</span>
+          </span>
+          <span className="yt-play" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="28" height="28">
+              <path d="M8 5.5v13l11-6.5z" fill="currentColor" />
+            </svg>
+          </span>
+        </button>
+      )}
+    </div>
   );
 }

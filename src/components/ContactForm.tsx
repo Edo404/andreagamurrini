@@ -1,22 +1,30 @@
 "use client";
 
 import { useState, type FormEvent } from "react";
-import type { ContactFormElement } from "@/lib/content";
-import { UI, type Lang } from "@/lib/i18n";
+import type { Lang } from "@/lib/i18n";
+import { UI } from "@/data/ui";
 
+type Labels = { name: string; email: string; subject: string; message: string; send: string };
 type Status = { kind: "idle" | "sending" | "sent" | "error"; message?: string };
 
-export function ContactForm({ labels, lang }: { labels: ContactFormElement["labels"]; lang: Lang }) {
+const clean = (s: string) => s.replace(/\s*\*\s*$/, "");
+
+export function ContactForm({ labels, lang }: { labels: Labels; lang: Lang }) {
   const t = UI[lang];
   const [status, setStatus] = useState<Status>({ kind: "idle" });
+  const [invalid, setInvalid] = useState<Record<string, boolean>>({});
 
   async function onSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
     const form = e.currentTarget;
     const data = Object.fromEntries(new FormData(form)) as Record<string, string>;
-    if (!data.name?.trim() || !data.email?.trim()) return setStatus({ kind: "error", message: t.required });
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.email.trim()))
-      return setStatus({ kind: "error", message: t.invalidEmail });
+    const bad = {
+      name: !data.name?.trim(),
+      email: !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.email?.trim() ?? ""),
+    };
+    setInvalid(bad);
+    if (bad.name || !data.email?.trim()) return setStatus({ kind: "error", message: t.required });
+    if (bad.email) return setStatus({ kind: "error", message: t.invalidEmail });
 
     setStatus({ kind: "sending" });
     try {
@@ -34,25 +42,43 @@ export function ContactForm({ labels, lang }: { labels: ContactFormElement["labe
   }
 
   const busy = status.kind === "sending";
+  const field = (name: string, label: string, opts: { type?: string; required?: boolean; area?: boolean; auto?: string; max: number }) => (
+    <div className={`field${invalid[name] ? " is-invalid" : ""}${opts.area ? " field-area" : ""}`}>
+      <label htmlFor={`cf-${name}`}>
+        {clean(label)}
+        {opts.required && <span aria-hidden="true"> *</span>}
+      </label>
+      {opts.area ? (
+        <textarea id={`cf-${name}`} name={name} maxLength={opts.max} rows={6} />
+      ) : (
+        <input
+          id={`cf-${name}`}
+          name={name}
+          type={opts.type ?? "text"}
+          required={opts.required}
+          autoComplete={opts.auto}
+          maxLength={opts.max}
+          aria-invalid={invalid[name] || undefined}
+        />
+      )}
+    </div>
+  );
+
   return (
-    <form className="contact" onSubmit={onSubmit} noValidate>
-      <h1 className="contact-title">{labels.title}</h1>
-      <label className="sr-only" htmlFor="cf-name">{labels.name}</label>
-      <input id="cf-name" name="name" type="text" placeholder={labels.name} required autoComplete="name" maxLength={200} />
-      <label className="sr-only" htmlFor="cf-email">{labels.email}</label>
-      <input id="cf-email" name="email" type="email" placeholder={labels.email} required autoComplete="email" maxLength={200} />
-      <label className="sr-only" htmlFor="cf-subject">{labels.subject}</label>
-      <input id="cf-subject" name="subject" type="text" placeholder={labels.subject} maxLength={300} />
-      <label className="sr-only" htmlFor="cf-message">{labels.message}</label>
-      <textarea id="cf-message" name="message" placeholder={labels.message} maxLength={5000} />
+    <form className="contact-form" onSubmit={onSubmit} noValidate>
+      {field("name", labels.name, { required: true, auto: "name", max: 200 })}
+      {field("email", labels.email, { type: "email", required: true, auto: "email", max: 200 })}
+      {field("subject", labels.subject, { max: 300 })}
+      {field("message", labels.message, { area: true, max: 5000 })}
       {/* campo trappola per i bot: invisibile alle persone */}
       <input className="hp" name="website" type="text" tabIndex={-1} autoComplete="off" aria-hidden="true" />
-      <div className="contact-foot">
-        <p className={`contact-status ${status.kind}`} role="status" aria-live="polite">
+      <div className="form-foot">
+        <p className={`form-status ${status.kind}`} role="status" aria-live="polite">
           {busy ? t.sending : status.message}
         </p>
-        <button type="submit" disabled={busy}>
-          {labels.send}
+        <button type="submit" className="btn btn-solid" disabled={busy}>
+          {busy ? t.sending : labels.send.charAt(0) + labels.send.slice(1).toLowerCase()}
+          {!busy && <span aria-hidden="true"> →</span>}
         </button>
       </div>
     </form>

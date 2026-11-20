@@ -1,14 +1,12 @@
 # andreagamurrini.com — dr.gam
 
-Copia fedele del sito Wix di dr.gam, rifatta in **Next.js 16** (React 19) e pubblicata su **Cloudflare Workers** con [OpenNext](https://opennext.js.org/cloudflare).
+Sito ufficiale di dr.gam (Andrea Gamurrini), in **Next.js 16** (React 19) e pubblicato su **Cloudflare Workers** con [OpenNext](https://opennext.js.org/cloudflare).
 Il modulo contatti invia le email con **Resend**.
 
-- 10 pagine × 3 lingue, con gli stessi URL di Wix:
+- 9 pagine × 3 lingue, con gli stessi URL del vecchio sito Wix:
   - inglese alla radice (`/`, `/bio`, …);
   - italiano sotto `/it/…`;
   - spagnolo sotto `/es/…`.
-- Desktop (≥1000px): ogni elemento è nella stessa posizione che aveva su Wix (griglia di 980px).
-- Mobile: gli stessi contenuti scorrono in colonna, con menu ad hamburger.
 - Tutte le pagine sono statiche (generate al build). L'unica parte dinamica è `POST /api/contact`.
 
 ## Comandi
@@ -56,37 +54,32 @@ Per provare il modulo in locale, copia `.dev.vars.example` in `.dev.vars` e lanc
 
 | Cosa | Dove |
 | --- | --- |
-| Testi, posizioni, immagini e video di ogni pagina | `src/content/pages/<lingua>/<pagina>.json` |
-| Voci di menu, titoli e descrizioni SEO | `src/content/site.json` |
-| Link social del footer | `src/lib/content.ts` (`SOCIAL`) |
-| Testi dell'interfaccia (menu, messaggi del modulo) | `src/lib/i18n.ts` (`UI`) |
+| Dischi, video, stampa, foto, link social | `src/data/catalog.ts` |
+| Testi dell'interfaccia e titoli SEO (EN/IT/ES) | `src/data/ui.ts` |
+| Biografia, citazioni della stampa, testo White Coal (EN/IT/ES) | `src/data/texts.json` |
+| Archivio dei concerti 2016–2019 | `src/data/events.json` |
+| Galleria | `src/data/gallery.json` |
 | Immagini (WebP già ottimizzate) | `public/media/` |
 
-Ogni elemento di pagina ha coordinate `x, y, w, h` in pixel sulla griglia desktop di 980px, come nell'editor Wix:
+Per aggiungere un singolo o un video basta aggiungere una voce in cima a `RELEASES` o `VIDEOS` in `catalog.ts`.
 
-- `text`: paragrafi HTML con stile;
-- `image`: con `href` opzionale;
-- `video`: `youtubeId`;
-- `box`: riquadro colorato;
-- `gallery`, `events`, `contactForm`.
+## Design
 
-Per aggiungere un video, per esempio, si copia un elemento `video` e si cambiano `youtubeId`, `title` e la posizione.
-Se un testo si allunga, gli elementi sotto di lui vengono spinti in basso in automatico (come su Wix).
+Il sito è ridisegnato da zero, partendo dal nome: "dr" viene dal cuore del nome Andrea, "gam" dal cognome, cioè sentimento e ragione.
 
-## Come è stato fatto
-
-- `scripts/import-wix.mjs` ha convertito le pagine Wix catturate con un browser headless (layout a 1366px, 3 lingue) nei JSON di `src/content` e ha scaricato e ottimizzato le immagini.
-- `scripts/fix-futura-bold.mjs` ha sistemato un dettaglio tipografico.
-- Servivano una sola volta: d'ora in poi i JSON sono la fonte dei contenuti.
-
-### Differenze rispetto a Wix
-
-- **Font:** i font di Wix non sono liberi. Al loro posto:
-  - DIN Next Light → **Barlow**;
-  - Futura Light → **Jost**;
-  - Jura, Trirong e Cormorant restano gli stessi (Google Fonts, ospitati dal sito).
-- **Video:** mostrano l'anteprima e caricano il player YouTube (youtube-nocookie) solo al clic. Le pagine sono molto più leggere.
-- **Galleria:** masonry a 2 colonne con lightbox (frecce e tasto Esc).
-- **Chat:** la chat Wix ("Chattiamo!") e le statistiche TWIPLA non sono state riportate, perché erano servizi di Wix.
-- **Icone:** quelle social sono di [Simple Icons](https://simpleicons.org). Amazon non è incluso nella libreria, quindi ha una "a".
-- **Sfondo mancante:** lo sfondo di *White Coal Records* era un'immagine rotta anche su Wix. Resta il colore di fondo.
+- **Due voci tipografiche:**
+  - **Instrument Serif** corsivo per la parte emotiva;
+  - **Bricolage Grotesque** pesante per quella razionale;
+  - **DM Mono** per le etichette.
+- **Colori:** nero vulcanico caldo (Fuerteventura), testo color osso, un solo accento rosso brace (`#e8492f`).
+- **Elementi ricorrenti:**
+  - grana leggera su tutto il sito;
+  - nastri che scorrono;
+  - vinili che escono dalle buste;
+  - timbro rotante "Alchemy is everything, my friend";
+  - triangolo del fuoco alchemico come separatore.
+- **Animazioni:** comparsa allo scroll solo in CSS (`animation-timeline: view()`), disattivate con "riduci movimento".
+- **Video:** caricano YouTube (youtube-nocookie) solo al clic.
+- **Pagine:** Home, Musica, Video, Storia, Galleria, Stampa, White Coal, Contatti, più l'Archivio live raggiungibile dal footer.
+  - Gli indirizzi di Wix restano validi.
+  - `/white-coal-records` reindirizza a `/white-coal#records`.

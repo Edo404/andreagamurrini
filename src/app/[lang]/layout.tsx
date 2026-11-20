@@ -2,7 +2,6 @@ import type { Metadata, Viewport } from "next";
 import { notFound } from "next/navigation";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
-import { getNav } from "@/lib/content";
 import { LANGS, SITE_URL, isLang } from "@/lib/i18n";
 import { fontVariables } from "../fonts";
 import "../globals.css";
@@ -21,7 +20,8 @@ export const metadata: Metadata = {
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
-  themeColor: "#000000",
+  themeColor: "#110f0e",
+  colorScheme: "dark",
 };
 
 export default async function RootLayout({ children, params }: LayoutProps<"/[lang]">) {
@@ -31,9 +31,10 @@ export default async function RootLayout({ children, params }: LayoutProps<"/[la
   return (
     <html lang={lang} className={fontVariables}>
       <body>
-        <Header lang={lang} nav={getNav(lang)} />
-        {children}
-        <Footer />
+        <div className="grain" aria-hidden="true" />
+        <Header lang={lang} />
+        <main id="main">{children}</main>
+        <Footer lang={lang} />
       </body>
     </html>
   );

@@ -2,12 +2,14 @@
 
 import { useCallback, useEffect, useState } from "react";
 import { masonryColumns, type GalleryImage } from "@/lib/gallery";
-import { UI, type Lang } from "@/lib/i18n";
+import type { Lang } from "@/lib/i18n";
+import { UI } from "@/data/ui";
 
-export function Gallery({ images, lang }: { images: GalleryImage[]; width: number; lang: Lang }) {
+export function Gallery({ images, lang }: { images: GalleryImage[]; lang: Lang }) {
   const [open, setOpen] = useState<number | null>(null);
   const t = UI[lang];
-  const cols = masonryColumns(images);
+  // 3 colonne su desktop, 2 su telefono: entrambe nel DOM, il CSS mostra quella giusta
+  const layouts = [3, 2].map((n) => ({ n, cols: masonryColumns(images, n) }));
 
   const close = useCallback(() => setOpen(null), []);
   const step = useCallback(
@@ -23,34 +25,46 @@ export function Gallery({ images, lang }: { images: GalleryImage[]; width: numbe
       if (e.key === "ArrowLeft") step(-1);
     };
     document.addEventListener("keydown", onKey);
-    document.body.style.overflow = "hidden";
+    document.documentElement.classList.add("menu-open");
     return () => {
       document.removeEventListener("keydown", onKey);
-      document.body.style.overflow = "";
+      document.documentElement.classList.remove("menu-open");
     };
   }, [open, close, step]);
 
   return (
     <>
-      <div className="masonry">
-        {cols.map((c, ci) => (
-          <div key={ci} className="masonry-col">
-            {c.items.map(({ img, index }) => (
-              <button key={index} type="button" className="masonry-item" onClick={() => setOpen(index)}>
-                {/* eslint-disable-next-line @next/next/no-img-element -- immagini già ottimizzate */}
-                <img src={img.src} alt={img.alt} width={img.width} height={img.height} loading="lazy" decoding="async" />
-              </button>
-            ))}
-          </div>
-        ))}
-      </div>
+      {layouts.map(({ n, cols }) => (
+        <div key={n} className={`masonry masonry-${n}`} aria-hidden={n === 2 ? "true" : undefined}>
+          {cols.map((c, ci) => (
+            <div key={ci} className="masonry-col">
+              {c.items.map(({ img, index }) => (
+                <button
+                  key={index}
+                  type="button"
+                  className="masonry-item reveal"
+                  onClick={() => setOpen(index)}
+                  tabIndex={n === 2 ? -1 : undefined}
+                  aria-label={`dr.gam – ${index + 1}/${images.length}`}
+                >
+                  {/* eslint-disable-next-line @next/next/no-img-element -- immagini già ottimizzate */}
+                  <img src={img.src} alt="" width={img.w} height={img.h} loading="lazy" decoding="async" />
+                </button>
+              ))}
+            </div>
+          ))}
+        </div>
+      ))}
 
       {open !== null && (
-        <div className="lightbox" role="dialog" aria-modal="true" onClick={close}>
+        <div className="lightbox" role="dialog" aria-modal="true" aria-label="dr.gam" onClick={close}>
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src={images[open].src} alt={images[open].alt} onClick={(e) => e.stopPropagation()} />
+          <img src={images[open].src} alt={`dr.gam – ${open + 1}/${images.length}`} onClick={(e) => e.stopPropagation()} />
+          <p className="lb-count num">
+            {String(open + 1).padStart(2, "0")} / {String(images.length).padStart(2, "0")}
+          </p>
           <button type="button" className="lb-btn lb-close" aria-label={t.galleryClose} onClick={close}>
-            ×
+            {t.galleryClose}
           </button>
           <button
             type="button"
@@ -61,7 +75,7 @@ export function Gallery({ images, lang }: { images: GalleryImage[]; width: numbe
               step(-1);
             }}
           >
-            ‹
+            ←
           </button>
           <button
             type="button"
@@ -72,7 +86,7 @@ export function Gallery({ images, lang }: { images: GalleryImage[]; width: numbe
               step(1);
             }}
           >
-            ›
+            →
           </button>
         </div>
       )}

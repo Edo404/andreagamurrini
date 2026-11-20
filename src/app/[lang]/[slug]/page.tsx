@@ -1,7 +1,7 @@
 import { notFound } from "next/navigation";
-import { PageView, pageMetadata } from "@/components/PageView";
-import { SUBPAGE_SLUGS } from "@/lib/content";
-import { LANGS, isLang } from "@/lib/i18n";
+import { LANGS, isLang, type Lang } from "@/lib/i18n";
+import { SUBPAGE_SLUGS, isPageSlug, pageMetadata } from "@/lib/meta";
+import { Archive, Contact, GalleryPage, Music, Press, Story, Studio, Videos } from "@/views/Pages";
 
 export const dynamicParams = false;
 
@@ -11,11 +11,23 @@ export function generateStaticParams() {
 
 export async function generateMetadata({ params }: PageProps<"/[lang]/[slug]">) {
   const { lang, slug } = await params;
-  return isLang(lang) ? pageMetadata(lang, slug) : {};
+  return isLang(lang) && isPageSlug(slug) ? pageMetadata(lang, slug) : {};
 }
+
+const VIEWS: Record<string, (p: { lang: Lang }) => React.ReactNode> = {
+  records: Music,
+  videos: Videos,
+  bio: Story,
+  gallery: GalleryPage,
+  stampa: Press,
+  events: Archive,
+  "white-coal": Studio,
+  contact: Contact,
+};
 
 export default async function SubPage({ params }: PageProps<"/[lang]/[slug]">) {
   const { lang, slug } = await params;
-  if (!isLang(lang) || !SUBPAGE_SLUGS.includes(slug)) notFound();
-  return <PageView lang={lang} slug={slug} />;
+  const View = VIEWS[slug];
+  if (!isLang(lang) || !View) notFound();
+  return <View lang={lang} />;
 }

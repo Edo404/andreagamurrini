@@ -1,6 +1,7 @@
-import { PageView, pageMetadata } from "@/components/PageView";
-import { isLang } from "@/lib/i18n";
 import { notFound } from "next/navigation";
+import { isLang } from "@/lib/i18n";
+import { pageMetadata } from "@/lib/meta";
+import { Home } from "@/views/Home";
 
 export async function generateMetadata({ params }: PageProps<"/[lang]">) {
   const { lang } = await params;
@@ -10,5 +11,5 @@ export async function generateMetadata({ params }: PageProps<"/[lang]">) {
 export default async function HomePage({ params }: PageProps<"/[lang]">) {
   const { lang } = await params;
   if (!isLang(lang)) notFound();
-  return <PageView lang={lang} slug="home" />;
+  return <Home lang={lang} />;
 }

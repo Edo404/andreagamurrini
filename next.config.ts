@@ -10,6 +10,9 @@ const nextConfig: NextConfig = {
       // L'inglese vive alla radice, come su Wix: /en/... non deve esistere come URL pubblico
       { source: "/en", destination: "/", permanent: true },
       { source: "/en/:path*", destination: "/:path*", permanent: true },
+      // le due pagine White Coal di Wix ora sono una sola
+      { source: "/white-coal-records", destination: "/white-coal#records", permanent: true },
+      { source: "/:lang(it|es)/white-coal-records", destination: "/:lang/white-coal#records", permanent: true },
     ];
   },
   async rewrites() {

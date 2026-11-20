@@ -2,116 +2,120 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect, useRef, useState } from "react";
-import { LANGS, LANG_INFO, UI, pagePath, type Lang } from "@/lib/i18n";
-import { Flag } from "./Flag";
-
-type NavItem = { label: string; slug: string };
+import { useEffect, useState } from "react";
+import { LANGS, pagePath, type Lang } from "@/lib/i18n";
+import { NAV_SLUGS, UI } from "@/data/ui";
+import { SOCIAL } from "@/data/catalog";
 
 function currentSlug(pathname: string) {
   const rest = pathname.replace(/^\/(it|es)(?=\/|$)/, "").replace(/^\//, "");
   return rest.split("/")[0] || "home";
 }
 
-export function Header({ lang, nav }: { lang: Lang; nav: NavItem[] }) {
+export function Wordmark({ className = "" }: { className?: string }) {
+  return (
+    <span className={`wordmark ${className}`} aria-label="dr.gam">
+      <em>dr.</em>gam
+    </span>
+  );
+}
+
+export function Header({ lang }: { lang: Lang }) {
   const pathname = usePathname() ?? "/";
   const slug = currentSlug(pathname);
   const t = UI[lang];
-  // I menu restano aperti solo sulla pagina in cui sono stati aperti: cambiando pagina si chiudono.
-  const [menuOpenOn, setMenuOpenOn] = useState<string | null>(null);
-  const [langOpenOn, setLangOpenOn] = useState<string | null>(null);
-  const menuOpen = menuOpenOn === pathname;
-  const langOpen = langOpenOn === pathname;
-  const setMenuOpen = (v: boolean | ((o: boolean) => boolean)) =>
-    setMenuOpenOn((cur) => ((typeof v === "function" ? v(cur === pathname) : v) ? pathname : null));
-  const setLangOpen = (v: boolean | ((o: boolean) => boolean)) =>
-    setLangOpenOn((cur) => ((typeof v === "function" ? v(cur === pathname) : v) ? pathname : null));
-  const langRef = useRef<HTMLDivElement>(null);
+  // il menu resta aperto solo sulla pagina in cui è stato aperto
+  const [openOn, setOpenOn] = useState<string | null>(null);
+  const open = openOn === pathname;
+  const [scrolled, setScrolled] = useState(false);
 
-  // chiude i menu con Esc o cliccando fuori
   useEffect(() => {
-    const onKey = (e: KeyboardEvent) => {
-      if (e.key === "Escape") {
-        setMenuOpenOn(null);
-        setLangOpenOn(null);
-      }
-    };
-    const onClick = (e: MouseEvent) => {
-      if (langRef.current && !langRef.current.contains(e.target as Node)) setLangOpenOn(null);
-    };
+    const onScroll = () => setScrolled(window.scrollY > 40);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    const onKey = (e: KeyboardEvent) => e.key === "Escape" && setOpenOn(null);
     document.addEventListener("keydown", onKey);
-    document.addEventListener("click", onClick);
     return () => {
+      window.removeEventListener("scroll", onScroll);
       document.removeEventListener("keydown", onKey);
-      document.removeEventListener("click", onClick);
     };
   }, []);
   useEffect(() => {
-    document.body.classList.toggle("menu-open", menuOpen);
-  }, [menuOpen]);
+    document.documentElement.classList.toggle("menu-open", open);
+  }, [open]);
 
   return (
-    <header className="site-header">
+    <header className={`site-header${scrolled ? " is-scrolled" : ""}${open ? " is-open" : ""}`}>
       <a className="skip" href="#main">
         {t.skip}
       </a>
-      <div className="header-inner">
-        <Link href={pagePath(lang, "home")} className="logo" aria-label="Andrea Gamurrini – dr.gam">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/media/logo.webp" alt="Andrea Gamurrini" width={100} height={100} />
+      <div className="bar">
+        <Link href={pagePath(lang, "home")} className="brand" aria-label="dr.gam – home">
+          <Wordmark />
         </Link>
 
-        <nav className={`main-nav ${menuOpen ? "open" : ""}`} aria-label="Menu">
-          <ul>
-            {nav.map((item) => (
-              <li key={item.slug} className={item.slug === slug ? "active" : undefined}>
-                <Link href={pagePath(lang, item.slug)} aria-current={item.slug === slug ? "page" : undefined}>
-                  {item.label}
-                </Link>
-              </li>
-            ))}
-          </ul>
+        <nav className="nav-inline" aria-label={t.menu}>
+          {NAV_SLUGS.map((s) => (
+            <Link key={s} href={pagePath(lang, s)} aria-current={s === slug ? "page" : undefined}>
+              {t.nav[s]}
+            </Link>
+          ))}
         </nav>
 
-        <div className="lang" ref={langRef}>
-          <button
-            type="button"
-            className="lang-btn"
-            aria-haspopup="listbox"
-            aria-expanded={langOpen}
-            aria-label={`${t.language}: ${LANG_INFO[lang].name}`}
-            onClick={() => setLangOpen((o) => !o)}
-          >
-            <Flag lang={lang} />
-            <svg className="chev" viewBox="0 0 12 8" width="12" height="8" aria-hidden="true">
-              <path d="M1 1.5 6 6.5 11 1.5" fill="none" stroke="currentColor" strokeWidth="1.3" />
-            </svg>
-          </button>
-          {langOpen && (
-            <ul className="lang-list" role="listbox" aria-label={t.language}>
-              {LANGS.map((l) => (
-                <li key={l} role="option" aria-selected={l === lang}>
-                  <Link href={pagePath(l, slug)} hrefLang={l} lang={l}>
-                    <Flag lang={l} />
-                    <span>{LANG_INFO[l].name}</span>
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          )}
+        <div className="langs" role="group" aria-label={t.language}>
+          {LANGS.map((l) => (
+            <Link key={l} href={pagePath(l, slug)} hrefLang={l} lang={l} aria-current={l === lang ? "true" : undefined}>
+              {l}
+            </Link>
+          ))}
         </div>
 
         <button
           type="button"
-          className="burger"
-          aria-expanded={menuOpen}
-          aria-label={menuOpen ? t.close : t.menu}
-          onClick={() => setMenuOpen((o) => !o)}
+          className="menu-btn"
+          aria-expanded={open}
+          aria-controls="menu-overlay"
+          onClick={() => setOpenOn(open ? null : pathname)}
         >
-          <span />
-          <span />
-          <span />
+          <span className="menu-btn-label">{open ? t.close : t.menu}</span>
+          <span className="menu-btn-icon" aria-hidden="true">
+            <i />
+            <i />
+          </span>
         </button>
+      </div>
+
+      <div id="menu-overlay" className="menu-overlay" hidden={!open}>
+        <nav aria-label={t.menu}>
+          <ol>
+            {(["home", ...NAV_SLUGS] as const).map((s, i) => (
+              <li key={s} style={{ "--i": i } as React.CSSProperties}>
+                <Link href={pagePath(lang, s)} aria-current={s === slug ? "page" : undefined} onClick={() => setOpenOn(null)}>
+                  <span className="num">{String(i).padStart(2, "0")}</span>
+                  {t.nav[s]}
+                </Link>
+              </li>
+            ))}
+          </ol>
+        </nav>
+        <div className="menu-foot">
+          <div className="langs langs-lg">
+            {LANGS.map((l) => (
+              <Link key={l} href={pagePath(l, slug)} hrefLang={l} lang={l} aria-current={l === lang ? "true" : undefined}>
+                {l}
+              </Link>
+            ))}
+          </div>
+          <ul className="menu-social">
+            {SOCIAL.slice(0, 5).map((s) => (
+              <li key={s.name}>
+                <a href={s.href} target="_blank" rel="noopener noreferrer">
+                  {s.name}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
       </div>
     </header>
   );

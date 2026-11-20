@@ -1,5 +1,5 @@
 import type { MetadataRoute } from "next";
-import { SLUGS } from "@/lib/content";
+import { PAGE_SLUGS as SLUGS } from "@/lib/meta";
 import { LANGS, LANG_INFO, SITE_URL, pagePath } from "@/lib/i18n";
 
 export const dynamic = "force-static";
