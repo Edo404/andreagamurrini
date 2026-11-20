@@ -24,6 +24,12 @@ npm run deploy     # build OpenNext + pubblicazione su Cloudflare
 > Su Windows, `wrangler dev` può fallire con `SQLITE_CANTOPEN`. In quel caso aggiungi
 > `--persist-to <cartella-corta>` oppure usa WSL.
 
+## Pubblicazione automatica
+
+Il repo è collegato al Worker `andreagamurrini` (Cloudflare Workers Builds).
+Ogni push su `main` fa partire da solo `npx opennextjs-cloudflare build` e poi `npx opennextjs-cloudflare deploy`.
+Indirizzo attuale: https://andreagamurrini.edoardo-gamurrini.workers.dev (il dominio non è ancora collegato).
+
 ## Primo deploy su Cloudflare
 
 1. **Accesso:** `npx wrangler login`.
