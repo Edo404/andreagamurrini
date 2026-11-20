@@ -4,7 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { LANGS, pagePath, type Lang } from "@/lib/i18n";
-import { NAV_SLUGS, UI } from "@/data/ui";
+import { NAV_SLUGS, UI, navHref } from "@/data/ui";
 import { SOCIAL } from "@/data/catalog";
 
 function currentSlug(pathname: string) {
@@ -50,13 +50,13 @@ export function Header({ lang }: { lang: Lang }) {
         {t.skip}
       </a>
       <div className="bar">
-        <Link href={pagePath(lang, "home")} className="brand" aria-label="dr.gam – home">
+        <Link href={pagePath(lang, "home")} className="brand" aria-label="dr.gam, home">
           <Wordmark />
         </Link>
 
         <nav className="nav-inline" aria-label={t.menu}>
           {NAV_SLUGS.map((s) => (
-            <Link key={s} href={pagePath(lang, s)} aria-current={s === slug ? "page" : undefined}>
+            <Link key={s} href={navHref(lang, s)} aria-current={s === slug ? "page" : undefined}>
               {t.nav[s]}
             </Link>
           ))}
@@ -90,7 +90,7 @@ export function Header({ lang }: { lang: Lang }) {
           <ol>
             {(["home", ...NAV_SLUGS] as const).map((s, i) => (
               <li key={s} style={{ "--i": i } as React.CSSProperties}>
-                <Link href={pagePath(lang, s)} aria-current={s === slug ? "page" : undefined} onClick={() => setOpenOn(null)}>
+                <Link href={navHref(lang, s)} aria-current={s === slug ? "page" : undefined} onClick={() => setOpenOn(null)}>
                   <span className="num">{String(i).padStart(2, "0")}</span>
                   {t.nav[s]}
                 </Link>

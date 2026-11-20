@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { pagePath, type Lang } from "@/lib/i18n";
-import { NAV_SLUGS, UI } from "@/data/ui";
+import { NAV_SLUGS, UI, navHref } from "@/data/ui";
 import { LISTEN, SOCIAL, WIKIPEDIA } from "@/data/catalog";
 import { Wordmark } from "./Header";
 
@@ -27,7 +27,7 @@ export function Footer({ lang }: { lang: Lang }) {
           <ul>
             {NAV_SLUGS.map((s) => (
               <li key={s}>
-                <Link href={pagePath(lang, s)}>{t.nav[s]}</Link>
+                <Link href={navHref(lang, s)}>{t.nav[s]}</Link>
               </li>
             ))}
             <li>

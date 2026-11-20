@@ -1,7 +1,7 @@
 import { notFound } from "next/navigation";
 import { LANGS, isLang, type Lang } from "@/lib/i18n";
 import { SUBPAGE_SLUGS, isPageSlug, pageMetadata } from "@/lib/meta";
-import { Archive, Contact, GalleryPage, Music, Press, Story, Studio, Videos } from "@/views/Pages";
+import { Archive, Contact, Story, Studio } from "@/views/Pages";
 
 export const dynamicParams = false;
 
@@ -15,11 +15,7 @@ export async function generateMetadata({ params }: PageProps<"/[lang]/[slug]">) 
 }
 
 const VIEWS: Record<string, (p: { lang: Lang }) => React.ReactNode> = {
-  records: Music,
-  videos: Videos,
   bio: Story,
-  gallery: GalleryPage,
-  stampa: Press,
   events: Archive,
   "white-coal": Studio,
   contact: Contact,

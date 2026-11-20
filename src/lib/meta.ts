@@ -3,7 +3,8 @@ import { LANGS, LANG_INFO, pagePath, type Lang } from "./i18n";
 import { UI, type PageSlug } from "@/data/ui";
 import { PHOTOS } from "@/data/catalog";
 
-export const PAGE_SLUGS: PageSlug[] = ["home", "records", "videos", "bio", "gallery", "stampa", "events", "white-coal", "contact"];
+// Musica, video, galleria e stampa sono sezioni della home (vedi i redirect in next.config.ts)
+export const PAGE_SLUGS: PageSlug[] = ["home", "bio", "events", "white-coal", "contact"];
 export const SUBPAGE_SLUGS = PAGE_SLUGS.filter((s) => s !== "home");
 
 export function isPageSlug(s: string): s is PageSlug {

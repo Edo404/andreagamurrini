@@ -2,102 +2,19 @@ import Link from "next/link";
 import { Fragment } from "react";
 import { pagePath, type Lang } from "@/lib/i18n";
 import { PARTNERS, UI } from "@/data/ui";
-import { LISTEN, LOGOS, PHOTOS, PRESS, RELEASES, SOCIAL, VIDEOS, WIKIPEDIA } from "@/data/catalog";
+import { LOGOS, PHOTOS, SOCIAL, WIKIPEDIA } from "@/data/catalog";
 import texts from "@/data/texts.json";
 import events from "@/data/events.json";
-import gallery from "@/data/gallery.json";
-import { Kicker, PageHero, Sleeve, Title } from "@/components/ui";
-import { YouTube } from "@/components/YouTube";
-import { Gallery } from "@/components/Gallery";
+import { Kicker, PageHero, Title } from "@/components/ui";
 import { ContactForm } from "@/components/ContactForm";
 
 const cleanQuote = (q: string) => q.replace(/^[“"”]+|[“"”]+$/g, "");
-
-/* ================= Musica ================= */
-export function Music({ lang }: { lang: Lang }) {
-  const t = UI[lang];
-  const albums = RELEASES.filter((r) => r.kind === "album");
-  const singles = RELEASES.filter((r) => r.kind === "single");
-  const cds = RELEASES.filter((r) => r.kind === "cd");
-  return (
-    <>
-      <PageHero num="01" kicker={t.nav.records} {...t.heads.records} />
-
-      <section className="wrap albums" aria-labelledby="albums-title">
-        <Kicker>
-          <span id="albums-title">{t.music.albums}</span>
-        </Kicker>
-        <div className="albums-grid">
-          {albums.map((a, i) => (
-            <article key={a.title} className={`album reveal${i === 0 ? " album-first" : ""}`}>
-              <Sleeve cover={a.cover} title={a.title} href={a.href} size="lg" priority={i === 0} />
-              <div className="album-meta">
-                <span className="num">{a.year}</span>
-                <h3 className="title title-m">{a.title}</h3>
-                {a.href && (
-                  <a className="link-arrow" href={a.href} target="_blank" rel="noopener noreferrer">
-                    {t.music.listen} <span aria-hidden="true">↗</span>
-                  </a>
-                )}
-              </div>
-            </article>
-          ))}
-        </div>
-      </section>
-
-      <section className="wrap singles" aria-labelledby="singles-title">
-        <Kicker>
-          <span id="singles-title">{t.music.singles}</span>
-        </Kicker>
-        <ol className="singles-grid">
-          {singles.map((s, i) => (
-            <li key={s.title} className="single reveal" style={{ "--d": i % 5 } as React.CSSProperties}>
-              <Sleeve cover={s.cover} title={s.title} href={s.href} />
-              <span className="single-title">{s.title}</span>
-              {s.year && <span className="num">{s.year}</span>}
-            </li>
-          ))}
-        </ol>
-        <ul className="listen-row">
-          {LISTEN.map((l) => (
-            <li key={l.name}>
-              <a className="btn" href={l.href} target="_blank" rel="noopener noreferrer">
-                {l.name} <span aria-hidden="true">↗</span>
-              </a>
-            </li>
-          ))}
-        </ul>
-      </section>
-
-      <section className="wrap physical" aria-labelledby="physical-title">
-        <Kicker>
-          <span id="physical-title">{t.music.physical}</span>
-        </Kicker>
-        <ol className="physical-list">
-          {cds.map((c, i) => (
-            <li key={i} className="reveal">
-              <Sleeve cover={c.cover} title={c.title} stamp={c.soldOut ? t.music.soldOut : undefined} />
-              <div>
-                <h3 className="title title-s">{c.title}</h3>
-                <p className="muted">
-                  {[c.year, c.edition?.[lang]].filter(Boolean).join(" · ")}
-                </p>
-              </div>
-            </li>
-          ))}
-        </ol>
-      </section>
-
-      <Quotes lang={lang} />
-    </>
-  );
-}
 
 function Quotes({ lang }: { lang: Lang }) {
   const t = UI[lang];
   return (
     <section className="wrap quotes" aria-labelledby="quotes-title">
-      <Title id="quotes-title" soft={t.music.quotes.split(" ")[0]} hard={t.music.quotes.split(" ").slice(1).join(" ")} className="title-l" />
+      <Title id="quotes-title" soft={t.music.quotes.split(" ")[0]} hard={t.music.quotes.split(" ").slice(1).join(" ")} className="title-l section-title" />
       <div className="quotes-wall">
         {texts.quotes[lang].map((q, i) => (
           <figure key={i} className="quote reveal">
@@ -107,29 +24,6 @@ function Quotes({ lang }: { lang: Lang }) {
         ))}
       </div>
     </section>
-  );
-}
-
-/* ================= Video ================= */
-export function Videos({ lang }: { lang: Lang }) {
-  const t = UI[lang];
-  const [featured, ...rest] = VIDEOS;
-  return (
-    <>
-      <PageHero num="02" kicker={t.nav.videos} {...t.heads.videos} lead={t.videos.lead} />
-      <section className="wrap videos-page">
-        <div className="video-featured reveal">
-          <YouTube id={featured.id} title={featured.title} lang={lang} large index={1} />
-        </div>
-        <ol className="videos-grid">
-          {rest.map((v, i) => (
-            <li key={v.id} className="reveal">
-              <YouTube id={v.id} title={v.title} lang={lang} index={i + 2} />
-            </li>
-          ))}
-        </ol>
-      </section>
-    </>
   );
 }
 
@@ -155,7 +49,7 @@ export function Story({ lang }: { lang: Lang }) {
           <img src={PHOTOS.leaves.src} alt="dr.gam" width={PHOTOS.leaves.w} height={PHOTOS.leaves.h} fetchPriority="high" />
         </div>
         <div className="wrap story-hero-text">
-          <Kicker num="03">{t.story.title}</Kicker>
+          <Kicker>{t.story.title}</Kicker>
           <h1 className="title title-xl">
             <em>{headline}</em>
           </h1>
@@ -188,46 +82,8 @@ export function Story({ lang }: { lang: Lang }) {
           })}
         </div>
       </div>
-    </article>
-  );
-}
-
-/* ================= Galleria ================= */
-export function GalleryPage({ lang }: { lang: Lang }) {
-  const t = UI[lang];
-  return (
-    <>
-      <PageHero num="04" kicker={t.nav.gallery} {...t.heads.gallery} lead={t.gallery.lead} />
-      <section className="wrap">
-        <Gallery images={gallery} lang={lang} />
-      </section>
-    </>
-  );
-}
-
-/* ================= Stampa ================= */
-export function Press({ lang }: { lang: Lang }) {
-  const t = UI[lang];
-  return (
-    <>
-      <PageHero num="05" kicker={t.nav.stampa} {...t.heads.stampa} lead={t.press.lead} />
-      <section className="wrap">
-        <ul className="press-grid">
-          {PRESS.map((p, i) => (
-            <li key={i} className="reveal">
-              <a href={p.href} target="_blank" rel="noopener noreferrer" className="press-tile">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src={p.logo} alt={p.outlet} width={p.w} height={p.h} loading="lazy" />
-                <span className="press-name">
-                  {p.outlet === "Press clipping" ? t.press.clippings : p.outlet} <span aria-hidden="true">↗</span>
-                </span>
-              </a>
-            </li>
-          ))}
-        </ul>
-      </section>
       <Quotes lang={lang} />
-    </>
+    </article>
   );
 }
 
@@ -282,7 +138,7 @@ export function Studio({ lang }: { lang: Lang }) {
   const t = UI[lang];
   return (
     <>
-      <PageHero num="06" kicker={t.nav["white-coal"]} {...t.heads["white-coal"]} lead={t.studio.lead} />
+      <PageHero kicker={t.nav["white-coal"]} {...t.heads["white-coal"]} lead={t.studio.lead} />
       <section className="wrap studio">
         <div className="studio-logos">
           <figure id="productions" className="studio-logo reveal">
@@ -331,7 +187,7 @@ export function Contact({ lang }: { lang: Lang }) {
   return (
     <section className="contact-page wrap">
       <div className="contact-intro">
-        <Kicker num="07">{t.contact.title}</Kicker>
+        <Kicker>{t.contact.title}</Kicker>
         <h1 className="title title-xl">
           <em>{t.contactCta.split(" ").slice(0, -1).join(" ")}</em> {t.contactCta.split(" ").slice(-1)}
         </h1>
