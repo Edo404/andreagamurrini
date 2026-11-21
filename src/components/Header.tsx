@@ -45,18 +45,28 @@ export function Header({ lang }: { lang: Lang }) {
   }, [open]);
 
   return (
-    <header className={`site-header${scrolled ? " is-scrolled" : ""}${open ? " is-open" : ""}`}>
+    <header
+      className={`site-header${scrolled ? " is-scrolled" : ""}${open ? " is-open" : ""}`}
+    >
       <a className="skip" href="#main">
         {t.skip}
       </a>
       <div className="bar">
-        <Link href={pagePath(lang, "home")} className="brand" aria-label="dr.gam, home">
+        <Link
+          href={pagePath(lang, "home")}
+          className="brand"
+          aria-label="dr.gam, home"
+        >
           <Wordmark />
         </Link>
 
         <nav className="nav-inline" aria-label={t.menu}>
           {NAV_SLUGS.map((s) => (
-            <Link key={s} href={navHref(lang, s)} aria-current={s === slug ? "page" : undefined}>
+            <Link
+              key={s}
+              href={navHref(lang, s)}
+              aria-current={s === slug ? "page" : undefined}
+            >
               {t.nav[s]}
             </Link>
           ))}
@@ -64,7 +74,13 @@ export function Header({ lang }: { lang: Lang }) {
 
         <div className="langs" role="group" aria-label={t.language}>
           {LANGS.map((l) => (
-            <Link key={l} href={pagePath(l, slug)} hrefLang={l} lang={l} aria-current={l === lang ? "true" : undefined}>
+            <Link
+              key={l}
+              href={pagePath(l, slug)}
+              hrefLang={l}
+              lang={l}
+              aria-current={l === lang ? "true" : undefined}
+            >
               {l}
             </Link>
           ))}
@@ -90,7 +106,11 @@ export function Header({ lang }: { lang: Lang }) {
           <ol>
             {(["home", ...NAV_SLUGS] as const).map((s, i) => (
               <li key={s} style={{ "--i": i } as React.CSSProperties}>
-                <Link href={navHref(lang, s)} aria-current={s === slug ? "page" : undefined} onClick={() => setOpenOn(null)}>
+                <Link
+                  href={navHref(lang, s)}
+                  aria-current={s === slug ? "page" : undefined}
+                  onClick={() => setOpenOn(null)}
+                >
                   <span className="num">{String(i).padStart(2, "0")}</span>
                   {t.nav[s]}
                 </Link>
@@ -101,7 +121,13 @@ export function Header({ lang }: { lang: Lang }) {
         <div className="menu-foot">
           <div className="langs langs-lg">
             {LANGS.map((l) => (
-              <Link key={l} href={pagePath(l, slug)} hrefLang={l} lang={l} aria-current={l === lang ? "true" : undefined}>
+              <Link
+                key={l}
+                href={pagePath(l, slug)}
+                hrefLang={l}
+                lang={l}
+                aria-current={l === lang ? "true" : undefined}
+              >
                 {l}
               </Link>
             ))}

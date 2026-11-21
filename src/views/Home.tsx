@@ -5,16 +5,26 @@ import { LISTEN, PHOTOS, PRESS, RELEASES, VIDEOS } from "@/data/catalog";
 import texts from "@/data/texts.json";
 import gallery from "@/data/gallery.json";
 import { Wordmark } from "@/components/Header";
-import { Kicker, Sleeve, SpinBadge, Title } from "@/components/ui";
+import { ArrowIcon, PlayIcon } from "@/components/icons";
+import {
+  Sign,
+  Sleeve,
+  SpinBadge,
+  Title,
+  Wave,
+  WaveEdge,
+} from "@/components/ui";
 import { YouTube } from "@/components/YouTube";
 import { Expandable } from "@/components/Expandable";
 import { Gallery } from "@/components/Gallery";
 
-/** Citazione lunga → estratto di circa due righe, tagliato su una parola. */
+/** Citazione lunga → estratto di circa tre righe, tagliato su una parola. */
 function excerpt(q: string, max = 150) {
   const clean = q.replace(/^[“"”]+|[“"”]+$/g, "").replace(/…+|\.{3,}/g, "…");
   if (clean.length <= max) return clean;
-  return clean.slice(0, clean.lastIndexOf(" ", max)).replace(/[,;:]$/, "") + "…";
+  return (
+    clean.slice(0, clean.lastIndexOf(" ", max)).replace(/[,;:]$/, "") + "…"
+  );
 }
 
 export function Home({ lang }: { lang: Lang }) {
@@ -33,148 +43,277 @@ export function Home({ lang }: { lang: Lang }) {
 
   return (
     <>
-      {/* ---------- apertura ---------- */}
-      <section className="hero" aria-label="dr.gam">
-        <div className="hero-media">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src={PHOTOS.portrait.src} alt="dr.gam" width={PHOTOS.portrait.w} height={PHOTOS.portrait.h} fetchPriority="high" />
-        </div>
-        <div className="hero-top wrap">
-          <p className="hero-role">{t.role}</p>
-          <p className="hero-name">Andrea Gamurrini</p>
-        </div>
-        <div className="hero-badge">
-          <SpinBadge text={t.motto} />
-        </div>
-        <h1 className="hero-mark">
-          <Wordmark />
-        </h1>
-      </section>
+      {/* ---------- muro dipinto: insegna, sole con il ritratto, biglietto dell'ultima uscita ---------- */}
+      <section className="hero" aria-labelledby="hero-title">
+        <div className="shell hero-grid">
+          <div className="hero-copy">
+            <h1 id="hero-title" className="hero-sign">
+              <Wordmark />
+            </h1>
+            <p className="hero-role">{t.role}</p>
 
-      {/* ---------- ultima uscita ---------- */}
-      <section className="out-now wrap" aria-labelledby="out-now-title">
-        <div className="out-now-sleeve reveal">
-          <Sleeve cover={live.cover} title={live.title} href={live.href} size="lg" priority />
-        </div>
-        <div className="out-now-text reveal">
-          <Kicker>
-            {t.outNow} · {t.liveInRome.kicker}
-          </Kicker>
-          <Title id="out-now-title" soft="Live" hard="in Rome" className="title-xl" />
-          <p className="lead">{t.liveInRome.desc}</p>
-          <div className="actions">
-            <a className="btn btn-solid" href={live.href} target="_blank" rel="noopener noreferrer">
-              {t.liveInRome.listen}
-            </a>
-            <a className="btn" href="#videos">
-              {t.liveInRome.watch}
-            </a>
-          </div>
-        </div>
-      </section>
-
-      {/* ---------- numeri ---------- */}
-      <section className="facts wrap" aria-label="dr.gam">
-        {t.facts.map((f, i) => (
-          <div key={i} className="fact reveal">
-            <span className="fact-n">{f.n}</span>
-            <span className="fact-l">{f.label}</span>
-          </div>
-        ))}
-      </section>
-
-      {/* ---------- musica ---------- */}
-      <section id="music" className="home-section wrap" aria-labelledby="music-title">
-        <Title id="music-title" {...t.heads.records} className="title-l section-title" />
-        <Expandable
-          className="music-grid"
-          initial={6}
-          moreLabel={t.more}
-          lessLabel={t.less}
-          items={music.map((r, i) => (
-            <article key={i} className="release reveal">
-              <Sleeve cover={r.cover} title={r.title} href={r.href} stamp={r.soldOut ? t.music.soldOut : undefined} />
-              <div className="release-meta">
-                <h3 className="release-title">{r.title}</h3>
-                <p className="num">
-                  {[r.kind === "single" ? t.music.single : r.kind === "album" ? t.music.album : "CD", r.year].filter(Boolean).join(" · ")}
+            <article className="ticket" aria-labelledby="ticket-title">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                className="ticket-cover"
+                src={live.cover}
+                alt={`${live.title}, cover`}
+                width={600}
+                height={600}
+              />
+              <div className="ticket-body">
+                <h2 id="ticket-title" className="ticket-title">
+                  {live.title}
+                </h2>
+                <p className="ticket-meta">
+                  {t.outNow} · {live.year}
                 </p>
-                {r.edition && <p className="muted release-edition">{r.edition[lang]}</p>}
+                <p className="ticket-desc">{t.liveInRome.desc}</p>
+                <div className="ticket-actions">
+                  <a
+                    className="pill pill-sun"
+                    href={live.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <PlayIcon />
+                    {t.liveInRome.listen}
+                  </a>
+                  <a className="pill pill-ghost" href="#videos">
+                    {t.liveInRome.watch}
+                  </a>
+                </div>
               </div>
             </article>
-          ))}
-        />
-        <ul className="listen-row">
-          {LISTEN.map((l) => (
-            <li key={l.name}>
-              <a className="link-arrow" href={l.href} target="_blank" rel="noopener noreferrer">
-                {l.name} <span aria-hidden="true">↗</span>
-              </a>
+          </div>
+
+          <figure className="hero-sun">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src={PHOTOS.rocks.src}
+              alt={t.alt.rocks}
+              width={PHOTOS.rocks.w}
+              height={PHOTOS.rocks.h}
+              fetchPriority="high"
+            />
+          </figure>
+          <div className="hero-badge">
+            <SpinBadge text={t.motto} />
+          </div>
+        </div>
+        <div className="hero-stripes" aria-hidden="true">
+          <Wave className="stripe-sun" />
+          <Wave className="stripe-bloom" />
+          <Wave className="stripe-wash" />
+        </div>
+      </section>
+
+      {/* ---------- tavola d'insegna con i numeri della bio ---------- */}
+      <section className="board" aria-label="dr.gam">
+        <ul className="board-list">
+          {t.facts.map((f, i) => (
+            <li key={i}>
+              <b>{f.n}</b> <span>{f.label}</span>
             </li>
           ))}
         </ul>
       </section>
 
-      {/* ---------- video ---------- */}
-      <section id="videos" className="home-section wrap" aria-labelledby="videos-title">
-        <Title id="videos-title" {...t.heads.videos} className="title-l section-title" />
-        <div className="video-featured reveal">
+      {/* ---------- musica: la cassa dei dischi ---------- */}
+      <section id="music" className="crate" aria-labelledby="music-title">
+        <WaveEdge fill="var(--sea-800)" />
+        <div className="crate-body">
+          <div className="crate-inner shell">
+            <Sign
+              id="music-title"
+              tone={t.heads.records.soft}
+              hard={t.heads.records.hard}
+            />
+            <Expandable
+              className="crate-grid"
+              initial={6}
+              moreLabel={t.more}
+              lessLabel={t.less}
+              buttonClassName="pill pill-sun"
+              items={music.map((r, i) => (
+                <article key={i} className="record">
+                  <Sleeve
+                    cover={r.cover}
+                    title={r.title}
+                    href={r.href}
+                    stamp={r.soldOut ? t.music.soldOut : undefined}
+                  />
+                  <div className="record-tag">
+                    <h3 className="record-title">{r.title}</h3>
+                    <p className="record-meta">
+                      {[
+                        r.kind === "single"
+                          ? t.music.single
+                          : r.kind === "album"
+                            ? t.music.album
+                            : "CD",
+                        r.year,
+                      ]
+                        .filter(Boolean)
+                        .join(" · ")}
+                    </p>
+                    {r.edition && (
+                      <p className="record-edition">{r.edition[lang]}</p>
+                    )}
+                  </div>
+                </article>
+              ))}
+            />
+            <ul className="listen-row" aria-label={t.liveInRome.listen}>
+              {LISTEN.map((l) => (
+                <li key={l.name}>
+                  <a
+                    className="pill pill-line"
+                    href={l.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {l.name}
+                    <ArrowIcon />
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+        <WaveEdge fill="var(--sea-900)" className="edge-from-800" />
+      </section>
+
+      {/* ---------- video: il cinema all'aperto ---------- */}
+      <section
+        id="videos"
+        className="cinema shell"
+        aria-labelledby="videos-title"
+      >
+        <div className="cinema-head">
+          <Sign
+            id="videos-title"
+            tone={t.heads.videos.soft}
+            hard={t.heads.videos.hard}
+          />
+          <Wave className="cinema-wave" />
+        </div>
+        <div className="cinema-screen">
           <YouTube id={featured.id} title={featured.title} lang={lang} large />
         </div>
         <Expandable
-          className="videos-grid"
+          className="cinema-grid"
           initial={6}
           moreLabel={t.more}
           lessLabel={t.less}
+          buttonClassName="pill pill-sun"
           items={moreVideos.map((v) => (
             <YouTube key={v.id} id={v.id} title={v.title} lang={lang} />
           ))}
         />
       </section>
 
-      {/* ---------- citazione ---------- */}
-      <section className="big-quote wrap reveal" aria-label={t.music.quotes}>
-        <blockquote>
-          <p>“{excerpt(quote.quote)}”</p>
+      {/* ---------- citazione: il muro rosa ---------- */}
+      <section className="pinkwall" aria-label={t.music.quotes}>
+        <blockquote className="pinkwall-quote">
+          <p>{excerpt(quote.quote)}</p>
           <footer>{quote.source}</footer>
         </blockquote>
       </section>
 
-      {/* ---------- storia ---------- */}
-      <section className="story-teaser wrap" aria-labelledby="story-teaser-title">
-        <figure className="story-teaser-img reveal">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src={PHOTOS.rocks.src} alt="dr.gam" width={PHOTOS.rocks.w} height={PHOTOS.rocks.h} loading="lazy" />
-        </figure>
-        <div className="story-teaser-text reveal">
-          <h2 id="story-teaser-title" className="title title-l">
-            <em>{t.motto}</em>
-          </h2>
-          <p className="lead">{bio[1]}</p>
-          <Link href={pagePath(lang, "bio")} className="btn">
-            {t.storyCta} <span aria-hidden="true">→</span>
-          </Link>
+      {/* ---------- storia: la cartolina ---------- */}
+      <section
+        className="postcard-wrap shell"
+        aria-labelledby="story-teaser-title"
+      >
+        <article className="postcard">
+          <figure className="postcard-photo">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src={PHOTOS.ivy.src}
+              alt={t.alt.ivy}
+              width={PHOTOS.ivy.w}
+              height={PHOTOS.ivy.h}
+              loading="lazy"
+            />
+          </figure>
+          <div className="postcard-text">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              className="postcard-stamp"
+              src="/media/logo.webp"
+              alt=""
+              width={84}
+              height={84}
+              loading="lazy"
+            />
+            <h2 id="story-teaser-title" className="postcard-title">
+              {t.motto}
+            </h2>
+            <p>{bio[1]}</p>
+            <Link href={pagePath(lang, "bio")} className="pill pill-ink">
+              {t.storyCta}
+              <ArrowIcon />
+            </Link>
+          </div>
+        </article>
+      </section>
+
+      {/* ---------- galleria: le foto appese ---------- */}
+      <section
+        id="gallery"
+        className="photowall"
+        aria-labelledby="gallery-title"
+      >
+        <div className="shell photowall-inner">
+          <Sign
+            id="gallery-title"
+            tone={t.heads.gallery.soft}
+            hard={t.heads.gallery.hard}
+          />
+          <Gallery images={gallery} lang={lang} initial={6} />
         </div>
+        {/* l'onda scura porta dentro la sezione Stampa, che ha il suo fondo congelato */}
+        <WaveEdge fill="var(--press-ground)" className="to-press" />
       </section>
 
-      {/* ---------- galleria ---------- */}
-      <section id="gallery" className="home-section wrap" aria-labelledby="gallery-title">
-        <Title id="gallery-title" {...t.heads.gallery} className="title-l section-title" />
-        <Gallery images={gallery} lang={lang} initial={6} />
-      </section>
-
-      {/* ---------- stampa ---------- */}
-      <section id="press" className="home-section wrap" aria-labelledby="press-title">
-        <Title id="press-title" {...t.heads.stampa} className="title-l section-title" />
+      {/* ---------- stampa: CONGELATA (src/app/press.css), non modificare ---------- */}
+      <section
+        id="press"
+        className="press-frozen"
+        aria-labelledby="press-title"
+      >
+        <Title
+          id="press-title"
+          {...t.heads.stampa}
+          className="title-l section-title"
+        />
         <Expandable
           className="press-grid"
           initial={9}
           moreLabel={t.more}
           lessLabel={t.less}
           items={PRESS.map((p, i) => (
-            <a key={i} href={p.href} target="_blank" rel="noopener noreferrer" className="press-tile" title={p.outlet === "Press clipping" ? t.press.clippings : p.outlet}>
+            <a
+              key={i}
+              href={p.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="press-tile"
+              title={
+                p.outlet === "Press clipping" ? t.press.clippings : p.outlet
+              }
+            >
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src={p.logo} alt={p.outlet === "Press clipping" ? t.press.clippings : p.outlet} width={p.w} height={p.h} loading="lazy" />
+              <img
+                src={p.logo}
+                alt={
+                  p.outlet === "Press clipping" ? t.press.clippings : p.outlet
+                }
+                width={p.w}
+                height={p.h}
+                loading="lazy"
+              />
             </a>
           ))}
         />

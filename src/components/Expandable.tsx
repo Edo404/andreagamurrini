@@ -13,6 +13,7 @@ export function Expandable({
   lessLabel,
   className,
   as: Tag = "ul",
+  buttonClassName = "btn",
 }: {
   items: ReactNode[];
   initial: number;
@@ -20,6 +21,8 @@ export function Expandable({
   lessLabel: string;
   className: string;
   as?: "ul" | "ol" | "div";
+  /** "btn" è lo stile congelato della sezione Stampa; le altre sezioni passano "pill pill-sun". */
+  buttonClassName?: string;
 }) {
   const [open, setOpen] = useState(false);
   const id = useId();
@@ -30,14 +33,25 @@ export function Expandable({
     <>
       <Tag id={id} className={`${className}${open ? " is-open" : ""}`}>
         {items.map((it, i) => (
-          <Item key={i} className={i >= initial ? "x-more" : undefined} hidden={i >= initial && !open} style={{ "--k": i - initial } as React.CSSProperties}>
+          <Item
+            key={i}
+            className={i >= initial ? "x-more" : undefined}
+            hidden={i >= initial && !open}
+            style={{ "--k": i - initial } as React.CSSProperties}
+          >
             {it}
           </Item>
         ))}
       </Tag>
       {hidden > 0 && (
         <div className="x-toggle">
-          <button type="button" className="btn" aria-expanded={open} aria-controls={id} onClick={() => setOpen((o) => !o)}>
+          <button
+            type="button"
+            className={buttonClassName}
+            aria-expanded={open}
+            aria-controls={id}
+            onClick={() => setOpen((o) => !o)}
+          >
             {open ? lessLabel : `${moreLabel} (${hidden})`}
             <span className="x-icon" aria-hidden="true" />
           </button>

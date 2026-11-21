@@ -39,11 +39,25 @@ export function YouTube({
       {play ? (
         player
       ) : (
-        <button type="button" className="yt-facade" onClick={() => setPlay(true)} aria-label={`${UI[lang].play}: ${title}`}>
+        <button
+          type="button"
+          className="yt-facade"
+          onClick={() => setPlay(true)}
+          aria-label={`${UI[lang].play}: ${title}`}
+        >
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src={thumb} alt="" loading="lazy" decoding="async" width={480} height={360} />
+          <img
+            src={thumb}
+            alt=""
+            loading="lazy"
+            decoding="async"
+            width={480}
+            height={360}
+          />
           <span className="yt-caption">
-            {index !== undefined && <span className="num">{String(index).padStart(2, "0")}</span>}
+            {index !== undefined && (
+              <span className="num">{String(index).padStart(2, "0")}</span>
+            )}
             <span className="yt-title">{title}</span>
           </span>
           <span className="yt-play" aria-hidden="true">

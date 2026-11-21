@@ -4,9 +4,18 @@ import { useCallback, useEffect, useId, useState } from "react";
 import type { GalleryImage } from "@/lib/gallery";
 import type { Lang } from "@/lib/i18n";
 import { UI } from "@/data/ui";
+import { ArrowIcon } from "./icons";
 
-/** Griglia di foto: le prime `initial`, poi "Altri". Clic su una foto = lightbox con frecce e tastiera. */
-export function Gallery({ images, lang, initial = 6 }: { images: GalleryImage[]; lang: Lang; initial?: number }) {
+/** Foto appese a mosaico, nelle loro proporzioni: le prime `initial`, poi "Altri". Clic su una foto = lightbox con frecce e tastiera. */
+export function Gallery({
+  images,
+  lang,
+  initial = 6,
+}: {
+  images: GalleryImage[];
+  lang: Lang;
+  initial?: number;
+}) {
   const t = UI[lang];
   const [open, setOpen] = useState<number | null>(null);
   const [expanded, setExpanded] = useState(false);
@@ -15,7 +24,10 @@ export function Gallery({ images, lang, initial = 6 }: { images: GalleryImage[];
 
   const close = useCallback(() => setOpen(null), []);
   const step = useCallback(
-    (d: number) => setOpen((i) => (i === null ? i : (i + d + images.length) % images.length)),
+    (d: number) =>
+      setOpen((i) =>
+        i === null ? i : (i + d + images.length) % images.length,
+      ),
     [images.length],
   );
 
@@ -36,19 +48,42 @@ export function Gallery({ images, lang, initial = 6 }: { images: GalleryImage[];
 
   return (
     <>
-      <ul id={id} className={`photo-grid${expanded ? " is-open" : ""}`}>
+      <ul id={id} className={`wall-grid${expanded ? " is-open" : ""}`}>
         {images.map((img, i) => (
-          <li key={img.src} className={i >= initial ? "x-more" : undefined} hidden={i >= initial && !expanded} style={{ "--k": i - initial } as React.CSSProperties}>
-            <button type="button" className="photo" onClick={() => setOpen(i)} aria-label={`${t.gallery.open} ${i + 1}/${images.length}`}>
+          <li
+            key={img.src}
+            className={i >= initial ? "x-more" : undefined}
+            hidden={i >= initial && !expanded}
+            style={{ "--k": i - initial } as React.CSSProperties}
+          >
+            <button
+              type="button"
+              className="photo"
+              onClick={() => setOpen(i)}
+              aria-label={`${t.gallery.open} ${i + 1}/${images.length}`}
+            >
               {/* eslint-disable-next-line @next/next/no-img-element -- immagini già ottimizzate */}
-              <img src={img.src} alt="" width={img.w} height={img.h} loading="lazy" decoding="async" />
+              <img
+                src={img.src}
+                alt=""
+                width={img.w}
+                height={img.h}
+                loading="lazy"
+                decoding="async"
+              />
             </button>
           </li>
         ))}
       </ul>
       {hidden > 0 && (
         <div className="x-toggle">
-          <button type="button" className="btn" aria-expanded={expanded} aria-controls={id} onClick={() => setExpanded((e) => !e)}>
+          <button
+            type="button"
+            className="pill pill-sun"
+            aria-expanded={expanded}
+            aria-controls={id}
+            onClick={() => setExpanded((e) => !e)}
+          >
             {expanded ? t.less : `${t.more} (${hidden})`}
             <span className="x-icon" aria-hidden="true" />
           </button>
@@ -56,11 +91,22 @@ export function Gallery({ images, lang, initial = 6 }: { images: GalleryImage[];
       )}
 
       {open !== null && (
-        <div className="lightbox" role="dialog" aria-modal="true" aria-label={t.gallery.title} onClick={close}>
+        <div
+          className="lightbox"
+          role="dialog"
+          aria-modal="true"
+          aria-label={t.gallery.title}
+          onClick={close}
+        >
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src={images[open].src} alt={`dr.gam, ${open + 1}/${images.length}`} onClick={(e) => e.stopPropagation()} />
+          <img
+            src={images[open].src}
+            alt={`dr.gam, ${open + 1}/${images.length}`}
+            onClick={(e) => e.stopPropagation()}
+          />
           <p className="lb-count num">
-            {String(open + 1).padStart(2, "0")} / {String(images.length).padStart(2, "0")}
+            {String(open + 1).padStart(2, "0")} /{" "}
+            {String(images.length).padStart(2, "0")}
           </p>
           <button type="button" className="lb-btn lb-close" onClick={close}>
             {t.galleryClose}
@@ -74,7 +120,9 @@ export function Gallery({ images, lang, initial = 6 }: { images: GalleryImage[];
               step(-1);
             }}
           >
-            ←
+            <span className="lb-flip">
+              <ArrowIcon />
+            </span>
           </button>
           <button
             type="button"
@@ -85,7 +133,7 @@ export function Gallery({ images, lang, initial = 6 }: { images: GalleryImage[];
               step(1);
             }}
           >
-            →
+            <ArrowIcon />
           </button>
         </div>
       )}

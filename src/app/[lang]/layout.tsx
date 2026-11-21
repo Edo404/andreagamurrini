@@ -5,6 +5,7 @@ import { Footer } from "@/components/Footer";
 import { LANGS, SITE_URL, isLang } from "@/lib/i18n";
 import { fontVariables } from "../fonts";
 import "../globals.css";
+import "../press.css"; // sezione Stampa congelata: dopo globals.css
 
 export const dynamicParams = false;
 

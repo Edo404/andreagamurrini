@@ -132,7 +132,7 @@ export const PRESS: PressItem[] = [
 
 export const PHOTOS = {
   portrait: { src: "/media/hero-portrait.webp", w: 2200, h: 1207 }, // primo piano in bianco e nero
-  rocks: { src: "/media/white-rocks.webp", w: 2200, h: 3217 }, // in bianco tra le rocce, con la chitarra
+  rocks: { src: "/media/white-rocks.webp", w: 1080, h: 1579 }, // in bianco tra le rocce, con la chitarra
   live: { src: "/media/live-mic.webp", w: 2200, h: 1466 }, // live al microfono
   leaves: { src: "/media/blue-leaves.webp", w: 2200, h: 1127 }, // seduto tra le foglie blu
   ivy: { src: "/media/ivy-wall.webp", w: 2200, h: 1462 }, // davanti al muro d'edera

@@ -1,0 +1,200 @@
+/* =========================================================================
+   SEZIONE PRESS: CONGELATA
+   La sezione Stampa della home è considerata definitiva e non deve cambiare aspetto.
+   Qui ci sono TUTTE le regole che la disegnano, con i valori fissati e limitate a
+   `.press-frozen`. Il file è fuori dai @layer di globals.css, quindi vince su
+   qualunque regola globale: il design system del resto del sito non la tocca.
+   Non usare questi token altrove e non modificarli senza un confronto pixel prima/dopo.
+   ========================================================================= */
+
+.press-frozen {
+  /* token congelati (valori del design precedente) */
+  --pf-bg: #110f0e;
+  --pf-ink: #efe8dc;
+  --pf-ink-2: rgb(239 232 220 / 0.66);
+  --pf-line: rgb(239 232 220 / 0.14);
+  --pf-ember: #e8492f;
+  --pf-grotesk: var(--font-grotesk), "Arial Narrow", sans-serif;
+  --pf-serif: var(--font-serif), Georgia, serif;
+  --pf-mono: var(--font-mono), ui-monospace, monospace;
+  --pf-wrap: 1360px;
+  --pf-gutter: clamp(20px, 4vw, 56px);
+  --pf-section: clamp(96px, 14vw, 200px);
+  --pf-ease: cubic-bezier(0.22, 1, 0.36, 1);
+
+  /* ciò che prima ereditava da body */
+  background: var(--pf-bg);
+  color: var(--pf-ink);
+  font-family: var(--pf-grotesk);
+  font-size: clamp(16px, 0.35vw + 15px, 18px);
+  font-weight: 400;
+  font-style: normal;
+  line-height: 1.55;
+  letter-spacing: normal;
+  text-transform: none;
+  font-variation-settings: "wdth" 100;
+  -webkit-font-smoothing: antialiased;
+
+  /* .wrap */
+  width: 100%;
+  max-width: none;
+  margin-inline: 0;
+  padding-inline: max(var(--pf-gutter), (100% - var(--pf-wrap)) / 2);
+
+  /* .home-section */
+  display: grid;
+  gap: clamp(28px, 4vw, 48px);
+  padding-top: var(--pf-section);
+  padding-bottom: 0;
+  scroll-margin-top: 40px;
+}
+.press-frozen :focus-visible {
+  outline: 2px solid var(--pf-ember);
+  outline-offset: 3px;
+}
+
+/* titolo: "In the" corsivo brace + "press" grotesk */
+.press-frozen .title {
+  margin: 0;
+  font-family: var(--pf-grotesk);
+  font-size: clamp(2.4rem, 5.6vw, 5.2rem);
+  font-weight: 780;
+  line-height: 1.02;
+  letter-spacing: -0.045em;
+  font-variation-settings: "wdth" 85;
+  text-wrap: balance;
+  color: var(--pf-ink);
+  max-width: 14ch;
+  padding-bottom: 0.08em;
+}
+.press-frozen .title em {
+  font-family: var(--pf-serif);
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  color: var(--pf-ember);
+  font-size: 1.04em;
+}
+
+/* griglia dei loghi */
+.press-frozen .press-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(10px, 1.4vw, 18px);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.press-frozen .press-tile {
+  display: grid;
+  place-items: center;
+  height: 100%;
+  aspect-ratio: 16 / 7;
+  padding: clamp(14px, 2vw, 28px) clamp(18px, 3vw, 44px);
+  background: var(--pf-ink);
+  transition: background-color 0.4s var(--pf-ease);
+}
+.press-frozen .press-tile img {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: 100%;
+  object-fit: contain;
+  mix-blend-mode: multiply;
+  filter: grayscale(1) contrast(1.1);
+  transition:
+    filter 0.4s,
+    opacity 0.4s,
+    transform 0.6s var(--pf-ease);
+}
+.press-frozen .press-tile:hover {
+  background: #fff;
+}
+.press-frozen .press-tile:hover img {
+  filter: none;
+  transform: scale(1.04);
+}
+
+/* pulsante "Altri" */
+.press-frozen .x-more:not([hidden]) {
+  animation: press-frozen-in 0.7s var(--pf-ease) both;
+  animation-delay: calc(min(var(--k), 8) * 50ms);
+}
+.press-frozen .x-toggle {
+  display: flex;
+  justify-content: center;
+}
+.press-frozen .btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 50px;
+  margin: 0;
+  padding: 0 24px;
+  border: 1px solid var(--pf-line);
+  border-radius: 999px;
+  background: none;
+  color: var(--pf-ink);
+  font: 500 13px var(--pf-mono);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  box-shadow: none;
+  cursor: pointer;
+  transition:
+    background-color 0.3s var(--pf-ease),
+    border-color 0.3s,
+    color 0.3s,
+    transform 0.15s;
+}
+.press-frozen .btn:hover {
+  border-color: var(--pf-ink);
+  background: var(--pf-ink);
+  color: var(--pf-bg);
+}
+.press-frozen .btn:active {
+  transform: translateY(1px) scale(0.98);
+}
+.press-frozen .x-icon {
+  position: relative;
+  width: 12px;
+  height: 12px;
+}
+.press-frozen .x-icon::before,
+.press-frozen .x-icon::after {
+  content: "";
+  position: absolute;
+  inset: 50% 0 auto;
+  height: 1.5px;
+  margin-top: -0.75px;
+  background: currentColor;
+  transition: transform 0.4s var(--pf-ease);
+}
+.press-frozen .x-icon::after {
+  transform: rotate(90deg);
+}
+.press-frozen [aria-expanded="true"] .x-icon::after {
+  transform: rotate(0deg);
+}
+
+@keyframes press-frozen-in {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+}
+
+@media (max-width: 900px) {
+  .press-frozen .press-tile {
+    padding: 10px 12px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .press-frozen *,
+  .press-frozen *::before,
+  .press-frozen *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
