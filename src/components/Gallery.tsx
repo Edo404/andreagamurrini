@@ -4,9 +4,9 @@ import { useCallback, useEffect, useId, useState } from "react";
 import type { GalleryImage } from "@/lib/gallery";
 import type { Lang } from "@/lib/i18n";
 import { UI } from "@/data/ui";
-import { ArrowIcon } from "./icons";
+import { ArrowRight, X } from "@phosphor-icons/react";
 
-/** Foto appese a mosaico, nelle loro proporzioni: le prime `initial`, poi "Altri". Clic su una foto = lightbox con frecce e tastiera. */
+/** Foglio dei provini: le foto come fotogrammi su pellicola; le prime `initial`, poi "Altri". Clic su una foto = lightbox con frecce e tastiera. */
 export function Gallery({
   images,
   lang,
@@ -48,7 +48,7 @@ export function Gallery({
 
   return (
     <>
-      <ul id={id} className={`wall-grid${expanded ? " is-open" : ""}`}>
+      <ul id={id} className={`sheet${expanded ? " is-open" : ""}`}>
         {images.map((img, i) => (
           <li
             key={img.src}
@@ -58,7 +58,7 @@ export function Gallery({
           >
             <button
               type="button"
-              className="photo"
+              className="frame"
               onClick={() => setOpen(i)}
               aria-label={`${t.gallery.open} ${i + 1}/${images.length}`}
             >
@@ -79,7 +79,7 @@ export function Gallery({
         <div className="x-toggle">
           <button
             type="button"
-            className="pill pill-sun"
+            className="btn btn-ghost"
             aria-expanded={expanded}
             aria-controls={id}
             onClick={() => setExpanded((e) => !e)}
@@ -109,6 +109,7 @@ export function Gallery({
             {String(images.length).padStart(2, "0")}
           </p>
           <button type="button" className="lb-btn lb-close" onClick={close}>
+            <X size={18} aria-hidden="true" />
             {t.galleryClose}
           </button>
           <button
@@ -120,9 +121,7 @@ export function Gallery({
               step(-1);
             }}
           >
-            <span className="lb-flip">
-              <ArrowIcon />
-            </span>
+            <ArrowRight className="lb-flip" size={22} aria-hidden="true" />
           </button>
           <button
             type="button"
@@ -133,7 +132,7 @@ export function Gallery({
               step(1);
             }}
           >
-            <ArrowIcon />
+            <ArrowRight size={22} aria-hidden="true" />
           </button>
         </div>
       )}

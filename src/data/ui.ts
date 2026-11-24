@@ -108,9 +108,9 @@ export const UI: Record<Lang, Dict> = {
     },
     meta: {
       home: {
-        title: "dr.gam | official website",
+        title: "dr.gam (Andrea Gamurrini) | official website",
         description:
-          "dr.gam (Andrea Gamurrini): singer-songwriter, multi-instrumentalist and producer. Reggae, jazz and grunge in one sound. New live album “Live in Rome” out now.",
+          "dr.gam (Andrea Gamurrini): singer-songwriter, multi-instrumentalist and producer. Rock, pop and funk, from the stage to the record. New live album “Live in Rome” out now.",
       },
       bio: {
         title: "Story | dr.gam",
@@ -232,9 +232,9 @@ export const UI: Record<Lang, Dict> = {
     },
     meta: {
       home: {
-        title: "dr.gam | sito ufficiale",
+        title: "dr.gam (Andrea Gamurrini) | sito ufficiale",
         description:
-          "dr.gam (Andrea Gamurrini): cantautore, polistrumentista e produttore. Reggae, jazz e grunge in un unico suono. Il nuovo album live “Live in Rome” è uscito.",
+          "dr.gam (Andrea Gamurrini): cantautore, polistrumentista e produttore. Rock, pop e funk, dal palco al disco. Il nuovo album live “Live in Rome” è uscito.",
       },
       bio: {
         title: "Storia | dr.gam",
@@ -358,9 +358,9 @@ export const UI: Record<Lang, Dict> = {
     },
     meta: {
       home: {
-        title: "dr.gam | web oficial",
+        title: "dr.gam (Andrea Gamurrini) | web oficial",
         description:
-          "dr.gam (Andrea Gamurrini): cantautor, multiinstrumentista y productor. Reggae, jazz y grunge en un solo sonido. Ya disponible el nuevo álbum en directo “Live in Rome”.",
+          "dr.gam (Andrea Gamurrini): cantautor, multiinstrumentista y productor. Rock, pop y funk, del escenario al disco. Ya disponible el nuevo álbum en directo “Live in Rome”.",
       },
       bio: {
         title: "Historia | dr.gam",

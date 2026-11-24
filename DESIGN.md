@@ -1,287 +1,279 @@
 ---
 name: dr.gam
-description: The official site of dr.gam, painted by hand like a sun-faded beach-bar sign on the Atlantic.
+description: The official site of dr.gam, laid out as the opened gatefold sleeve of the live LP "Live in Rome".
 colors:
-  sea-900: "#0f2d52"
-  sea-800: "#16396a"
-  sea-700: "#1e4a86"
-  wash: "#f7eedc"
-  wash-2: "#bfd1ea"
-  sun: "#ffc845"
-  sun-hover: "#ffd979"
-  bloom: "#ff6fae"
-  bloom-ink: "#9c1457"
-  ink: "#0f2d52"
+  red: "#bf2716"
+  red-deep: "#a92112"
+  blue: "#1f3dac"
+  blue-tint: "#c9d3f5"
+  ink: "#18141f"
+  ink-2: "#4a4652"
+  paper: "#e5e7e9"
+  paper-2: "#d5d8dc"
+  sheet: "#f3f4f6"
 typography:
   display:
-    fontFamily: "Shrikhand, Cooper Black, Georgia, serif"
-    fontSize: "clamp(4.4rem, 1rem + 13vw, 12.5rem)"
-    fontWeight: 400
-    lineHeight: 0.92
-    letterSpacing: "-0.01em"
+    fontFamily: "Archivo, Arial Narrow, system-ui, sans-serif"
+    fontSize: "clamp(3.2rem, 1.2rem + 7vw, 6rem)"
+    fontWeight: 900
+    lineHeight: 0.9
+    letterSpacing: "-0.035em"
+    fontVariation: "'wdth' 125"
   headline:
-    fontFamily: "Shrikhand, Cooper Black, Georgia, serif"
-    fontSize: "clamp(2.6rem, 1.5rem + 4.4vw, 5.75rem)"
-    fontWeight: 400
-    lineHeight: 1.08
-    letterSpacing: "-0.005em"
+    fontFamily: "Archivo, Arial Narrow, system-ui, sans-serif"
+    fontSize: "clamp(2.3rem, 1.3rem + 4vw, 4.6rem)"
+    fontWeight: 900
+    lineHeight: 1
+    letterSpacing: "-0.02em"
+    fontVariation: "'wdth' 125"
   headline-section:
-    fontFamily: "Shrikhand, Cooper Black, Georgia, serif"
-    fontSize: "clamp(2.2rem, 1.4rem + 3vw, 4.25rem)"
-    fontWeight: 400
-    lineHeight: 1.08
-    letterSpacing: "-0.005em"
+    fontFamily: "Archivo, Arial Narrow, system-ui, sans-serif"
+    fontSize: "clamp(1.9rem, 1.2rem + 2.6vw, 3.4rem)"
+    fontWeight: 900
+    lineHeight: 1
+    letterSpacing: "-0.02em"
+    fontVariation: "'wdth' 125"
   title:
-    fontFamily: "Shrikhand, Cooper Black, Georgia, serif"
-    fontSize: "clamp(1.6rem, 1.2rem + 1.4vw, 2.4rem)"
-    fontWeight: 400
+    fontFamily: "Archivo, Arial Narrow, system-ui, sans-serif"
+    fontSize: "clamp(1.3rem, 1.05rem + 1vw, 1.85rem)"
+    fontWeight: 900
     lineHeight: 1.05
+    letterSpacing: "-0.015em"
+    fontVariation: "'wdth' 125"
+  title-soft:
+    fontFamily: "Archivo, Arial Narrow, system-ui, sans-serif"
+    fontWeight: 500
+    letterSpacing: "-0.01em"
+    fontVariation: "'wdth' 100"
   lead:
-    fontFamily: "Figtree, Trebuchet MS, system-ui, sans-serif"
-    fontSize: "clamp(1.15rem, 1rem + 0.5vw, 1.4rem)"
+    fontFamily: "Archivo, Arial Narrow, system-ui, sans-serif"
+    fontSize: "clamp(1.1rem, 1rem + 0.45vw, 1.35rem)"
     fontWeight: 400
     lineHeight: 1.5
   body:
-    fontFamily: "Figtree, Trebuchet MS, system-ui, sans-serif"
+    fontFamily: "Archivo, Arial Narrow, system-ui, sans-serif"
     fontSize: "clamp(1rem, 0.96rem + 0.2vw, 1.125rem)"
     fontWeight: 400
     lineHeight: 1.6
   label:
-    fontFamily: "Figtree, Trebuchet MS, system-ui, sans-serif"
-    fontSize: "0.875rem"
+    fontFamily: "Archivo, Arial Narrow, system-ui, sans-serif"
+    fontSize: "0.78rem"
     fontWeight: 800
-    lineHeight: 1.2
-    letterSpacing: "0.06em"
+    lineHeight: 1.3
+  button:
+    fontFamily: "Archivo, Arial Narrow, system-ui, sans-serif"
+    fontSize: "1rem"
+    fontWeight: 800
+    lineHeight: 1.1
 rounded:
-  sm: "4px"
-  photo: "6px"
-  card: "18px"
-  pill: "999px"
+  none: "0px"
+  record: "50%"
 spacing:
   gutter: "clamp(20px, 4vw, 56px)"
-  section: "clamp(80px, 10vw, 152px)"
+  section: "clamp(72px, 9vw, 136px)"
   wrap: "1320px"
+  header: "64px"
 components:
-  button-primary:
-    backgroundColor: "{colors.sun}"
+  button-paper:
+    backgroundColor: "{colors.sheet}"
     textColor: "{colors.ink}"
-    rounded: "{rounded.pill}"
-    padding: "0 24px"
+    typography: "{typography.button}"
+    rounded: "{rounded.none}"
+    padding: "0 22px"
     height: "50px"
-  button-primary-hover:
-    backgroundColor: "{colors.sun-hover}"
-    textColor: "{colors.ink}"
+  button-paper-hover:
+    backgroundColor: "{colors.ink}"
+    textColor: "{colors.sheet}"
+  button-red:
+    backgroundColor: "{colors.red}"
+    textColor: "{colors.sheet}"
+    typography: "{typography.button}"
+    rounded: "{rounded.none}"
+    padding: "0 22px"
+    height: "50px"
+  button-red-hover:
+    backgroundColor: "{colors.red-deep}"
+    textColor: "{colors.sheet}"
   button-ghost:
-    backgroundColor: "transparent"
-    textColor: "{colors.wash}"
-    rounded: "{rounded.pill}"
-    padding: "0 24px"
-    height: "50px"
-  button-line:
-    backgroundColor: "transparent"
-    textColor: "{colors.wash}"
-    rounded: "{rounded.pill}"
+    textColor: "{colors.ink}"
+    typography: "{typography.button}"
+    rounded: "{rounded.none}"
     padding: "0 18px"
     height: "44px"
-  button-line-hover:
-    backgroundColor: "{colors.wash}"
-    textColor: "{colors.ink}"
-  button-ink:
+  button-ghost-hover:
     backgroundColor: "{colors.ink}"
-    textColor: "{colors.wash}"
-    rounded: "{rounded.pill}"
-    padding: "0 24px"
-    height: "50px"
-  button-ink-hover:
-    backgroundColor: "{colors.sea-700}"
-  ticket-card:
-    backgroundColor: "{colors.wash}"
-    textColor: "{colors.ink}"
-    rounded: "{rounded.card}"
-    padding: "clamp(28px, 4vw, 52px)"
-  ticket-card-sun:
-    backgroundColor: "{colors.sun}"
-    textColor: "{colors.ink}"
-    rounded: "{rounded.card}"
-    padding: "clamp(28px, 4vw, 48px) clamp(28px, 5vw, 64px)"
-  nav-pill:
-    backgroundColor: "{colors.sea-800}"
-    textColor: "{colors.wash}"
-    rounded: "{rounded.pill}"
-    padding: "8px 14px"
-  nav-pill-active:
-    backgroundColor: "{colors.sun}"
-    textColor: "{colors.ink}"
-  chip-tag:
-    backgroundColor: "{colors.sea-700}"
-    textColor: "{colors.wash}"
-    rounded: "{rounded.pill}"
-    padding: "3px 10px"
+    textColor: "{colors.paper}"
   input-field:
-    backgroundColor: "transparent"
+    backgroundColor: "{colors.sheet}"
     textColor: "{colors.ink}"
-    rounded: "0"
-    padding: "10px 0 12px"
+    rounded: "{rounded.none}"
+    padding: "13px 14px"
+  tag-event:
+    backgroundColor: "{colors.ink}"
+    textColor: "{colors.paper}"
+    typography: "{typography.label}"
+    padding: "2px 8px"
+  tag-event-live:
+    backgroundColor: "{colors.red}"
+    textColor: "{colors.sheet}"
+  tag-event-radio:
+    backgroundColor: "{colors.blue}"
+    textColor: "{colors.sheet}"
+  page-hero:
+    backgroundColor: "{colors.red}"
+    textColor: "{colors.sheet}"
+    typography: "{typography.headline}"
+  menu-overlay:
+    backgroundColor: "{colors.red}"
+    textColor: "{colors.sheet}"
 ---
 
 # Design System: dr.gam
 
 ## Overview
 
-**Creative North Star: "Atlantico dipinto"**
+**Creative North Star: "Gatefold Live"**
 
-The site is a sun-faded wall on Fuerteventura, painted by hand the way a beach bar paints its board. Every surface is a coat of paint, not a screen: Atlantic blue in three depths for the ground, a cream whitewash for the panels that hold things to read, sun yellow for the one thing to press, and bougainvillea pink for accents and focus. Headings are sign lettering; everything that is read is a plain, warm sans.
+The site is the opened gatefold sleeve of the live LP "Live in Rome". The ground is uncoated cool-grey board, and everything on it is printed in two spot inks: Rome red and stage blue, with a near-black that reads as the two overprinted. Photos are printed in one ink and develop as they come into view. Sections are parts of the record: the opened sleeve with the vinyl half pulled out, the liner notes, the back cover with side A and side B, the blue stage with its screen and setlist, a full red field for the manifesto quote, a booklet page, the contact sheet on black, pasted press clippings, and the blue back cover as the footer. Inner pages open on a red panel with the fold shadow along one edge.
 
-Density is generous and loose. Sections breathe on a large vertical rhythm, panels hang slightly crooked (between -2deg and 1.8deg), and objects are physical: tickets with punched notches, photos pinned to the wall, records sliding out of their sleeves, a round stamp that turns slowly. Depth is a single soft drop shadow, as if each object were pinned a few millimetres off the wall. A fixed paint grain (7% opacity) sits over everything.
+The system works like print. Everything is cut square and only records are round. Depth comes from paper on paper: soft cast shadows under pasted sheets, a fold crease and a faint board grain. There is one family, Archivo. Titles are set wide and black. Everything meant to be read is set at normal width. The round red and white logo appears only as the centre label of a vinyl, and it is never redrawn, recoloured or cropped.
 
-The world refuses the dark grid-of-cards artist template: no glassy dark tiles, no neon, no uniform card grids standing square to the viewport.
+Density is generous between sections (the section rhythm is the `section` spacing token) and tight inside them: lists, credits and contact frames sit close, the way a sleeve packs its information.
 
 **Key Characteristics:**
-- Three-depth sea-blue ground with cream panels; ink text is the deepest blue, never black.
-- Shrikhand sign lettering only at heading size; Figtree 400/600/800 for all reading, buttons, menus and forms.
-- Painted wave lines (stroke 7, round caps) as edges and dividers; full wave edges between grounds.
-- Pinned, slightly rotated objects: tickets, postcards, pinned photos, sleeves with vinyl.
-- Pill-shaped everything that is pressed.
-- One soft shadow vocabulary; no hard offsets.
+- Cool-grey board ground with two spot inks (red, blue) and overprint black.
+- Full-bleed colour fields (red, blue, black) mark sections, the way a sleeve changes panel.
+- Photos are printed in one ink (blue, red or black) and develop to colour or full tone on interaction or on view.
+- One variable family: wide 900 for titles, normal width for reading.
+- Square-cut everything, round records only.
+- Paper physics: pasted sheets cast a soft shadow, clippings and stamps sit slightly crooked, and the fold is a shadow crease.
 
 ## Colors
 
-A painted palette: deep Atlantic blues for the ground, cream whitewash for panels, and two sign paints (sun and bloom) used as accents.
+Two spot inks on grey board, with an overprint black for type and for one dark field.
 
 ### Primary
-- **Sun Yellow** (sun): the primary action and the warmest paint. Primary pill buttons, the active nav pill, the hero sun disc, the footer contact ticket, the mobile menu wall, the tone half of every sign heading, the lightbox controls, text selection. Hover lifts to **Sun Wash** (sun-hover).
+- **Rome Red** (red): the action ink and the big fields. It is used for primary buttons, the opened-sleeve panel, the manifesto field, page-hero panels, the mobile menu, the A/B side letters, the archive years, drop caps, pull quotes, nav underlines and text selection. Text on it is Sheet; secondary text on it is Paper.
+- **Deep Rome Red** (red-deep): the hover state of red buttons, and the only red allowed for small text on Paper-2 (sold-out stamps, review sources), where it holds AA contrast.
 
 ### Secondary
-- **Bougainvillea Bloom** (bloom): accent and focus. The focus ring on every interactive element, the active language pill, the pink quote wall, video play buttons, "sold out" stamps, release tags, board separators, the middle hero stripe. As text it appears only on the deepest blue (sea-900), for pull quotes.
-- **Bloom Ink** (bloom-ink): the dark pink that can carry text on cream and sun: the ticket meta line, quote attributions, the hovered menu item on the yellow wall, form errors.
+- **Stage Blue** (blue): the stage section, the footer back cover, the default ink for halftone photos and contact-sheet frames, the radio event tag, and the focus ring on light grounds.
+- **Stage Blue Tint** (blue-tint): secondary text and rules on blue.
 
 ### Neutral
-- **Atlantic Deep** (sea-900): the page ground, the html and body background, record tags, ticket notches on the contact page. Also the value of **Ink** (ink), the text color on cream, sun and bloom.
-- **Atlantic Mid** (sea-800): the second ground. Music crate, press-quote wall, inner page heroes, footer, the nav capsule, the YouTube placeholder.
-- **Atlantic Shallow** (sea-700): the third and lightest ground. Story hero duotone base, nav hover, default event tags, the alternate studio logo disc.
-- **Whitewash** (wash): main text on blue, and the painted panel for tickets, postcards, photo mounts, notes, partner chips, the board band.
-- **Sea Mist** (wash-2): secondary text on blue: roles, leads in page heroes, meta, dates, footer base.
-- **Lines**: whitewash at 20% (`rgb(247 238 220 / 0.2)`) for hairlines and dividers, at 45% for ghost and line button strokes. On cream, ink at 25-35% for dashed perforations and input underlines.
+- **Overprint Black** (ink): body text, rules, the header underline, the contact-sheet field, the black-ink halftone, and the ink half of each title (the wordmark's ".gam" and the soft half of titles on red).
+- **Faded Ink** (ink-2): secondary text on board (meta lines, notes, credit labels).
+- **Sleeve Board** (paper): the page ground.
+- **Back Board** (paper-2): one step down, for the back-cover tracklist and the reviews wall.
+- **Pasted Sheet** (sheet): the lighter paper pasted onto the board (clippings, review cards, form fields, the paper button). It also serves as the text colour on red, blue and black.
 
 ### Named Rules
-**The Ink Is Blue Rule.** Text on any light paint (wash, sun, bloom) is ink (#0f2d52), never black or grey.
+**The Two Inks Rule.** The only chromatic colours are red and blue. Black is their overprint. A third hue never enters; the only tint is blue-tint, for secondary text on blue.
 
-**The Sun Is the Action Rule.** Sun yellow fills the primary action on any view; a second competing filled action uses ink or a ghost outline, not another sun pill in the same group.
-
-**The Bloom Stays on Deep Blue Rule.** Bloom pink as a text color only on sea-900; on light paint, pink text is bloom-ink.
+**The Small Red Rule.** Red text smaller than a title on Paper-2 uses red-deep. Rome Red is reserved for titles, fields and buttons.
 
 ## Typography
 
-**Display Font:** Shrikhand (with Cooper Black, Georgia, serif)
-**Body Font:** Figtree 400 / 600 / 800 (with Trebuchet MS, system-ui, sans-serif)
+**Display Font:** Archivo variable (with Arial Narrow, system-ui), at wdth 125 and weight 900
+**Body Font:** Archivo variable, normal width
 
-**Character:** Seventies sign lettering for what is shouted from the wall, a friendly round grotesque for what is read. Shrikhand is the only preloaded face.
+**Character:** one family split by width rather than by face. The wide black cut is the stamped title on the sleeve, and the normal width is the liner-notes text.
 
 ### Hierarchy
-- **Display** (400, clamp 4.4rem to 12.5rem, 0.92): the dr.gam wordmark in the hero only; the ".gam" half in sun yellow. It may run over the sun disc.
-- **Headline** (400, clamp 2.6rem to 5.75rem, 1.08): inner page sign headings and the footer ticket CTA.
-- **Headline Section** (400, clamp 2.2rem to 4.25rem, 1.08): home section signs. Two-part: a tone phrase in sun yellow, the rest in whitewash ("All the music", "On screen", "Through the lens").
-- **Title** (400, clamp 1.6rem to 2.4rem, 1.05-1.1): ticket titles, postcard titles, the featured video title. The smallest size Shrikhand may appear at.
-- **Lead** (400 or 600, clamp 1.15rem to 1.4rem, 1.5): intro lines, max 46ch.
-- **Body** (400, clamp 1rem to 1.125rem, 1.6): running text. Long prose at up to 1.2rem, line-height 1.72, max 68ch.
-- **Label** (800, 0.875rem or smaller, 0.06-0.08em, uppercase): form labels, event tags, stamps, quote attributions, language links. Functional labels only.
-- **Meta** (800, 0.875rem, sentence case, no tracking): release status and year, set after the title it qualifies, in bloom-ink on cream.
-- **Facts** (Figtree at lead size, 600 with the figure in 800): figures are written as words of the sentence ("Nearly 2,000 concerts..."), never as Shrikhand numerals.
+- **Display** (900, wdth 125, fluid 3.2rem to 6rem, line-height 0.9): the "dr.gam" wordmark on the opened sleeve.
+- **Headline** (900, wdth 125, fluid 2.3rem to 4.6rem, line-height 1): page-hero titles, the footer call to action, archive years.
+- **Headline Section** (900, wdth 125, fluid 1.9rem to 3.4rem): home section titles and the manifesto quote (which uses weight 800 at line-height 1.12, capped at 24ch).
+- **Title** (900, wdth 125, fluid 1.3rem to 1.85rem): record titles, pull quotes, studio label captions.
+- **Lead** (400, fluid 1.1rem to 1.35rem, line-height 1.5, max 60ch): intros under titles.
+- **Body** (400, fluid 1rem to 1.125rem, line-height 1.6, prose max 68ch).
+- **Label** (800, 0.78rem): event tags and sold-out stamps (stamps at 900 and wdth 125).
 
 ### Named Rules
-**The Sign Size Floor Rule.** Shrikhand never appears below the Title size (about 1.4rem is the absolute floor, used once for the story aside name). Below that it turns kitsch; use Figtree 800 instead.
+**The Two Widths Rule.** Section titles pair a soft half (500, wdth 100) with a hard half (900, wdth 125) in the same family, for example "All the **music**". Emphasis comes from width and weight, never from a second typeface.
 
-**The Two Families Rule.** Shrikhand and Figtree only, four weights in total. Bold text is Figtree 800.
+**The Read Narrow Rule.** Anything longer than a line is set at normal width. The wide axis is only for titles, letters, years and stamps.
 
 ## Layout
 
-A centred shell of 1320px plus a fluid gutter (20 to 56px) on each side. Sections are separated by a large fluid rhythm (80 to 152px). Grounds change by full-bleed bands (sea-900 to sea-800 and back) joined by painted wave edges, never by straight cuts; the board band and pink wall break the horizontal with a slight rotation or a slanted clip-path, scaled past the viewport so their edges never show.
-
-Grids are asymmetric and loose: the hero is 7fr / 5fr with the sign overlapping the sun; content grids of three columns stagger each item's rotation and vertical offset. The photo wall is a column masonry (up to 4 columns of about 220px, 2 below 720px) that keeps each photo's natural proportions, with rotations alternating -1.6deg, 1.8deg, -0.4deg. Breakpoints: 1099px (inline nav collapses to the sun menu button and a full-screen yellow menu wall), 1023px (hero, postcard, story, archive, contact go single column; content grids go to two; the sun disc shrinks to min(56vw, 340px) above the sign and the spin badge drops to 96px on the disc's top-right shoulder, clear of the wordmark), 720px (photo wall to two columns), 600px (videos to one column, rotations on tickets and postcards removed, ticket actions stack full width and move above the ticket description). The fixed header is 72px, transparent until scrolled, then sea-900 at 92%.
+Content sits in a 1320px wrap with a fluid gutter. Sections run full-bleed as colour fields (paper, paper-2, blue, red, black), with section-token vertical padding. The home page reads in sleeve order. The opened sleeve is a two-column grid at desktop (blue halftone photo on the left, red panel on the right), capped at the viewport height minus the 64px sticky header and at 860px. Below 1024px it stacks with the photo on top, and on phones the listen button stays above the fold. Other two-column splits (stage 1.65:1, booklet 1:1, story 240px aside plus prose, contact 1:1.2) collapse to one column at 1023px. Grids drop from four to two columns (contact sheet) and from three to two to one (facts, clippings) at 760px and 600px. Inline nav gives way to the menu button below 1100px.
 
 ## Elevation & Depth
 
-Depth is one soft drop shadow, as if each painted object were pinned slightly off the wall. Flat grounds carry no shadow; objects on them (tickets, postcards, photos, sleeves, vinyl, stamps, play buttons, studio discs) all use the same one. Rotation, not shadow strength, does the rest of the work.
+Depth is paper on paper, not interface layering. Pasted sheets (clippings, reviews, record covers, the vinyl) cast one soft, downward shadow. They lift slightly further on hover. The sleeve's fold is a 28px ink gradient along the inner edge of the red panel (22px and vertical once stacked). A fixed fractal-noise grain at 8% multiply sits over everything as board texture.
 
 ### Shadow Vocabulary
-- **Pinned** (`box-shadow: 0 18px 40px -18px rgb(6 18 36 / 0.7)`): every object that sits on a ground.
-- **Sun glow** (`box-shadow: 0 8px 22px -10px rgb(255 200 69 / 0.7)`): primary sun pill only.
+- **Pasted** (`box-shadow: 0 10px 24px -12px rgb(24 20 31 / 0.45)`): clippings, review cards, track covers, the vinyl.
+- **Lifted** (`box-shadow: 0 18px 36px -16px rgb(24 20 31 / 0.5)`): the sleeve cover above its vinyl, and a clipping on hover.
+- **Fold crease** (`linear-gradient(90deg, rgb(24 20 31 / 0.28), transparent)`, 28px wide): the inner edge of the opened-sleeve panel and of every page hero.
 
 ### Named Rules
-**The One Pin Rule.** Objects use the Pinned shadow and nothing heavier. No hard offset shadows on cards, panels or type, no stacked elevations. The 2px bloom-ink drop under the gallery pin is part of the pin's drawing, not an elevation.
+**The Paper Physics Rule.** Shadows are always soft and fall downward, the way a real sheet sits on board. Only pasted paper and records cast one. Fields, buttons and inputs stay flat.
 
 ## Shapes
 
-Three shape families. Pills (999px) for everything pressed or tagged: buttons, nav, language links, chips, stamps, the skip link. Soft cards (18px) for tickets, video frames and boards; postcards use 8px, notes and covers 4-6px, so smaller objects get tighter corners. Circles for the sun disc, vinyl, play buttons, the spin badge, studio logos and ticket notches.
+Every edge is cut square (0 radius): buttons, fields, tags, frames, panels, clippings. Only records are round: the vinyl, its centre label and the studio-label discs. Crooked placement is part of the shape language. Clippings rotate between -1.4 and 1.6 degrees, reviews by about ±0.7 degrees, and sold-out stamps by -3 degrees.
 
-Tickets are punched: two half-circle notches (28-30px) cut into the left and right edges in the ground color behind, and a 2px dashed perforation in ink at 25-30% separates stub from body. Photos hang on a cream mount (12px sides, 40px bottom; 8px and 24px below 720px), held by a round bloom pin (18px) with a 2px bloom-ink drop, centred on the top edge. Waves are one shared path: 12 crests over 1440 units, stroked at 7 with round caps when used as a line, filled when used as an edge.
+### Named Rules
+**The Only Records Are Round Rule.** A circle means a record. No pill buttons, round avatars or rounded cards.
 
 ## Components
 
 ### Buttons
-Painted pills, tactile and plain.
-- **Shape:** full pill (999px), min height 50px, Figtree 800 at 1rem, 10px icon gap.
-- **Primary:** sun with ink text and the sun glow; hover to sun-hover.
-- **Hover / Focus:** lift 2px on hover, press to 1px down and 0.98 scale; 0.25s on the house ease (`cubic-bezier(0.22, 1, 0.36, 1)`). Focus is a 3px bloom outline offset 3px.
-- **Ghost:** transparent with a 2px inset whitewash stroke at 45%, full whitewash on hover; on cream it becomes an ink stroke.
-- **Line:** smaller (44px, 0.95rem) with a 1.5px stroke; fills whitewash with ink text on hover. Used for listening platforms.
-- **Ink:** ink fill with whitewash text, hover to sea-700. Used on cream panels.
-- **Expand toggle:** a sun pill with a drawn plus whose vertical bar rotates away when open.
-
-### Chips
-- **Style:** pill, Figtree 800 uppercase 0.75rem, sea-700 by default; sun for live events, bloom for releases. Partner chips are larger whitewash or sun pills with slight alternating rotation, bloom on hover.
-
-### Cards / Containers
-- **Corner Style:** 18px for tickets and boards, 8px postcards, 6px notes.
-- **Background:** whitewash or sun, ink text; sea-800 for boards on the deep ground.
-- **Shadow Strategy:** the Pinned shadow (see Elevation & Depth).
-- **Border:** none; dashed ink perforations inside tickets and postcards.
-- **Internal Padding:** fluid, roughly 16-22px for the hero ticket, 28-52px for contact and footer tickets.
+Rectangular stamps, flat, 800 weight.
+- **Shape:** square-cut (0), 50px tall, 22px side padding, icon gap 0.55em; they press down 1px on active.
+- **Paper:** a sheet-on-ink button that turns ink on hover. It is the listen action on the red sleeve panel.
+- **Red:** the primary action on board, darkening to red-deep on hover.
+- **Ghost:** 44px tall, with a 2px inset border in the current colour. It fills with ink on hover, or with sheet on blue and black fields. Used for streaming links and the "Others" expanders.
+- **Underlined link:** 800 weight with a 2px underline that thickens to 4px on hover.
 
 ### Inputs / Fields
-- **Style:** underline only. Transparent, ink text, 2px ink underline at 35%, no radius, fluid 1.1-1.35rem text. Label above in the Label style.
-- **Focus:** underline goes solid ink; no outline inside the ticket.
-- **Error:** underline and label turn bloom-ink; status text in bloom-ink 600.
+- **Style:** sheet fill, 2px ink border, square, 13px by 14px padding, red caret.
+- **Focus:** 3px blue outline, offset 2px.
+- **Error:** red border with a 1px inset red line, and a red status line below. A sent status is blue.
 
 ### Navigation
-- **Desktop:** a sea-800 capsule (85%, whitewash hairline inset) holding Figtree 600 pills; hover sea-700, current page sun with ink. Language links are small uppercase 800 pills, current in bloom.
-- **Mobile:** a sun "Menu" pill opens a full-screen sun-yellow wall with Shrikhand links (clamp 2.3 to 4.4rem) rising in with a 40ms stagger; hover and current in bloom-ink.
+A sticky board header with a 2px ink rule beneath it. The wordmark sits left, with ".gam" in red. Nav links are 700 weight, and a 3px red underline draws in from the left on hover and on the current page. The language switch is square 36px cells, with the current language reversed out in ink. Below 1100px an ink menu button opens a full red overlay. Its links are set wide 900 and slap in one after another, and the current page is shown in ink.
 
-### Ticket (signature)
-The release and contact object. A whitewash (or sun, in the footer) card with notches, a dashed perforation and a slight rotation (-1.2 to 1deg). The title comes first; the release status and year follow it as a Meta line. The footer ticket is a single link: the Shrikhand headline CTA with an arrow that slides on hover comes first, the Figtree 600 supporting line sits below it, and the card tilts -0.6deg on hover.
+### Tags
+Square 0.78rem/800 labels with 2px by 8px padding. They are ink by default, red for concerts and blue for radio.
 
-### Sun Disc Duotone (signature)
-A true two-ink duotone in a circle: a grayscale, contrast-boosted portrait multiplied onto sun yellow, then a sea-700 layer blended with lighten on top, so shadows print Atlantic blue and highlights stay sun. No halo or glow around the disc. The story hero uses a multiply duotone on sea-700.
+### The Sleeve and Vinyl (signature)
+The cover image sits above a vinyl that is pulled out 80% to the right, so the round logo label stays fully visible. On load the vinyl slides out of the sleeve. While the listen button is hovered or focused, the label spins. The vinyl is drawn as grooves with a soft pasted shadow, and the logo image sits unaltered at its centre.
 
-### Painted Wave (signature)
-A wave line that paints itself in as it scrolls into view: the line sits in a clipping wrapper and slides from translateX(-100%) to 0 on the view timeline (entry 0% to cover 45%). Transform only, off under reduced motion. Three stacked sun, bloom and whitewash waves close the hero and draw the same way; filled wave edges join every change of ground.
+### Halftone Photo (signature)
+A greyscale photo, contrast-lifted and screen-blended over a field of blue, red or black, so the darks take the ink and the lights stay paper. Photos develop from 12% opacity and a 1.04 scale as they scroll into view. Contact-sheet frames and stage video thumbnails print in blue or black and develop to full colour on hover and focus.
 
-### Spin Badge (signature)
-The round red and white logo at the centre of a 168px stamp (112px on mobile) with the motto set in uppercase Figtree 800 on a circular path, turning once every 24s.
+### Tracklist Sides (signature)
+Back-cover columns with a huge red "A" or "B" in the margin. Each row is a 64px pasted cover, a title and meta line, and a red arrow that nudges up and right on hover. Sold-out releases carry a crooked outlined stamp in red-deep.
 
-### Sleeve and Vinyl
-A cover with a grooved vinyl peeking out at 14%; on hover the record slides to 34% and turns 160deg while the cover tilts -2deg. An optional bloom "sold out" stamp sits rotated 8deg on the corner.
+### Press Clippings (signature)
+Sheet cards on board, each slightly rotated and softly shadowed. The outlet logo is printed grey (multiply). On hover the card lifts, straightens toward 0.6 degrees and the logo returns to colour. Clippings slap in as they enter view.
+
+### Page Hero
+A red panel with the fold crease on its left edge. It carries a two-width title, with the soft half in ink, and a lead in paper.
+
+### Footer (back cover)
+A full blue field. It opens with a wide call to action ("Write to dr.gam" with an arrow that nudges on hover), then credit columns under a 2px blue-tint rule. The call to action is hidden on the contact page.
+
+### Motion
+One ease (`cubic-bezier(0.16, 1, 0.3, 1)`). Slap-in rises 14px from 1.02 scale for revealed list items, menu links and clippings. Photos develop on view. The vinyl pulls out over 1.1s, and its label spins (1.8s per turn) while the listen button is hovered. The lightbox fades in over 0.25s. Under `prefers-reduced-motion: reduce` every animation and transition collapses to an instant change.
 
 ## Do's and Don'ts
 
 ### Do:
-- **Do** set every heading in Shrikhand at Title size or larger, splitting it into a sun tone phrase and a whitewash remainder.
-- **Do** use sun yellow for the single primary action in a group, as a pill with ink text.
-- **Do** join changes of ground with the shared wave edge, and use the drawn wave line as a divider.
-- **Do** hang objects with a small rotation (between -2deg and 1.8deg) and the Pinned shadow; straighten them below 600px where they would crowd.
-- **Do** keep text on light paint in ink (#0f2d52) and pink text on light paint in bloom-ink.
-- **Do** use the bloom 3px outline for every focus state.
-- **Do** draw icons as inline SVG with a rounded 2px stroke; mirror the same arrow for the opposite direction rather than drawing a second one.
-- **Do** write figures as part of the sentence in Figtree, with the number in 800 at text size.
-- **Do** leave the Press section (`.press-frozen`, src/app/press.css) exactly as it is. It is a frozen legacy island with its own near-black ground (#110f0e), its own tokens and its own fonts (Bricolage Grotesque, Instrument Serif, DM Mono). Reach it only through a wave edge filled with its ground color.
+- **Do** set every title in Archivo 900 at wdth 125, and every readable text in the same family at normal width.
+- **Do** print photos in one ink (blue by default, black for the booklet portrait, red for the live photo inside the Story), and let them develop on view or on hover.
+- **Do** show the round logo only as the vinyl's centre label, exactly as supplied.
+- **Do** use red-deep for small red text on Paper-2, and Sheet for text on red, blue and black fields.
+- **Do** give pasted paper the pasted shadow (clippings, reviews, covers) and tilt only clippings, reviews and stamps slightly; keep everything else flat and straight.
+- **Do** open inner pages on a red page-hero panel with the fold crease.
+- **Do** switch focus rings to Sheet on red, blue and black fields.
 
 ### Don't:
-- **Don't** restyle, re-token or extend the Press section, and don't use Bricolage Grotesque, Instrument Serif or DM Mono anywhere outside it.
-- **Don't** set Shrikhand for body, buttons, labels or anything below Title size.
-- **Don't** add a third type family or weights beyond Figtree 400/600/800.
-- **Don't** use black or grey for text or grounds; the darkest paint is sea-900.
-- **Don't** build square, uniform dark card grids; this world exists to refuse that template.
-- **Don't** use hard offset shadows on cards, panels or type, or heavier elevations than the Pinned shadow.
-- **Don't** put a halo or glow around the sun disc; its depth comes from the duotone.
-- **Don't** put an uppercase tracked line above a heading as a kicker; metadata follows the title in sentence case, and uppercase labels are for form fields, tags, stamps and attributions only.
-- **Don't** use text glyphs (arrows, crosses) as icons.
+- **Don't** introduce a third hue, gradients between the inks, or tints outside blue-tint.
+- **Don't** round any corner except on records.
+- **Don't** use a second typeface, or set paragraphs at the wide width.
+- **Don't** recolour, redraw, crop or restyle the round red and white logo.
+- **Don't** show a live or portrait photo in full colour at rest. Colour is its developed state. Release artwork (record covers) is the exception: it is a reproduction of another printed object.
+- **Don't** use hard offset shadows or glows. Depth is the soft pasted shadow and the fold crease only.
+- **Don't** ship motion without its reduced-motion fallback.

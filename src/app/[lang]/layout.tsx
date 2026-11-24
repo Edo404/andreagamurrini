@@ -3,9 +3,9 @@ import { notFound } from "next/navigation";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { LANGS, SITE_URL, isLang } from "@/lib/i18n";
+import { artistGraph } from "@/lib/jsonld";
 import { fontVariables } from "../fonts";
 import "../globals.css";
-import "../press.css"; // sezione Stampa congelata: dopo globals.css
 
 export const dynamicParams = false;
 
@@ -21,17 +21,27 @@ export const metadata: Metadata = {
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
-  themeColor: "#110f0e",
-  colorScheme: "dark",
+  themeColor: "#ecebe6",
+  colorScheme: "light",
 };
 
-export default async function RootLayout({ children, params }: LayoutProps<"/[lang]">) {
+export default async function RootLayout({
+  children,
+  params,
+}: LayoutProps<"/[lang]">) {
   const { lang } = await params;
   if (!isLang(lang)) notFound();
 
   return (
     <html lang={lang} className={fontVariables}>
       <body>
+        <script
+          type="application/ld+json"
+          // JSON statico generato dai dati del sito; "<" escapato per non chiudere lo script
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(artistGraph(lang)).replace(/</g, "\\u003c"),
+          }}
+        />
         <div className="grain" aria-hidden="true" />
         <Header lang={lang} />
         <main id="main">{children}</main>

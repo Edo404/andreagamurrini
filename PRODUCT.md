@@ -12,11 +12,11 @@ Primary: fans and listeners discovering dr.gam (Andrea Gamurrini), mostly arrivi
 
 ## Product Purpose
 
-The official website of dr.gam, singer-songwriter, multi-instrumentalist and producer (funk, reggae, pop, with jazz and grunge roots). Success is a visitor who presses play: the first action is listening to the latest release on Spotify ("Live in Rome", 2026).
+The official website of dr.gam, singer-songwriter, multi-instrumentalist and producer (rock, pop and funk, with roots in blues, soul, reggae, jazz and grunge). Success is a visitor who presses play: the first action is listening to the latest release on Spotify ("Live in Rome", 2026).
 
 ## Positioning
 
-An artist with nearly two thousand concerts across Italy, Europe and America, a production studio and label of his own (White Coal, Fuerteventura), and a sound that mixes reggae, funk and pop. The name itself carries the idea: "dr" from the heart of Andrea, "gam" from the surname, feeling and reason, "alchemy is everything, my friend".
+An artist with nearly two thousand concerts across Italy, Europe and America, a production studio and label of his own (White Coal, Fuerteventura), and a live-first rock, pop and funk sound. The name itself carries the idea: "dr" from the heart of Andrea, "gam" from the surname, feeling and reason, "alchemy is everything, my friend".
 
 ## Operating Context
 
@@ -27,7 +27,6 @@ An artist with nearly two thousand concerts across Italy, Europe and America, a 
 ## Capabilities and Constraints
 
 - Next.js 16 App Router, static pages, plain CSS in `src/app/globals.css`, content in `src/data`.
-- The Press section is considered finished: its look must not change.
 - Old Wix URLs (`/records`, `/videos`, `/gallery`, `/stampa`, `/white-coal-records`) redirect to the home sections.
 
 ## Brand Commitments

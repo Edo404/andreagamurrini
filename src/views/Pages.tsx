@@ -1,41 +1,38 @@
 import Link from "next/link";
 import { Fragment } from "react";
+import { ArrowRight, ArrowUpRight } from "@phosphor-icons/react/dist/ssr";
 import { pagePath, type Lang } from "@/lib/i18n";
 import { PARTNERS, UI } from "@/data/ui";
 import { LOGOS, PHOTOS, SOCIAL, WIKIPEDIA } from "@/data/catalog";
 import texts from "@/data/texts.json";
 import events from "@/data/events.json";
-import { ArrowIcon } from "@/components/icons";
-import { PageHero, Sign, Wave, WaveEdge } from "@/components/ui";
+import { Halftone, PageHero, Title, Vinyl } from "@/components/ui";
 import { ContactForm } from "@/components/ContactForm";
 
 const cleanQuote = (q: string) => q.replace(/^[“"”]+|[“"”]+$/g, "");
 
-/** Citazioni della stampa come biglietti appesi al muro. */
+/** Le recensioni come ritagli di giornale incollati sul cartone. */
 function Quotes({ lang }: { lang: Lang }) {
   const t = UI[lang];
   const [first, ...rest] = t.music.quotes.split(" ");
   return (
-    <section className="notes" aria-labelledby="quotes-title">
-      <WaveEdge fill="var(--sea-800)" />
-      <div className="notes-body">
-        <div className="notes-inner shell">
-          <Sign id="quotes-title" tone={first} hard={rest.join(" ")} />
-          <div className="notes-wall">
-            {texts.quotes[lang].map((q, i) => (
-              <figure key={i} className="note">
-                <blockquote>{cleanQuote(q.quote)}</blockquote>
-                <figcaption>{q.source}</figcaption>
-              </figure>
-            ))}
-          </div>
+    <section className="reviews" aria-labelledby="quotes-title">
+      <div className="shell">
+        <Title id="quotes-title" soft={first} hard={rest.join(" ")} />
+        <div className="reviews-wall">
+          {texts.quotes[lang].map((q, i) => (
+            <figure key={i} className="review">
+              <blockquote>{cleanQuote(q.quote)}</blockquote>
+              <figcaption>{q.source}</figcaption>
+            </figure>
+          ))}
         </div>
       </div>
     </section>
   );
 }
 
-/* ================= Storia: lettura lunga in duotono ================= */
+/* ================= Storia: il libretto interno ================= */
 export function Story({ lang }: { lang: Lang }) {
   const t = UI[lang];
   const paras = texts.bio[lang].filter((p) => !/wikipedia/i.test(p));
@@ -44,49 +41,46 @@ export function Story({ lang }: { lang: Lang }) {
   const cut = first.search(/[.!?](\s|$)/);
   const headline = cut > 0 ? first.slice(0, cut + 1) : first;
   const after = cut > 0 ? first.slice(cut + 1).trim() : "";
-  // le immagini si alternano dentro il racconto
+  // le foto si alternano dentro il racconto, stampate a un inchiostro
   const breaks = new Map([
-    [Math.floor(rest.length * 0.28), { ...PHOTOS.live, alt: t.alt.live }],
-    [Math.floor(rest.length * 0.62), { ...PHOTOS.ivy, alt: t.alt.ivy }],
+    [
+      Math.floor(rest.length * 0.28),
+      { ...PHOTOS.live, alt: t.alt.live, ink: "red" as const },
+    ],
+    [
+      Math.floor(rest.length * 0.62),
+      { ...PHOTOS.ivy, alt: t.alt.ivy, ink: "black" as const },
+    ],
   ]);
   return (
     <article className="story">
       <header className="story-hero">
-        <div className="story-hero-media">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src={PHOTOS.leaves.src}
-            alt={t.alt.leaves}
-            width={PHOTOS.leaves.w}
-            height={PHOTOS.leaves.h}
-          />
-        </div>
+        <Halftone
+          className="story-hero-photo"
+          src={PHOTOS.leaves.src}
+          alt={t.alt.leaves}
+          w={PHOTOS.leaves.w}
+          h={PHOTOS.leaves.h}
+          priority
+        />
         <div className="shell story-hero-text">
-          <h1 className="sign sign-1">{headline}</h1>
+          <h1 className="title title-1">{headline}</h1>
           {after && <p className="lead">{after}</p>}
         </div>
-        <Wave className="story-hero-wave" />
       </header>
       <div className="shell story-body">
         <aside className="story-aside">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src="/media/logo.webp"
-            alt=""
-            width={96}
-            height={96}
-            loading="lazy"
-          />
+          <Vinyl className="story-vinyl" />
           <p className="story-aside-name">Andrea Gamurrini</p>
-          <p className="muted">{t.role}</p>
+          <p>{t.role}</p>
           <a
-            className="pill pill-line"
+            className="btn btn-ghost"
             href={WIKIPEDIA}
             target="_blank"
             rel="noopener noreferrer"
           >
             {t.story.wikipedia}
-            <ArrowIcon />
+            <ArrowUpRight size={16} aria-hidden="true" />
           </a>
         </aside>
         <div className="prose">
@@ -96,16 +90,14 @@ export function Story({ lang }: { lang: Lang }) {
             return (
               <Fragment key={i}>
                 {img && (
-                  <figure className="prose-figure">
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img
-                      src={img.src}
-                      alt={img.alt}
-                      width={img.w}
-                      height={img.h}
-                      loading="lazy"
-                    />
-                  </figure>
+                  <Halftone
+                    className="prose-figure"
+                    src={img.src}
+                    alt={img.alt}
+                    w={img.w}
+                    h={img.h}
+                    ink={img.ink}
+                  />
                 )}
                 {short ? (
                   <p className="pull">{p}</p>
@@ -122,7 +114,7 @@ export function Story({ lang }: { lang: Lang }) {
   );
 }
 
-/* ================= Archivio live: tabellone con gli anni dipinti ================= */
+/* ================= Archivio live: le date stampate sul retro della maglietta del tour ================= */
 export function Archive({ lang }: { lang: Lang }) {
   const t = UI[lang];
   const years = [...new Set(events.map((e) => e.date.slice(0, 4)))];
@@ -139,7 +131,7 @@ export function Archive({ lang }: { lang: Lang }) {
   return (
     <>
       <PageHero
-        tone={t.heads.events.soft}
+        soft={t.heads.events.soft}
         hard={t.heads.events.hard}
         lead={t.archive.lead}
       />
@@ -188,19 +180,19 @@ export function Archive({ lang }: { lang: Lang }) {
   );
 }
 
-/* ================= White Coal: due soli e gli adesivi dei partner ================= */
+/* ================= White Coal: le etichette dei due marchi e i crediti dei partner ================= */
 export function Studio({ lang }: { lang: Lang }) {
   const t = UI[lang];
   return (
     <>
       <PageHero
-        tone={t.heads["white-coal"].soft}
+        soft={t.heads["white-coal"].soft}
         hard={t.heads["white-coal"].hard}
         lead={t.studio.lead}
       />
       <section className="shell studio">
-        <div className="studio-logos">
-          <figure id="productions" className="studio-logo">
+        <div className="studio-labels">
+          <figure id="productions" className="studio-label">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src={LOGOS.productions}
@@ -211,7 +203,7 @@ export function Studio({ lang }: { lang: Lang }) {
             />
             <figcaption>{t.studio.productions}</figcaption>
           </figure>
-          <figure id="records" className="studio-logo studio-logo-alt">
+          <figure id="records" className="studio-label studio-label-alt">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src={LOGOS.records}
@@ -223,13 +215,13 @@ export function Studio({ lang }: { lang: Lang }) {
             <figcaption>{t.studio.records}</figcaption>
           </figure>
         </div>
-        <div className="studio-board">
+        <div className="studio-text">
           {texts.whiteCoal[lang].map((p, i) => (
             <p key={i}>{p}</p>
           ))}
         </div>
         <div className="partners">
-          <Sign as="h2" hard={t.studio.partners} size={3} />
+          <Title as="h2" hard={t.studio.partners} size={3} />
           <ul className="partners-list">
             {PARTNERS.map((p) => (
               <li key={p.name}>
@@ -249,17 +241,17 @@ export function Studio({ lang }: { lang: Lang }) {
   );
 }
 
-/* ================= Contatti: il biglietto ================= */
+/* ================= Contatti: il retro della copertina ================= */
 export function Contact({ lang }: { lang: Lang }) {
   const t = UI[lang];
   const labels = texts.contact[lang];
   const words = t.contactCta.split(" ");
   return (
-    <section className="contact-page shell">
-      <div className="contact-intro">
-        <Sign
+    <section className="contact-page">
+      <div className="contact-side">
+        <Title
           as="h1"
-          tone={words.slice(0, -1).join(" ")}
+          soft={words.slice(0, -1).join(" ")}
           hard={words.slice(-1)[0]}
           size={1}
         />
@@ -268,20 +260,15 @@ export function Contact({ lang }: { lang: Lang }) {
         <ul className="contact-social">
           {SOCIAL.map((s) => (
             <li key={s.name}>
-              <a
-                className="pill pill-line"
-                href={s.href}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
+              <a href={s.href} target="_blank" rel="noopener noreferrer">
                 {s.name}
-                <ArrowIcon />
+                <ArrowUpRight size={16} aria-hidden="true" />
               </a>
             </li>
           ))}
         </ul>
       </div>
-      <div className="contact-ticket">
+      <div className="contact-form-wrap">
         <ContactForm labels={labels} lang={lang} />
       </div>
     </section>
@@ -292,14 +279,12 @@ export function NotFoundView({ lang }: { lang: Lang }) {
   const t = UI[lang].notFound;
   return (
     <section className="not-found shell">
-      <p className="nf-sun" aria-hidden="true">
-        404
-      </p>
-      <h1 className="sign sign-1">{t.title}</h1>
+      <Vinyl className="nf-vinyl" />
+      <h1 className="title title-1">{t.title}</h1>
       <p className="lead">{t.lead}</p>
-      <Link className="pill pill-sun" href={pagePath(lang, "home")}>
+      <Link className="btn btn-red" href={pagePath(lang, "home")}>
         {t.back}
-        <ArrowIcon />
+        <ArrowRight size={18} aria-hidden="true" />
       </Link>
     </section>
   );
