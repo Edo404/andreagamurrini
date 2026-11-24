@@ -2,7 +2,10 @@ export const LANGS = ["en", "it", "es"] as const;
 export type Lang = (typeof LANGS)[number];
 export const DEFAULT_LANG: Lang = "en";
 
-export const LANG_INFO: Record<Lang, { name: string; locale: string; flag: string }> = {
+export const LANG_INFO: Record<
+  Lang,
+  { name: string; locale: string; flag: string }
+> = {
   en: { name: "English", locale: "en_GB", flag: "gb" },
   it: { name: "Italiano", locale: "it_IT", flag: "it" },
   es: { name: "Español", locale: "es_ES", flag: "es" },
@@ -19,4 +22,6 @@ export function pagePath(lang: Lang, slug: string): string {
   return `${prefix}/${slug}`;
 }
 
-export const SITE_URL = "https://www.andreagamurrini.com";
+/** Dominio canonico: per cambiarlo basta la variabile NEXT_PUBLIC_SITE_URL al build. */
+export const SITE_URL =
+  process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.andreagamurrini.com";

@@ -2,6 +2,7 @@
 
 import { useState, type FormEvent } from "react";
 import type { Lang } from "@/lib/i18n";
+import { ArrowRight } from "@phosphor-icons/react";
 import { UI } from "@/data/ui";
 
 type Labels = {
@@ -114,11 +115,11 @@ export function ContactForm({ labels, lang }: { labels: Labels; lang: Lang }) {
         >
           {busy ? t.sending : status.message}
         </p>
-        <button type="submit" className="pill pill-sun" disabled={busy}>
+        <button type="submit" className="btn btn-red" disabled={busy}>
           {busy
             ? t.sending
             : labels.send.charAt(0) + labels.send.slice(1).toLowerCase()}
-          {!busy && <span aria-hidden="true"> →</span>}
+          {!busy && <ArrowRight size={18} aria-hidden="true" />}
         </button>
       </div>
     </form>

@@ -1,30 +1,28 @@
 import Link from "next/link";
+import { ArrowRight } from "@phosphor-icons/react/dist/ssr";
 import { pagePath, type Lang } from "@/lib/i18n";
 import { NAV_SLUGS, UI, navHref } from "@/data/ui";
 import { LISTEN, SOCIAL, WIKIPEDIA } from "@/data/catalog";
 import { Wordmark } from "./Header";
-import { ArrowIcon } from "./icons";
-import { WaveEdge } from "./ui";
 
+/** Il retro della copertina: l'invito a scrivere e i crediti. */
 export function Footer({ lang }: { lang: Lang }) {
   const t = UI[lang];
   return (
     <footer className="site-footer">
-      {/* sale dal fondo scuro della sezione Stampa (o della pagina) al blu del footer */}
-      <WaveEdge fill="var(--footer-bg)" className="footer-wave" />
       <div className="shell footer-inner">
-        <Link href={pagePath(lang, "contact")} className="footer-ticket">
-          <span className="footer-ticket-cta">
+        <Link href={pagePath(lang, "contact")} className="footer-cta">
+          <span className="footer-cta-title">
             {t.contactCta}
-            <ArrowIcon />
+            <ArrowRight size="0.8em" aria-hidden="true" />
           </span>
-          <span className="footer-ticket-lead">{t.contactLead}</span>
+          <span className="footer-cta-lead">{t.contactLead}</span>
         </Link>
 
-        <div className="footer-grid">
+        <div className="footer-credits">
           <div className="footer-brand">
             <Wordmark />
-            <p className="motto">{t.motto}</p>
+            <p>{t.motto}</p>
           </div>
           <nav aria-label={t.menu}>
             <ul>

@@ -27,27 +27,18 @@ export function Header({ lang }: { lang: Lang }) {
   // il menu resta aperto solo sulla pagina in cui è stato aperto
   const [openOn, setOpenOn] = useState<string | null>(null);
   const open = openOn === pathname;
-  const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 40);
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
     const onKey = (e: KeyboardEvent) => e.key === "Escape" && setOpenOn(null);
     document.addEventListener("keydown", onKey);
-    return () => {
-      window.removeEventListener("scroll", onScroll);
-      document.removeEventListener("keydown", onKey);
-    };
+    return () => document.removeEventListener("keydown", onKey);
   }, []);
   useEffect(() => {
     document.documentElement.classList.toggle("menu-open", open);
   }, [open]);
 
   return (
-    <header
-      className={`site-header${scrolled ? " is-scrolled" : ""}${open ? " is-open" : ""}`}
-    >
+    <header className={`site-header${open ? " is-open" : ""}`}>
       <a className="skip" href="#main">
         {t.skip}
       </a>
@@ -111,7 +102,6 @@ export function Header({ lang }: { lang: Lang }) {
                   aria-current={s === slug ? "page" : undefined}
                   onClick={() => setOpenOn(null)}
                 >
-                  <span className="num">{String(i).padStart(2, "0")}</span>
                   {t.nav[s]}
                 </Link>
               </li>
