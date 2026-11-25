@@ -44,7 +44,6 @@ type Dict = {
   motto: string;
   outNow: string;
   liveInRome: { kicker: string; desc: string; listen: string; watch: string };
-  facts: { n: string; label: string }[];
   storyCta: string;
   contactCta: string;
   contactLead: string;
@@ -134,14 +133,6 @@ export const UI: Record<Lang, Dict> = {
       listen: "Listen on Spotify",
       watch: "Watch the session",
     },
-    facts: [
-      { n: "Nearly 2,000", label: "concerts across Italy, Europe and America" },
-      { n: "Almost 500,000", label: "YouTube views for “Kilimangiaro”" },
-      {
-        n: "Four",
-        label: "languages he sings in: Italian, English, Spanish, French",
-      },
-    ],
     storyCta: "Read the whole story",
     contactCta: "Write to dr.gam",
     contactLead: "Concerts, collaborations, press.",
@@ -248,17 +239,6 @@ export const UI: Record<Lang, Dict> = {
       listen: "Ascolta su Spotify",
       watch: "Guarda la session",
     },
-    facts: [
-      { n: "Quasi 2000", label: "concerti tra Italia, Europa e America" },
-      {
-        n: "Quasi 500.000",
-        label: "visualizzazioni su YouTube per “Kilimangiaro”",
-      },
-      {
-        n: "Quattro",
-        label: "lingue in cui canta: italiano, inglese, spagnolo, francese",
-      },
-    ],
     storyCta: "Leggi tutta la storia",
     contactCta: "Scrivi a dr.gam",
     contactLead: "Concerti, collaborazioni, stampa.",
@@ -366,17 +346,6 @@ export const UI: Record<Lang, Dict> = {
       listen: "Escuchar en Spotify",
       watch: "Ver la sesión",
     },
-    facts: [
-      { n: "Casi 2000", label: "conciertos entre Italia, Europa y América" },
-      {
-        n: "Casi 500.000",
-        label: "visualizaciones en YouTube de “Kilimangiaro”",
-      },
-      {
-        n: "Cuatro",
-        label: "idiomas en los que canta: italiano, inglés, español, francés",
-      },
-    ],
     storyCta: "Leer toda la historia",
     contactCta: "Escribe a dr.gam",
     contactLead: "Conciertos, colaboraciones, prensa.",

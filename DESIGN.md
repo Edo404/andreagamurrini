@@ -262,6 +262,7 @@ One ease (`cubic-bezier(0.16, 1, 0.3, 1)`). Slap-in rises 14px from 1.02 scale f
 
 ### Do:
 - **Do** set every title in Archivo 900 at wdth 125, and every readable text in the same family at normal width.
+- **Do** keep the black embossed damask (`/media/damask.webp`, `--damask`) to two grounds only: as-is behind the contact sheet, and multiplied at 40% over Rome red behind the manifesto as club velvet. Never behind body text on board, never in the hero.
 - **Do** print photos in one ink (blue by default, black for the booklet portrait, red for the live photo inside the Story), and let them develop on view or on hover.
 - **Do** show the round logo only as the vinyl's centre label, exactly as supplied.
 - **Do** use red-deep for small red text on Paper-2, and Sheet for text on red, blue and black fields.

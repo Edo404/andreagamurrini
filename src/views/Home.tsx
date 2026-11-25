@@ -133,17 +133,6 @@ export function Home({ lang }: { lang: Lang }) {
         </div>
       </section>
 
-      {/* ---------- note di copertina: i fatti della bio, impaginati come i crediti ---------- */}
-      <section className="liner shell" aria-label="dr.gam">
-        <ul className="liner-facts">
-          {t.facts.map((f, i) => (
-            <li key={i}>
-              <b>{f.n}</b> {f.label}
-            </li>
-          ))}
-        </ul>
-      </section>
-
       {/* ---------- musica: il retro della copertina, lato A e lato B ---------- */}
       <section id="music" className="tracklist" aria-labelledby="music-title">
         <div className="shell">
