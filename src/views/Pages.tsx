@@ -180,17 +180,20 @@ export function Archive({ lang }: { lang: Lang }) {
   );
 }
 
-/* ================= White Coal: le etichette dei due marchi e i crediti dei partner ================= */
+/* ================= White Coal (sezione della home): le etichette dei due marchi e i crediti dei partner ================= */
 export function Studio({ lang }: { lang: Lang }) {
   const t = UI[lang];
   return (
-    <>
-      <PageHero
-        soft={t.heads["white-coal"].soft}
-        hard={t.heads["white-coal"].hard}
-        lead={t.studio.lead}
-      />
-      <section className="shell studio">
+    <section id="white-coal" className="studio" aria-labelledby="studio-title">
+      <div className="shell studio-inner">
+        <header className="studio-head">
+          <Title
+            id="studio-title"
+            soft={t.heads["white-coal"].soft}
+            hard={t.heads["white-coal"].hard}
+          />
+          <p className="lead">{t.studio.lead}</p>
+        </header>
         <div className="studio-labels">
           <figure id="productions" className="studio-label">
             {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -221,7 +224,7 @@ export function Studio({ lang }: { lang: Lang }) {
           ))}
         </div>
         <div className="partners">
-          <Title as="h2" hard={t.studio.partners} size={3} />
+          <Title as="h3" hard={t.studio.partners} size={3} />
           <ul className="partners-list">
             {PARTNERS.map((p) => (
               <li key={p.name}>
@@ -236,27 +239,31 @@ export function Studio({ lang }: { lang: Lang }) {
             ))}
           </ul>
         </div>
-      </section>
-    </>
+      </div>
+    </section>
   );
 }
 
-/* ================= Contatti: il retro della copertina ================= */
+/* ================= Contatti (sezione della home, prima del footer): il retro della copertina ================= */
 export function Contact({ lang }: { lang: Lang }) {
   const t = UI[lang];
   const labels = texts.contact[lang];
   const words = t.contactCta.split(" ");
   return (
-    <section className="contact-page">
+    <section
+      id="contact"
+      className="contact-page"
+      aria-labelledby="contact-title"
+    >
       <div className="contact-side">
         <Title
-          as="h1"
+          id="contact-title"
           soft={words.slice(0, -1).join(" ")}
           hard={words.slice(-1)[0]}
           size={1}
         />
         <p className="lead">{t.contact.lead}</p>
-        <h2 className="contact-elsewhere">{t.contact.elsewhere}</h2>
+        <h3 className="contact-elsewhere">{t.contact.elsewhere}</h3>
         <ul className="contact-social">
           {SOCIAL.map((s) => (
             <li key={s.name}>

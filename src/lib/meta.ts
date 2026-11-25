@@ -4,13 +4,7 @@ import { UI, type PageSlug } from "@/data/ui";
 import { PHOTOS } from "@/data/catalog";
 
 // Musica, video, galleria e stampa sono sezioni della home (vedi i redirect in next.config.ts)
-export const PAGE_SLUGS: PageSlug[] = [
-  "home",
-  "bio",
-  "events",
-  "white-coal",
-  "contact",
-];
+export const PAGE_SLUGS: PageSlug[] = ["home", "bio", "events"];
 export const SUBPAGE_SLUGS = PAGE_SLUGS.filter((s) => s !== "home");
 
 export function isPageSlug(s: string): s is PageSlug {

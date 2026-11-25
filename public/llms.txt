@@ -6,11 +6,11 @@ The site is available in English (/), Italian (/it) and Spanish (/es).
 
 ## Pages
 
-- [Home: music, videos, gallery, press](https://www.andreagamurrini.com/)
+- [Home: music, videos, gallery, press, White Coal, contact](https://www.andreagamurrini.com/)
 - [Story (biography)](https://www.andreagamurrini.com/bio)
 - [Live archive](https://www.andreagamurrini.com/events)
-- [White Coal studio and label](https://www.andreagamurrini.com/white-coal)
-- [Contact](https://www.andreagamurrini.com/contact)
+- [White Coal studio and label](https://www.andreagamurrini.com/#white-coal)
+- [Contact](https://www.andreagamurrini.com/#contact)
 
 ## Listen and follow
 

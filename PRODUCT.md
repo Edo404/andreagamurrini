@@ -21,13 +21,13 @@ An artist with nearly two thousand concerts across Italy, Europe and America, a 
 ## Operating Context
 
 - Three languages with the same URLs: English at `/`, Italian at `/it`, Spanish at `/es`.
-- One-page home with Music, Videos, Gallery and Press sections (each shows a few items and an "Others" button), plus Story, White Coal, Live archive and Contact pages.
+- One-page home with Music, Videos, Gallery and Press sections (each shows a few items and an "Others" button), then White Coal and the contact form at the bottom, before the footer. Only Story and Live archive are separate pages.
 - Hosted on Cloudflare Workers (OpenNext). `main` deploys to production automatically. The contact form sends email through Resend.
 
 ## Capabilities and Constraints
 
 - Next.js 16 App Router, static pages, plain CSS in `src/app/globals.css`, content in `src/data`.
-- Old Wix URLs (`/records`, `/videos`, `/gallery`, `/stampa`, `/white-coal-records`) redirect to the home sections.
+- Old URLs (`/records`, `/videos`, `/gallery`, `/stampa`, `/white-coal`, `/white-coal-records`, `/contact`) redirect to the home sections.
 
 ## Brand Commitments
 

@@ -10,10 +10,10 @@ export const NAV_SLUGS = [
   "white-coal",
   "contact",
 ] as const;
-/** Le uniche pagine vere del sito: musica, video, galleria e stampa sono sezioni della home. */
-export type PageSlug = "home" | "bio" | "events" | "white-coal" | "contact";
+/** Le uniche pagine vere del sito: tutto il resto (musica, video, galleria, stampa, White Coal, contatti) è una sezione della home. */
+export type PageSlug = "home" | "bio" | "events";
 
-/** Musica, video, galleria e stampa sono sezioni della home (ancore); le altre voci sono pagine. */
+/** Voci del menu che sono sezioni della home (ancore); le altre sono pagine. */
 export const SECTION_ANCHORS: Partial<
   Record<(typeof NAV_SLUGS)[number], string>
 > = {
@@ -21,6 +21,8 @@ export const SECTION_ANCHORS: Partial<
   videos: "videos",
   gallery: "gallery",
   stampa: "press",
+  "white-coal": "white-coal",
+  contact: "contact",
 };
 
 export function navHref(
@@ -121,15 +123,6 @@ export const UI: Record<Lang, Dict> = {
         title: "Live archive | dr.gam",
         description:
           "Concerts, radio appearances and releases of dr.gam, 2016-2019.",
-      },
-      "white-coal": {
-        title: "White Coal | dr.gam",
-        description:
-          "White Coal Productions and White Coal Records: dr.gam's audio/video studio and label in Fuerteventura.",
-      },
-      contact: {
-        title: "Contact | dr.gam",
-        description: "Write to dr.gam for concerts, collaborations and press.",
       },
     },
     role: "Singer-songwriter, multi-instrumentalist, producer",
@@ -244,15 +237,6 @@ export const UI: Record<Lang, Dict> = {
       events: {
         title: "Archivio live | dr.gam",
         description: "Concerti, ospitate radio e uscite di dr.gam, 2016-2019.",
-      },
-      "white-coal": {
-        title: "White Coal | dr.gam",
-        description:
-          "White Coal Productions e White Coal Records: lo studio audio/video e l'etichetta di dr.gam a Fuerteventura.",
-      },
-      contact: {
-        title: "Contatti | dr.gam",
-        description: "Scrivi a dr.gam per concerti, collaborazioni e stampa.",
       },
     },
     role: "Cantautore, polistrumentista, produttore",
@@ -371,16 +355,6 @@ export const UI: Record<Lang, Dict> = {
         title: "Archivo en vivo | dr.gam",
         description:
           "Conciertos, apariciones en radio y lanzamientos de dr.gam, 2016-2019.",
-      },
-      "white-coal": {
-        title: "White Coal | dr.gam",
-        description:
-          "White Coal Productions y White Coal Records: el estudio audiovisual y el sello de dr.gam en Fuerteventura.",
-      },
-      contact: {
-        title: "Contacto | dr.gam",
-        description:
-          "Escribe a dr.gam para conciertos, colaboraciones y prensa.",
       },
     },
     role: "Cantautor, multiinstrumentista, productor",

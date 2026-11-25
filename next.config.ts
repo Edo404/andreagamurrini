@@ -18,11 +18,25 @@ const nextConfig: NextConfig = {
         ["stampa", "press"],
       ].flatMap(([slug, anchor]) => [
         { source: `/${slug}`, destination: `/#${anchor}`, permanent: true },
-        { source: `/:lang(it|es)/${slug}`, destination: `/:lang#${anchor}`, permanent: true },
+        {
+          source: `/:lang(it|es)/${slug}`,
+          destination: `/:lang#${anchor}`,
+          permanent: true,
+        },
       ]),
-      // le due pagine White Coal di Wix ora sono una sola
-      { source: "/white-coal-records", destination: "/white-coal#records", permanent: true },
-      { source: "/:lang(it|es)/white-coal-records", destination: "/:lang/white-coal#records", permanent: true },
+      // White Coal e Contatti sono sezioni in fondo alla home (anche le vecchie pagine Wix)
+      ...[
+        ["white-coal", "white-coal"],
+        ["white-coal-records", "white-coal"],
+        ["contact", "contact"],
+      ].flatMap(([slug, anchor]) => [
+        { source: `/${slug}`, destination: `/#${anchor}`, permanent: true },
+        {
+          source: `/:lang(it|es)/${slug}`,
+          destination: `/:lang#${anchor}`,
+          permanent: true,
+        },
+      ]),
     ];
   },
   async rewrites() {

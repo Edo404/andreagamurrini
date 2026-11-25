@@ -10,6 +10,7 @@ import { Halftone, Title, Vinyl } from "@/components/ui";
 import { YouTube } from "@/components/YouTube";
 import { Expandable } from "@/components/Expandable";
 import { Gallery } from "@/components/Gallery";
+import { Contact, Studio } from "@/views/Pages";
 
 /** Citazione lunga → estratto: si ferma dove si ferma la frase dell'autore (… o ;), mai a metà. */
 function excerpt(q: string, max = 230) {
@@ -318,6 +319,10 @@ export function Home({ lang }: { lang: Lang }) {
           />
         </div>
       </section>
+
+      {/* ---------- in fondo: lo studio e l'etichetta, poi il retro della copertina per scrivere ---------- */}
+      <Studio lang={lang} />
+      <Contact lang={lang} />
     </>
   );
 }

@@ -1423,9 +1423,16 @@
 
   /* --- White Coal --- */
   .studio {
+    padding-block: var(--space);
+    background: var(--paper-2);
+  }
+  .studio-inner {
     display: grid;
     gap: clamp(48px, 6vw, 88px);
-    padding-block: clamp(48px, 6vw, 88px) var(--space);
+  }
+  .studio-head {
+    display: grid;
+    gap: 16px;
   }
   .studio-labels {
     display: grid;
@@ -1492,7 +1499,6 @@
   .contact-page {
     display: grid;
     grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr);
-    min-height: calc(100dvh - var(--header-h));
   }
   .contact-side {
     position: relative;

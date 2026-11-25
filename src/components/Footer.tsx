@@ -11,7 +11,7 @@ export function Footer({ lang }: { lang: Lang }) {
   return (
     <footer className="site-footer">
       <div className="shell footer-inner">
-        <Link href={pagePath(lang, "contact")} className="footer-cta">
+        <Link href={navHref(lang, "contact")} className="footer-cta">
           <span className="footer-cta-title">
             {t.contactCta}
             <ArrowRight size="0.8em" aria-hidden="true" />
