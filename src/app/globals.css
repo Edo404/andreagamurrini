@@ -693,15 +693,35 @@
   }
 
   /* ---------- foglio dei provini (galleria) ---------- */
+  /* mosaico: ogni blocco di 8 foto riempie esattamente 4 colonne x 4 righe
+     A A B C
+     A A D C
+     E F F G
+     E H H G */
   .sheet {
     display: grid;
     grid-template-columns: repeat(4, minmax(0, 1fr));
+    grid-auto-rows: clamp(120px, 13vw, 200px);
+    grid-auto-flow: dense;
     gap: 6px;
+  }
+  .sheet > li {
+    min-width: 0;
+  }
+  .sheet > .slot-big {
+    grid-column: span 2;
+    grid-row: span 2;
+  }
+  .sheet > .slot-tall {
+    grid-row: span 2;
+  }
+  .sheet > .slot-wide {
+    grid-column: span 2;
   }
   .frame {
     display: block;
     width: 100%;
-    aspect-ratio: 3 / 2;
+    height: 100%;
     overflow: hidden;
     cursor: zoom-in;
     background: var(--blue);
@@ -1590,6 +1610,7 @@
     }
     .sheet {
       grid-template-columns: repeat(2, minmax(0, 1fr));
+      grid-auto-rows: clamp(110px, 30vw, 170px);
     }
     .archive-year {
       grid-template-columns: 1fr;
