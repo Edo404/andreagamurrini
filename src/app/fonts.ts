@@ -1,12 +1,26 @@
-import { Archivo } from "next/font/google";
+import { Bricolage_Grotesque, DM_Mono, Figtree, Instrument_Serif, Shrikhand } from "next/font/google";
 
-// Una sola famiglia variabile, come le copertine live anni '70 stampate in un solo carattere:
-// larga e nera per i titoli (asse wdth al massimo), a larghezza normale per tutto ciò che si legge.
-export const archivo = Archivo({
+// ---- Identità: insegna dipinta a mano + testo leggibile (max 2 famiglie, 4 pesi) ----
+// Shrikhand: lettering da insegna anni '70, solo per titoli e momenti chiave. È l'unico precaricato.
+export const sign = Shrikhand({
   subsets: ["latin", "latin-ext"],
-  axes: ["wdth"],
-  variable: "--font-archivo",
+  weight: "400",
+  variable: "--font-sign",
   display: "swap",
+  preload: true,
+});
+// Figtree: tutto ciò che si legge (testo, menu, pulsanti, moduli).
+export const text = Figtree({
+  subsets: ["latin", "latin-ext"],
+  weight: ["400", "600", "800"],
+  variable: "--font-text",
+  display: "swap",
+  preload: false,
 });
 
-export const fontVariables = archivo.variable;
+// ---- Solo per la sezione Stampa congelata (src/app/press.css): non usarli altrove ----
+const grotesk = Bricolage_Grotesque({ subsets: ["latin"], variable: "--font-grotesk", display: "swap", axes: ["wdth", "opsz"], preload: false });
+const serif = Instrument_Serif({ subsets: ["latin"], weight: "400", style: ["normal", "italic"], variable: "--font-serif", display: "swap", preload: false });
+const mono = DM_Mono({ subsets: ["latin"], weight: ["500"], variable: "--font-mono", display: "swap", preload: false });
+
+export const fontVariables = [sign, text, grotesk, serif, mono].map((f) => f.variable).join(" ");

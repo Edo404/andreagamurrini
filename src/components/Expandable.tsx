@@ -13,7 +13,7 @@ export function Expandable({
   lessLabel,
   className,
   as: Tag = "ul",
-  buttonClassName = "btn btn-ghost",
+  buttonClassName = "btn",
 }: {
   items: ReactNode[];
   initial: number;
@@ -21,6 +21,7 @@ export function Expandable({
   lessLabel: string;
   className: string;
   as?: "ul" | "ol" | "div";
+  /** "btn" è lo stile congelato della sezione Stampa; le altre sezioni passano "pill pill-sun". */
   buttonClassName?: string;
 }) {
   const [open, setOpen] = useState(false);

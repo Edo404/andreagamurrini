@@ -10,10 +10,10 @@ export const NAV_SLUGS = [
   "white-coal",
   "contact",
 ] as const;
-/** Le uniche pagine vere del sito: tutto il resto (musica, video, galleria, stampa, White Coal, contatti) è una sezione della home. */
-export type PageSlug = "home" | "bio" | "events";
+/** Le uniche pagine vere del sito: musica, video, galleria e stampa sono sezioni della home. */
+export type PageSlug = "home" | "bio" | "events" | "white-coal" | "contact";
 
-/** Voci del menu che sono sezioni della home (ancore); le altre sono pagine. */
+/** Musica, video, galleria e stampa sono sezioni della home (ancore); le altre voci sono pagine. */
 export const SECTION_ANCHORS: Partial<
   Record<(typeof NAV_SLUGS)[number], string>
 > = {
@@ -21,8 +21,6 @@ export const SECTION_ANCHORS: Partial<
   videos: "videos",
   gallery: "gallery",
   stampa: "press",
-  "white-coal": "white-coal",
-  contact: "contact",
 };
 
 export function navHref(
@@ -44,6 +42,7 @@ type Dict = {
   motto: string;
   outNow: string;
   liveInRome: { kicker: string; desc: string; listen: string; watch: string };
+  facts: { n: string; label: string }[];
   storyCta: string;
   contactCta: string;
   contactLead: string;
@@ -109,9 +108,9 @@ export const UI: Record<Lang, Dict> = {
     },
     meta: {
       home: {
-        title: "dr.gam (Andrea Gamurrini) | official website",
+        title: "dr.gam | official website",
         description:
-          "dr.gam (Andrea Gamurrini): singer-songwriter, multi-instrumentalist and producer. Rock, pop and funk, from the stage to the record. New live album “Live in Rome” out now.",
+          "dr.gam (Andrea Gamurrini): singer-songwriter, multi-instrumentalist and producer. Reggae, jazz and grunge in one sound. New live album “Live in Rome” out now.",
       },
       bio: {
         title: "Story | dr.gam",
@@ -123,6 +122,15 @@ export const UI: Record<Lang, Dict> = {
         description:
           "Concerts, radio appearances and releases of dr.gam, 2016-2019.",
       },
+      "white-coal": {
+        title: "White Coal | dr.gam",
+        description:
+          "White Coal Productions and White Coal Records: dr.gam's audio/video studio and label in Fuerteventura.",
+      },
+      contact: {
+        title: "Contact | dr.gam",
+        description: "Write to dr.gam for concerts, collaborations and press.",
+      },
     },
     role: "Singer-songwriter, multi-instrumentalist, producer",
     motto: "Alchemy is everything, my friend",
@@ -133,6 +141,14 @@ export const UI: Record<Lang, Dict> = {
       listen: "Listen on Spotify",
       watch: "Watch the session",
     },
+    facts: [
+      { n: "Nearly 2,000", label: "concerts across Italy, Europe and America" },
+      { n: "Almost 500,000", label: "YouTube views for “Kilimangiaro”" },
+      {
+        n: "Four",
+        label: "languages he sings in: Italian, English, Spanish, French",
+      },
+    ],
     storyCta: "Read the whole story",
     contactCta: "Write to dr.gam",
     contactLead: "Concerts, collaborations, press.",
@@ -216,9 +232,9 @@ export const UI: Record<Lang, Dict> = {
     },
     meta: {
       home: {
-        title: "dr.gam (Andrea Gamurrini) | sito ufficiale",
+        title: "dr.gam | sito ufficiale",
         description:
-          "dr.gam (Andrea Gamurrini): cantautore, polistrumentista e produttore. Rock, pop e funk, dal palco al disco. Il nuovo album live “Live in Rome” è uscito.",
+          "dr.gam (Andrea Gamurrini): cantautore, polistrumentista e produttore. Reggae, jazz e grunge in un unico suono. Il nuovo album live “Live in Rome” è uscito.",
       },
       bio: {
         title: "Storia | dr.gam",
@@ -228,6 +244,15 @@ export const UI: Record<Lang, Dict> = {
       events: {
         title: "Archivio live | dr.gam",
         description: "Concerti, ospitate radio e uscite di dr.gam, 2016-2019.",
+      },
+      "white-coal": {
+        title: "White Coal | dr.gam",
+        description:
+          "White Coal Productions e White Coal Records: lo studio audio/video e l'etichetta di dr.gam a Fuerteventura.",
+      },
+      contact: {
+        title: "Contatti | dr.gam",
+        description: "Scrivi a dr.gam per concerti, collaborazioni e stampa.",
       },
     },
     role: "Cantautore, polistrumentista, produttore",
@@ -239,6 +264,17 @@ export const UI: Record<Lang, Dict> = {
       listen: "Ascolta su Spotify",
       watch: "Guarda la session",
     },
+    facts: [
+      { n: "Quasi 2000", label: "concerti tra Italia, Europa e America" },
+      {
+        n: "Quasi 500.000",
+        label: "visualizzazioni su YouTube per “Kilimangiaro”",
+      },
+      {
+        n: "Quattro",
+        label: "lingue in cui canta: italiano, inglese, spagnolo, francese",
+      },
+    ],
     storyCta: "Leggi tutta la storia",
     contactCta: "Scrivi a dr.gam",
     contactLead: "Concerti, collaborazioni, stampa.",
@@ -322,9 +358,9 @@ export const UI: Record<Lang, Dict> = {
     },
     meta: {
       home: {
-        title: "dr.gam (Andrea Gamurrini) | web oficial",
+        title: "dr.gam | web oficial",
         description:
-          "dr.gam (Andrea Gamurrini): cantautor, multiinstrumentista y productor. Rock, pop y funk, del escenario al disco. Ya disponible el nuevo álbum en directo “Live in Rome”.",
+          "dr.gam (Andrea Gamurrini): cantautor, multiinstrumentista y productor. Reggae, jazz y grunge en un solo sonido. Ya disponible el nuevo álbum en directo “Live in Rome”.",
       },
       bio: {
         title: "Historia | dr.gam",
@@ -336,6 +372,16 @@ export const UI: Record<Lang, Dict> = {
         description:
           "Conciertos, apariciones en radio y lanzamientos de dr.gam, 2016-2019.",
       },
+      "white-coal": {
+        title: "White Coal | dr.gam",
+        description:
+          "White Coal Productions y White Coal Records: el estudio audiovisual y el sello de dr.gam en Fuerteventura.",
+      },
+      contact: {
+        title: "Contacto | dr.gam",
+        description:
+          "Escribe a dr.gam para conciertos, colaboraciones y prensa.",
+      },
     },
     role: "Cantautor, multiinstrumentista, productor",
     motto: "La alquimia lo es todo, amigo mío",
@@ -346,6 +392,17 @@ export const UI: Record<Lang, Dict> = {
       listen: "Escuchar en Spotify",
       watch: "Ver la sesión",
     },
+    facts: [
+      { n: "Casi 2000", label: "conciertos entre Italia, Europa y América" },
+      {
+        n: "Casi 500.000",
+        label: "visualizaciones en YouTube de “Kilimangiaro”",
+      },
+      {
+        n: "Cuatro",
+        label: "idiomas en los que canta: italiano, inglés, español, francés",
+      },
+    ],
     storyCta: "Leer toda la historia",
     contactCta: "Escribe a dr.gam",
     contactLead: "Conciertos, colaboraciones, prensa.",
